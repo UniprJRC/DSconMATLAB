@@ -25,6 +25,6 @@ I seguenti collegamenti puntano alle risorse del capitolo di interesse.
 
 
 Per segnalare errori tipografici, inesattezze e modifiche si prega di usare il pulsante `Issues` 
-![Issues](./issues.jpg)
+![Issues](issues.jpg)
 E creare una nuova entry.
 
