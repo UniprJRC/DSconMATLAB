@@ -17,7 +17,7 @@ Questo GitHub repository contiene i datasets (in formato `xlsx` e `csv`) e tutto
 
 I seguenti collegamenti puntano alle risorse del capitolo di interesse.
 
-1. [Introduzione all’utilizzo di MATLAB e alla gestione dei dati](https://github.com/UniprJRC/DSwithMATLAB/tree/main/matlabfiles/capAlgebra)
+1. [Introduzione all’utilizzo di MATLAB e alla gestione dei dati](https://github.com/UniprJRC/DSwithMATLAB/tree/main/matlabfiles/capStruttureDati)
 2. [Algebra lineare di base](https://github.com/UniprJRC/DSwithMATLAB/tree/main/matlabfiles/capAlgebraBase)
 3. [La matrice dei dati e le analisi univariate](https://github.com/UniprJRC/DSwithMATLAB/tree/main/matlabfiles/capUnivariate)
 4. [Variabili casuali: densità e distribuzioni](https://github.com/UniprJRC/DSwithMATLAB/tree/main/matlabfiles/capDistribuzioni)
