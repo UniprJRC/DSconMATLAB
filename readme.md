@@ -34,9 +34,10 @@ I seguenti collegamenti puntano alle risorse del capitolo di interesse.
 
 ### Prerequisiti: ###
 
-Si legga questa [guida](https://github.com/UniprJRC/DSwithMATLAB/tree/main/matlabfiles/risorse/Software_materiale_corredo.pdf) che illustra gli step per avere un ambiente MATLAB configurato per eseguire gli esempi del libro.
+Si legga questa [guida](https://github.com/UniprJRC/DSwithMATLAB/tree/main/matlabfiles/risorse/Software_materiale_corredo.pdf) che illustra gli step per avere un ambiente MATLAB configurato correttamente per eseguire gli esempi del libro.
 
 Per segnalare errori tipografici, inesattezze e modifiche si prega di usare il pulsante `Issues`  ...
 ![Issues](https://github.com/UniprJRC/DSwithMATLAB/blob/main/issues.jpg?raw=true)
+
 ... e creare una nuova entry.
 
