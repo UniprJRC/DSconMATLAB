@@ -2,14 +2,14 @@
 Data Science con MATLAB
 =========================
 
-Questo GitHub repository contiene i datasets (in formato `xls` e `csv`) e tutto il codice con gli esempi e le figure contenute nel libro:
+Questo GitHub repository contiene i datasets (in formato `xlsx` e `csv`) e tutto il codice con gli esempi e le figure contenute nel libro:
 
 ### [Riani, M.](http://www.riani.it), Corbellini, A., Morelli, G., Laurini, F., Perrotta, D. e Torti, F. (2022). Data Science con MATLAB, Giappicchelli Editore. ###
 
 1. [Indice](https://github.com/UniprJRC/DSwithMATLAB/tree/main/matlabfiles/risorse/indice.pdf)
-2. [Prefazione]
-3. [Software e materiale di corredo]
-4. [Come mantenere vivo il progetto]
+2. [Prefazione](https://github.com/UniprJRC/DSwithMATLAB/tree/main/matlabfiles/risorse/prefazione.pdf)
+3. [Software e materiale di corredo](https://github.com/UniprJRC/DSwithMATLAB/tree/main/matlabfiles/risorse/Software_materiale_corredo.pdf)
+4. [Come mantenere vivo il progetto](https://github.com/UniprJRC/DSwithMATLAB/tree/main/matlabfiles/risorse/progetto_vivo.pdf)
 
 
 
