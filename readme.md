@@ -1,9 +1,11 @@
 
-Data Science with MATLAB
+Data Science con MATLAB
 =========================
 
-Questo GitHub repository contiene i datasets (in formato `xls` e `csv`) e tutto il codice con gli esempi e le figure contenute nel libro omonimo.
-Tutti gli esempi sono stati testati con MATLAB ver. 2022a, ma sono retrocompatibili con la versione 2021a.
+Questo GitHub repository contiene i datasets (in formato `xls` e `csv`) e tutto il codice con gli esempi e le figure contenute nel libro:
+
+#### Riani, M., Corbellini, A., Morelli, G., LAurini, F., Perrotta, D. e Torti, F. (2022). Data Science con MATLAB, Giappicchelli Editore. ####
+ Tutti gli esempi sono stati testati con MATLAB ver. 2022b, ma sono retrocompatibili con la versione 2021a.
 
 I seguenti collegamenti puntano alle risorse del capitolo di interesse.
 
