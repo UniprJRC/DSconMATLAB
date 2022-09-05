@@ -6,7 +6,7 @@ La funzione di densità $f(x)$ di una variabile casuale continua definisce la (d
 
 $$ F(x)= \Pr (X \leq x) = \int_{-\infty}^x f(t) dt $$
 
-La funzione di ripartizione si ottiene facendo l'integrale della densità nell'intervallo $(-\infty; \;  x]$.
+La funzione di ripartizione si ottiene facendo l'integrale della densità nell'intervallo $(-\infty;  x]$.
 Spesso in statistica l'obiettivo è trovare la distribuzione teorica che ha generato la distribuzione empirica osservata. Altre volte un determinato test statistico, indipendentemente dalla distribuzione dell'universo di riferimento presenta una determinata distribuzione. L'obiettivo del presente capitolo è presentare una lista delle distribuzioni che verranno utilizzate nei capitoli successivi. Per ogni distribuzione si illustra come calcolare la funzione di densità, la funzione di ripartizione, i quantili e come generare numeri casuali da questa distribuzione.
 
 
