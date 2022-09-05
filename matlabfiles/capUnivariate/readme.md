@@ -7,5 +7,5 @@ variabili, è importante visualizzare in anteprima la distribuzione di frequenze
 per le variabili qualitative, e il minimo, massimo e mediana per le variabili
 quantitative.
 
-Qui il [pdf](https://github.com/UniprJRC/DSwithMATLAB/tree/main/matlabfiles/capUnivariate/Pagina1AanlisiUnivariate.pdf) della prima pagina del capitolo.
+Qui il [pdf](https://github.com/UniprJRC/DSwithMATLAB/tree/main/matlabfiles/capUnivariate/Pagina1AnalisiUnivariate.pdf) della prima pagina del capitolo.
 
