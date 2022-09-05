@@ -1,4 +1,4 @@
-## [Algebra lineare di base](https://github.com/UniprJRC/DSwithMATLAB/tree/main/matlabfiles/capAlgebraBase/Pagina1AlgebraBase.pdf) ##
+## [Algebra lineare di base](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capAlgebraBase/Pagina1AlgebraBase.pdf) ##
 
 Con il termine data science si intende un insieme di metodi statistici per lo
 studio di una pluralità di variabili quantitative e/o qualitative rilevate su più
@@ -13,5 +13,5 @@ dei dati di partenza è di dimensione 107×9 (la prima colonna Code contiene
 i nomi delle righe). E’ necessario, quindi, introdurre una serie di operazioni
 preliminari sulle matrici.
 
-Qui il [pdf](https://github.com/UniprJRC/DSwithMATLAB/tree/main/matlabfiles/capAlgebraBase/Pagina1AlgebraBase.pdf) della prima pagina del capitolo.
+Qui il [pdf](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capAlgebraBase/Pagina1AlgebraBase.pdf) della prima pagina del capitolo.
 
