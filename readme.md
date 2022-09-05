@@ -25,9 +25,8 @@ I seguenti collegamenti puntano alle risorse del capitolo di interesse.
 
 
 Per segnalare errori tipografici, inesattezze e modifiche si prega di usare il pulsante `Issues` 
-<p>
-<img src="https://github.com/UniprJRC/DSwithMATLAB/blog/main/issues.jpg"></a>
-</p>
+![Issues](https://github.com/UniprJRC/DSwithMATLAB/blob/main/issues.jpg?raw=true)
+
 
 E creare una nuova entry.
 
