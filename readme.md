@@ -4,7 +4,15 @@ Data Science con MATLAB
 
 Questo GitHub repository contiene i datasets (in formato `xls` e `csv`) e tutto il codice con gli esempi e le figure contenute nel libro:
 
-#### Riani, M., Corbellini, A., Morelli, G., LAurini, F., Perrotta, D. e Torti, F. (2022). Data Science con MATLAB, Giappicchelli Editore. ####
+### [Riani, M.](http://www.riani.it), Corbellini, A., Morelli, G., Laurini, F., Perrotta, D. e Torti, F. (2022). Data Science con MATLAB, Giappicchelli Editore. ###
+
+1. [Indice](https://github.com/UniprJRC/DSwithMATLAB/tree/main/matlabfiles/risorse/indice.pdf)
+2. [Prefazione]
+3. [Software e materiale di corredo]
+4. [Come mantenere vivo il progetto]
+
+
+
  Tutti gli esempi sono stati testati con MATLAB ver. 2022b, ma sono retrocompatibili con la versione 2021a.
 
 I seguenti collegamenti puntano alle risorse del capitolo di interesse.
