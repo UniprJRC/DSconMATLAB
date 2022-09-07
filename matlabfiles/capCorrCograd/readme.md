@@ -1,4 +1,4 @@
-## [Algebra lineare di base](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capCorrCograd/Pagina1CorrCograd.pdf) ##
+## [La relazione tra le variabili quantitative: correlazione e cograduazione](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capCorrCograd/Pagina1CorrCograd.pdf) ##
 
 L’obiettivo di questo capitolo è illustrare le relazioni tra le coppie di variabili
 quantitative (colonne) della matrice dei dati. Per introdurre l’argomento
