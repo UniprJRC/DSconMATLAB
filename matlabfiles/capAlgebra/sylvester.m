@@ -1,5 +1,5 @@
 % Genero una matrice simmetrica
-p=7;
+p=17;
 A=randn(p,p);
 A=A+A';
 
