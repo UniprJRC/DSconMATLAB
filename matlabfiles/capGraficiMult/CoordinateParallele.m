@@ -17,7 +17,6 @@ for j=6:9
 end
 
 %%Grafico in coordinate parallele
-
 parallelplot(X)
 
 % print -depsc coordinatepar.eps;

@@ -19,13 +19,13 @@ nummissR=sum(Ismis,2);
 disp('Numero di missing per le prime 5 righe')
 disp(nummissR(1:5,:))
 
-% Per cancellare le righe che presentano missing values
+% Vengono cancellate le righe che presentano missing values
 % X1 contiene solo 23 righe
 X1=X;
 X1(nummissR>0,:)=[];
 
-% Per cancellare le colonne con più di 3 missing values
-% X1 contiene solo la prima colonna (tagliat)
+% Vengono cancellate le colonne con più di 3 missing values
+% X2 contiene solo la prima colonna (tagliat)
 X2=X;
 X2(:,nummissC>3)=[];
 
@@ -81,14 +81,17 @@ Matable=array2table(Ma,'RowNames',X.Properties.RowNames,...
 disp(Matable)
 
 
-%%
+%% mdpattern con tagliatelle.xlsx
+close all
 X=readtable('tagliatelle.xlsx','Sheet','Dati','Range','A1:C41');
 [Mispat,tMisAndOut]=mdpattern(X)
 % print -depsc figs\mdpattern.eps;
 
 
 %% mdpattern con il dataset Finance
-X=readtable('mdpattern.xlsx','Sheet','Finance','ReadRowNames',true,'Range','A1:K10001');
+close all
+fn='mdpattern.xlsx'; rg='A1:K10001';
+X=readtable(fn,'Sheet','Finance','ReadRowNames',true,'Range',rg);
 [MispatF,tMisAndOutF]=mdpattern(X);
 % print -depsc figs\mdpattern1.eps;
 

@@ -1,5 +1,3 @@
-%% TESTO
-
 %% Esercizio distribuzioni di frequenza
 
 % viene fissato a 100 il seed dei numeri casuali
