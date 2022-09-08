@@ -1,5 +1,5 @@
 %% Esercizio
-% Rappresentare i 3 vettori della base canonica
+% Rappresentare i tre vettori della base canonica
 % Costruire il cubo
 close all
 X=eye(3);
@@ -7,7 +7,7 @@ X=eye(3);
 quiver3(zer,zer,zer,X(:,1),X(:,2),X(:,3),'off','LineWidth',2)
 % Mostrare il cubo di lato unitario
 [x,y,z] = meshgrid([0;1],[0;1],[0;1]);
-% Con le istruzioni che seguono x,y e z vengono trasformati in vettori
+% Con le istruzioni che seguono x, y e z vengono trasformati in vettori
 % colonna
 x=x(:);
 y=y(:);
