@@ -1,20 +1,20 @@
-## [Le rappresentazioni grafiche](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capGraficiMult/Pagina1GraficiMult.pdf) ##
+## [Algebra lineare avanzata](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capAlgebra/Pagina1Algebra.pdf) ##
 
-In presenza di una matrice dei dati molto grande risulta difficile cogliere con
-immediatezza le somiglianze tra gli elementi e le relazioni tra i fenomeni, cioè le
-configurazioni esistenti nei dati. Le rappresentazioni grafiche di dati statistici
-hanno come obiettivo quello di porre in luce, in maniera immediatamente
-percepibile alcune caratteristiche salienti. I grafici, come abbiamo visto nei
-capitoli precedenti, trovano applicazione:
-1. nell’analisi preliminare dei dati per individuare eventuali anomalie, cogliere
-la presenza di pattern nei missing values, avere informazioni sulla
-forma di distribuzione delle diverse variabili e il loro grado di adattamento
-alla distribuzione normale;
-2. nella presentazione dei risultati dell’indagine, per rendere interpretabili
-gli stessi anche ai “non addetti ai lavori”.
-In questo capitolo trattiamo in maniera sistematica le diverse rappresentazioni
-grafiche, univariate e multivariate.
+### La norma di un vettore ###
+\newcommand{\norm}[1]{\lVert#1\rVert}
 
+La norma $\lVert x \rVert_2 = \lVertx \rVert$ (Euclidea) di un vettore $x=(x_1, x_2, \ldots, x_n)'$ di dimensione $n$ (anche detta modulo o lunghezza di $x$) è definita dalla seguente espressione.
 
-Qui il [pdf](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capGraficiMult/Pagina1GraficiMult.pdf) della prima pagina del capitolo.
+$$
+\norm{x}_2=\norm{x}= \sqrt{\sum_{i=1}^n x^2_i} = \sqrt{x'x}
+$$
+
+La norma Euclidea di un vettore, quindi, si calcola estraendo la radice quadrata della somma dei quadrati delle componenti del vettore.
+
+È immediato osservare che nella matrice degli scostamenti dalla media $\tilde X$ le norme dei vettori colonna $\tilde X_1$, $\tilde X_2$, $\ldots$, $\tilde X_p$ non sono altro che gli scostamenti quadratici medi delle variabili originarie moltiplicati per $\sqrt{n-1}$.
+
+Nella matrice degli scostamenti standardizzati $Z$ le norme dei vettori colonna $Z_1$, $Z_2$, $\ldots$, $Z_p$ sono tutte uguali a $\sqrt{n-1}$.
+Dal punto di vista algebrico quindi, l'operazione di standardizzazione equivale a lavorare con vettori colonna (variabili) che hanno la stessa origine e presentano la stessa norma.
+
+Qui il [pdf](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capAlgebra/Pagina1Algebra.pdf) della prima pagina del capitolo.
 
