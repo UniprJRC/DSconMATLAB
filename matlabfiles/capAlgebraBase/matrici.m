@@ -4,7 +4,7 @@ B=[-1 5; 7 3; 0 6];
 C=A*B;
 disp(C)
 
-%% Matricoi diagonali
+%% Matrici diagonali
 D=diag([2 5 7]);
 disp(D)
 %% Matrice sovradiagonale
@@ -50,8 +50,9 @@ disp(zeros(3,4))
 %% Matrici con elementi uguali
 5*ones(3,4)
 
-%% Matrice magica
-magic(3)
+%% Matrice magica di dimensione kxk
+k=3;
+magic(k)
 
 %% Matrici idempotenti
 % Assegno ad n il valore 5.
