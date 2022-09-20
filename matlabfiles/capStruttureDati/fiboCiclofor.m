@@ -1,8 +1,9 @@
-% Inizializzo n ed il vettore f che conterrà i numeri della sequenza di
+% Inizializzo n (numeri di elementi della sequenza di Finonacci) 
+% ed il vettore f che conterrà i numeri della sequenza di
 % Fibonacci
 n=10;
 f=zeros(1,n);
-% I primi due valori della sequenza di FIbonacci sono 0 e 1
+% I primi due valori della sequenza di Fibonacci sono 0 e 1
 f(1)=0;
 f(2)=1;
 %

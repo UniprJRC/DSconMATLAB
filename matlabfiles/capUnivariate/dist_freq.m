@@ -108,3 +108,14 @@ end
 
 assert(isequal(Freq,FreqCHK1),"frequenze tramite ciclo for diverse" + ...
     "dalle frequenze ottenute tramite doppio ciclo for");
+
+%% Soluzione tramite chiamata alla funzione discretize (modo non inserito nel testo)
+rownam={'<=-2' '(- 2  0]' '(0  1.5]' '>1.5'};
+classi=[-Inf;-2; 0; 1.5; Inf];
+% Il secondo argomento di input di discretize deve essere un vettore
+% contenente valori crescenti.
+% Se questo vettore, ad esempio, si chiama classi,
+% classi(1) è l'estremo inferiore della prima classe
+% classi(end) è l'estremo superiore dell'ultima classe
+[indici_classi]=discretize(x,classi,'categorical',rownam);
+tabulate(indici_classi);
