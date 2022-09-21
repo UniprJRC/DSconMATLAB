@@ -11,7 +11,7 @@ disp(D)
 E=diag([2 5 7],1);
 disp(E)
 
-%% Estrazione elementi sulla diagonale
+%% Estrazione elementi sulla diagonale principale
 rng(10);
 A=randi(15,5);
 a=diag(A);
@@ -47,7 +47,7 @@ disp(ones(2,3))
 %% Matrice di 0
 disp(zeros(3,4))
 
-%% Matrici con elementi uguali
+%% Matrici con elementi uguali a 5
 5*ones(3,4)
 
 %% Matrice magica di dimensione kxk
