@@ -1,9 +1,11 @@
-%% Caricamento dati
+%% Caricamento dati 
 miofile="Firm.xlsx";
 Xt=readtable(miofile,"ReadRowNames",true);
 Xt.Gender = categorical(Xt.Gender);
 Xt.Education=categorical(Xt.Education,{'A','B','C'},'Ordinal',true');
 
+% Estrazione delle variabili quantitative nell'array Xd
+% Osservazione: Xd contiene solo i numeri (matrice 107x4 di doubles)
 nomiq=["Wage" "CommutingTime" "SmartWorkHours" "Seniority" ];
 Xd=Xt{:,nomiq};
 
@@ -73,16 +75,11 @@ kurCHK=((n+1)*n)/((n-1)*(n-2)*(n-3))*sum(Z.^4,1) ...
 assert(max(abs(kur-kurCHK)<tol),"Implementazione" + ...
     "errata dedli indici di curtosi ")
 
-
-%% Grafico a istogramma variabile categorica
-histogram(Xt.Education)
-histogram(Xt.Education,'Categories',{'B','C'})
-histogram('Categories',{'Si','No','Forse'},'BinCounts',[22 18 3])
-histogram(Xt.Education,'BarWidth',0.99)
-histogram(Xt.Education,BarWidth=0.99)
-NomeaCaso=histogram(Xt.Education,'BarWidth',0.5)
-
 %% Grafico a istogramma variabile quantitativa
+% Di seguito vengono elencati svariati modi in cui può essere chiamata la
+% funzione histogram in presenza di una variabile quantitativa
+
+close all
 histogram(Xt.Wage)
 
 histogram(Xt.Wage,10)
@@ -90,3 +87,27 @@ histogram(Xt.Wage,10)
 histogram(Xt.Wage,2000:500:4500)
 
 histogram('BinEdges',2000:500:3500,'BinCounts',[20 10 12])
+
+%% Grafico a istogramma variabile categorica
+% Di seguito vengono elencati svariati modi in cui può essere chiamata la
+% funzione histogram in presenza di una variabile categorica
+
+histogram(Xt.Education)
+
+histogram(Xt.Education,'Categories',{'B','C'})
+
+histogram('Categories',{'Si','No','Forse'},'BinCounts',[22 18 3])
+
+% histogram con 'Name',Value
+histogram(Xt.Education,'BarWidth',0.99)
+
+% histogram con sintassi Name=Value
+histogram(Xt.Education,BarWidth=0.99)
+
+% Creazione oggetto di tipo histogram nella 
+% variabile denominata NomeaCaso
+NomeaCaso=histogram(Xt.Education,'BarWidth',0.5);
+
+% Cambio il colore delle barre
+NomeaCaso.FaceColor='r';
+

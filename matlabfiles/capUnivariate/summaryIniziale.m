@@ -14,21 +14,59 @@ Xt.Gender = categorical(Xt.Gender);
 Xt.Education=categorical(Xt.Education,{'A','B','C'},'Ordinal',true');
 summary(Xt)
 
-%% Distribuzioni di frequenze
-
+%% Distribuzioni di frequenze (variabili categoriche)
+disp('Distrubuzione di frequenze variabile Education')
 tabulate(Xt.Education)
 
+disp('Distrubuzione di frequenze variabile Sesso')
+tabulate(Xt.Gender)
+
 %% Moda per le variabili qualitative nominali
+disp('Valore modale della variabile Gender')
 mode(Xt.Gender)
 
 %% Mediana per le variabili qualitative ordinali
+disp('Mediana variabile Education')
 median(Xt.Education)
-
-%% Grafico a torta
-histogram('Categories',{'Yes','No','Maybe'},'BinCounts',[22 18 3])
-histogram(Xt.Education,'Categories',{'B','C'})
 
 %% GUI che mostra il calcolo del quantile 0.7 in una variabile ordinale
 GUIquantile(Xt.Education,0.7)
-
 % print -depsc GUIquantile.eps;
+
+%% Materiale extra non incluso nel libro
+
+%% Grafico a torta  per la variabile Education
+pie(Xt.Education)
+
+%% Torta con la modalità C della torta esplosa.
+close all
+% Il secondo argomento della funzione pie contiene informazione sulla
+% fetta della torta da esplodere. Il vettore [0 0 1] significa: "esplodi la
+% terza modalità"
+pie(Xt.Education,[0 0 1])
+
+%% Torta con con la modalità C della torta esplosa.
+close all
+% In questo caso la modalità da esplodere
+% è specificata come cell array invece che vettore booleano
+% e etichette personalizzate per le 3 modalità
+modalDaEsplodere={'B'};
+pie(Xt.Education,modalDaEsplodere)
+
+
+%% Torta con etichette personalizzate
+close all
+modalDaEsplodere={'B'};
+% Il terzo argomento di input di pie specifiche le etichette personalizzate
+% che si vogliono utilizzare per le 3 modalità
+et=["A=scuola dell'obbglico" "B=Diploma" "C=Laurea"];
+pie(Xt.Education,modalDaEsplodere,et)
+
+%% Torta con legenda con posizionamento personalizzato
+close all
+modalDaEsplodere={'B'};
+pie(Xt.Education,modalDaEsplodere)
+et=["A=scuola dell'obbglico" "B=Diploma" "C=Laurea"];
+legend(et,'Location','southoutside')
+
+

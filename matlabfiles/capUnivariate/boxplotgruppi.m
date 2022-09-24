@@ -1,5 +1,4 @@
-% IMportare dentro MALTAB il file Firm.xlsx
-% Costruire il boxplot
+% Caricamento file Firm.xlsx dentro MALTAB i
 
 miofile="Firm.xlsx";
 X=readtable(miofile,"ReadRowNames",true);

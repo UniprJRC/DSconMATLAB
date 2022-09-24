@@ -18,7 +18,7 @@ Freq=[classi zeros(length(classi),1)];
 % stesse nella seconda colonna della matrice Freq
 for i=1:n
     if  x(i) <= -2
-        % se x(i) è compreso tra -4 e -2 incrementa la cella Freq(1,2)
+        % se x(i) è minore o uguale a -2 incrementa la cella Freq(1,2)
         % di un'unità
         Freq(1,2)= Freq(1,2)+1;
         

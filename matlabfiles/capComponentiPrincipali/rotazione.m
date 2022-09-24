@@ -149,5 +149,5 @@ disp("Area dell'ellisse (valore esatto): pi*gamma1*gamma2i")
  disp('Lunghezza semiasse maggiore (valore esatto)')
  disp(pi*gamma1*gamma2);
 disp("Perimetro dell'ellisse (formula approssimata)")
-disp(2*pi*sqrt((gamma1(1)^2+gamma1(2)^2)/2))
+disp(2*pi*sqrt((gamma1(1)^2+gamma2(1)^2)/2))
 

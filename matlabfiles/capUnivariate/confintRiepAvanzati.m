@@ -11,6 +11,22 @@ conflevc=0.01;
 [mediej,sterrMediaj,nj,nomij]=grpstats(X.Wage,X.Education,conflevc);
 % print -depsc confintABC.eps;
 
+%% Costruzione tabella di contingenza tra Gender e Education
+% All'interno della tabella di contingenza ci sono le frequenze
+% Gli argomenti 2 e 3 dell'output di crosstab non mi interessano di
+% conseguenza con il simbolo ~ non li faccio restituire (per risparmiare
+% spazio su disco)
+% Il quarto argomento di output di crosstab è un cell che contiene un
+% numero di righe pari al massimo tra le modalità delle due variabili
+% categoriche e due colonne. In questo caso, X.Gender presenta due sole
+% modalità, X.Education 3 modalità, di conseguenza il quarto argomento di
+% output (che di seguito viene chiamato labels) ha dimensione 3x2
+[Tabled,~,~,labels] = crosstab(X.Gender,X.Education);
+[r,c]=size(Tabled);
+% Trasformo l'array Tabled in fornato table
+Ttable=array2table(Tabled,'Rownames',labels(1:r,1),'VariableNames',labels(1:c,2));
+disp(Ttable)
+
 %% Calcolo statistiche di interesse
 % groupstats = cell che contiene le variabili classificatorie
 groupstats={'Gender', 'Education'};
@@ -34,7 +50,7 @@ bar(categorical(Xtab.Properties.RowNames),Xtab.mean_Wage)
 
 %% Da Xtab ottengo la tabella che mi interessa
 
-% Creazione tabella pivot tra Wage e Education
+% Creazione tabella pivot tra Wage e Education,
 % all'interno di ogni cella il salario medio
 
 % varDaEspandere è la variabile le cui modalità devono essere inserite
@@ -58,7 +74,7 @@ disp(tabPivot)
 %% Modo alternativo per costruire la tabella pivot
 % Con questo metodo si parte direttamente dalla table di
 % partenza X
-% Il secondo argomento di input do unstack è la variabile da 
+% Il secondo argomento di input di unstack è la variabile da 
 % inserire dentro la tabella.
 % funz = funzione da applicare alla variabile dentro la tabella
 % se invece della media avessi voluto il coneggio funz=@numel;
