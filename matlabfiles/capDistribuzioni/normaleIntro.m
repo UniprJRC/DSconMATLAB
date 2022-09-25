@@ -30,4 +30,17 @@ ylabel('F(x)=Pr(X<x)')
 % print -depsc figs\normintro.eps;
 % print -depsc figs\disttool.eps;
 
+%% La parte di seguito non è nel testo
+close all
+% Rappresetazione grafica tramite comet
+subplot(2,1,1)
+comet(x,ypdf);
+
+title(['Funzione di densità: N('  medias ',' vars ')'])
+ylabel('f(x)')
+
+subplot(2,1,2)
+comet(x,ycdf);
+title(['Funzione di ripartizione: N('  medias ',' vars ')'])
+ylabel('F(x)=Pr(X<x)')
 

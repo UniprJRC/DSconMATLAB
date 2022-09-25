@@ -15,6 +15,16 @@ disp('P(5<X<6) in N(3,4)')
 prob56=normcdf(6,media,sigma)-normcdf(5,media,sigma);
 disp(prob56)
 
+%%  Rappresentazione grafica Pr 5<X<6 tramite normspec
+% QUESTA SECTION  NON E' NEL LIBRO
+x=(-9:0.0001:9)';
+ypdf=normpdf(x,media,sigma);
+plot(x,ypdf);
+normspec([4 5],media,sigma,'inside')
+title(['Funzione di densità: N('  num2str(media) ',' num2str(varianza) ')'])
+ylabel(['Pr(5<X<6)=' num2str(prob56)])
+
+
 %%  Rappresentazione grafica Pr 5<X<6
 
 % Calcolo della densità tramita la funzione normpdf
