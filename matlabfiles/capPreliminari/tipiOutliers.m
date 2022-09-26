@@ -23,7 +23,9 @@ text(ExtraPoints(:,1)+3,ExtraPoints(:,2),lab)
 % print -depsc figs\tipiOutliers.eps;
 
 
-%% Boxplot bivariato sui dati 
+%% Boxplot bivariato sui dati
+% Al diagramma di dispersione precedente viene aggiunto il boxplot
+% bivariato
 close all
 rng(20)
 n=200;
@@ -52,12 +54,24 @@ plots=struct;
 % L'istruzione che segue per evitare che boxplotb aggiunga
 % i numeri delle righe associati agli outliers.
 plots.labeladd='';
+% Nelle due righe seguono (non presenti nel testo) posso modificare il
+% colore della parte interna (hinge, che corrisponde alla scatola del
+% boxplot univariato) o della parte esterna (fence, che corrisponde ai
+% baffi (whiskers) del boxplot univariato.
+% plots.InnerColor='r';
+% plots.OuterColor='c';
 boxplotb(Xadd,'plots',plots)
 % print -depsc figs\tipiOutliers.eps;
 
- %% 
- out=FSR(Xadd(:,2),Xadd(:,1));
- refline(out.beta(2),out.beta(1))
+%% Chiamata alla funzione FSR per identificare in automatico i valori anomali
+out=FSR(Xadd(:,2),Xadd(:,1));
+disp('Unità dichiarate anomale in base alla regressione robusta')
+disp(out.outliers)
+% Aggiungo al grafico la retta di regressione robusta
+refline(out.beta(2),out.beta(1))
+
+
+%% La parte di seguito non è stata inserita nel libro
 % print -depsc figs\tipiOutliersFSR.eps;
 
 %  %% Confronto tra retta robusta e retta basata su tutti i punti

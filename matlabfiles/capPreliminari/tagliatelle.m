@@ -1,6 +1,6 @@
 %% Caricamento dati
 X=readtable('tagliatelle.xlsx','Sheet','Dati','Range','A1:C41');
-% Mostro le prime 5 righe dellta table X
+% Mostro le prime 5 righe della table X
 disp(head(X,5))
 
 %%  Analisi dei missing values 
@@ -31,6 +31,10 @@ X2(:,nummissC>3)=[];
 
 % Per contare il numero di righe con valori mancanti
 disp("Numero di righe con valori mancanti")
+% sum(Ismis,2)>0 è un vettore booleano di lunghezza nx1 che contiene vero
+% in corrispondenza della riga i-esima se la riga i-esima contiene almeno
+% un valore mancante. sum di questo vettore produce il numero di righe con
+% valori mancanti
 disp(sum(sum(Ismis,2)>0))
 
 
@@ -96,19 +100,41 @@ X=readtable(fn,'Sheet','Finance','ReadRowNames',true,'Range',rg);
 % print -depsc figs\mdpattern1.eps;
 
 
-%% Calcolo degli istogrammi e dei boxplot (parte non inserita nel libro)
+%% Calcolo dei boxplot e degli istogrammi (parte non inserita nel libro)
 % tramite il comando subplot(2,3,5) ad esempio creiamo una finestra grafica
 % che può accogliere 6 grafici (due per ogni riga e tre per ogni colonna)
 % La sintassi subplot(2,3,5) significa "vai ad inserire il grafico nel
 % pannello 5 (ossia nel pannello in basso in mezzo)"
 close all
-for j=1:3
+p=size(X,2);
+% k=numero di variabili da visualizzare
+% k deve essere un numero intero positivo compreso tra 1 e p
+k=5;
+for j=1:k
     Xj=X{:,j};
-    subplot(2,p,j)
+    subplot(2,k,j)
     Xjsenzamissing=Xj(~ismissing(Xj));
     boxplot(Xjsenzamissing)
     title(X.Properties.VariableNames(j))
-    subplot(2,p,j+3)
+    subplot(2,k,j+k)
     histogram(Xjsenzamissing,8)
+    title(X.Properties.VariableNames(j))
+end
+
+
+%% Calcolo dei boxplot e degli istogrammi con curva normale (parte non inserita nel libro)
+close all
+p=size(X,2);
+% k=numero di variabili da visualizzare
+% k deve essere un numero intero positivo compreso tra 1 e p
+k=3;
+for j=1:k
+    Xj=X{:,j};
+    subplot(2,k,j)
+    Xjsenzamissing=Xj(~ismissing(Xj));
+    boxplot(Xjsenzamissing)
+    title(X.Properties.VariableNames(j))
+    subplot(2,k,j+k)
+    histfit(Xjsenzamissing,10)
     title(X.Properties.VariableNames(j))
 end
