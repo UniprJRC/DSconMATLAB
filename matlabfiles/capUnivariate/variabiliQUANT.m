@@ -13,20 +13,20 @@ Xd=Xt{:,nomiq};
 % con solo due cifre decimali
 format bank
 
-% Calcolo delle medie campionarie
+%% Calcolo delle medie campionarie
 disp('Medie campionarie')
 medie=mean(Xd);
 medieT=array2table(medie,"VariableNames",nomiq);
 disp(medieT)
 
-% Calcolo delle mediane campionarie
+%% Calcolo delle mediane campionarie
 disp('Mediane campionarie')
 mediane=median(Xd);
 medianeT=array2table(mediane,"VariableNames",nomiq);
 disp(medianeT)
 
 
-% Calcolo degli scostamenti quadratici medi corretti
+%% Calcolo degli scostamenti quadratici medi corretti
 scorr=std(Xd);
 
 % n= numerosità del campione
@@ -45,7 +45,7 @@ cvT=array2table(cv,"VariableNames",nomiq);
 disp(cvT)
 
 
-% Indici di asimmetria e curtosi
+%% Indici di asimmetria e curtosi
 
 % Calcolo degli indici di asimmetria
 disp('Indici di asimmetria (calcolati tramite la formula skewness)')
@@ -56,7 +56,7 @@ skT=array2table(sk,"VariableNames",nomiq);
 disp(skT)
 
 % Indici di skewness calcolati manualmente
-Z=zscore(Xd);
+Z=zscore(Xd); % Z = matrice degli scostamenti standardizzati
 skCHK=(n/((n-1)*(n-2)))*sum(Z.^3,1);
 assert(max(abs(sk-skCHK)<tol),"Implementazione" + ...
     "errata dedli indici di asimmetria ")

@@ -37,7 +37,7 @@ disp(Ttable)
 
 %% Calcolo statistiche di interesse
 % groupstats = cell che contiene le variabili classificatorie
-groupstats={'Gender', 'Education'};
+groupstats={'Gender', 'Education'}; % groupvars
 % groupstats poteva essere definita anche come
 % array of strings come segue
 % groupstats=["Gender", "Education"];
@@ -49,6 +49,7 @@ statDiInteresse=["mean" "std" "meanci"];
 vars=["Wage" "Seniority"];
 Xtab=grpstats(X,groupstats,statDiInteresse, ...
     "DataVars",vars,'Alpha',conflevc);
+
 
 disp(Xtab(:,1:6))
 % Grafico a barre
@@ -63,17 +64,17 @@ bar(categorical(Xtab.Properties.RowNames),Xtab.mean_Wage)
 
 % varDaEspandere è la variabile le cui modalità devono essere inserite
 % nelle colonne della tabella
-varDaEspandere='Education';
+varDaEspandere='Education'; % terzo argomento di input di unstack
 % varSulleRighe è la variabile di raggruppamento da inserire 
 % nelle righe della tabella
 varSulleRighe='Gender';
 % varInternoTabella = i numeri che devono essere inseriti
 % all'interno della tabella
-varInternoTabella="mean_Wage";
+varInternoTabella="mean_Wage"; % secondo argomento di input di unstack
 tabPivot=unstack(Xtab,varInternoTabella,varDaEspandere, ...
     'GroupingVariables',varSulleRighe);
 % disp(tabPivot)
-tabPivot.Properties.RowNames=string(tabPivot{:,1});
+tabPivot.Properties.RowNames=string(tabPivot{:,1}); %% Oss. istruzione string non necessaria
 tabPivot=tabPivot(:,2:end);
 disp("Tabella pivot tra Sesso e Education")
 disp("All'interno di ogni cella c'è la retr. media")
@@ -85,9 +86,9 @@ disp(tabPivot)
 % Il secondo argomento di input di unstack è la variabile da 
 % inserire dentro la tabella.
 % funz = funzione da applicare alla variabile dentro la tabella
-% se invece della media avessi voluto il coneggio funz=@numel;
+% se invece della media avessi voluto il conteggio funz=@numel;
 % numel sta per number of elements
-funz=@mean;
+funz=@mean; 
 tabPivotCHK=unstack(X,'Wage',varDaEspandere, ...
     'AggregationFunction',funz,"GroupingVariables",varSulleRighe);
 % Osservazione: nel testo c'è l'istruzione string(tabPivot{:,1}), tuttavia

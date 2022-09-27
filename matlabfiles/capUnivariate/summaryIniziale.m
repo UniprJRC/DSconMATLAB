@@ -45,12 +45,19 @@ close all
 % terza modalità"
 pie(Xt.Education,[0 0 1])
 
-%% Torta con con la modalità C della torta esplosa.
+%% Torta con la modalità C della torta esplosa.
 close all
 % In questo caso la modalità da esplodere
 % è specificata come cell array invece che vettore booleano
 % e etichette personalizzate per le 3 modalità
 modalDaEsplodere={'B'};
+pie(Xt.Education,modalDaEsplodere)
+
+%% Torta con le modalità B e C della torta esplosa
+% In questo caso le modalità da esplodere sono definite tramite 
+% uno string array
+close all
+modalDaEsplodere=["B" "C"];
 pie(Xt.Education,modalDaEsplodere)
 
 

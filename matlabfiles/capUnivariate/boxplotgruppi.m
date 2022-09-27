@@ -1,6 +1,4 @@
-% Caricamento file Firm.xlsx dentro MALTAB i
-
-miofile="Firm.xlsx";
+miofile="Firm.xlsx"; % Caricamento file Firm.xlsx dentro MATLAB 
 X=readtable(miofile,"ReadRowNames",true);
 
 subplot(1,2,1)
@@ -11,6 +9,22 @@ subplot(1,2,2)
 boxplot(X.Wage,X.Gender)
 add2boxplot(X(:,"Wage"),X.Gender)
 % print -depsc boxplotMF.eps;
+
+%% Modo alternativo (non inserito nel libro)
+miofile="Firm.xlsx"; % Caricamento file Firm.xlsx dentro MATLAB 
+X=readtable(miofile,"ReadRowNames",true);
+nomeVariabile="CommutingTime"; % CommutingTime
+subplot(1,2,1)
+boxplot(X{:,nomeVariabile})
+% add2boxplot accetta in input anche la table
+add2boxplot(X(:,nomeVariabile))
+subplot(1,2,2)
+boxplot(X{:,nomeVariabile},X.Gender)
+add2boxplot(X(:,nomeVariabile),X.Gender)
+% L'istruzione sgtitle inserisce un title
+% sopra la griglia dei subplots
+sgtitle(nomeVariabile)
+
 
 %% Confronto dei quantili della retribuzione
 % boo = vettore booleano che contiene true in corrispondenza
