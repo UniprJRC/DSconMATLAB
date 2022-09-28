@@ -15,10 +15,10 @@ Xt.Education=categorical(Xt.Education,{'A','B','C'},'Ordinal',true');
 summary(Xt)
 
 %% Distribuzioni di frequenze (variabili categoriche)
-disp('Distrubuzione di frequenze variabile Education')
+disp('Distribuzione di frequenze variabile Education')
 tabulate(Xt.Education)
 
-disp('Distrubuzione di frequenze variabile Sesso')
+disp('Distribuzione di frequenze variabile Gender')
 tabulate(Xt.Gender)
 
 %% Moda per le variabili qualitative nominali
