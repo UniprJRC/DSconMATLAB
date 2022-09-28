@@ -1,6 +1,6 @@
 % Estrazione di n numeri da N(6,100)
-% Fisso un determinato seed di numeri casuali
-seed=12345;
+% Fisso un determinato seed di numeri casuali. 
+seed=12345; 
 rng(seed)
 n=10000;
 p=1;
