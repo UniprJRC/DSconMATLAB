@@ -13,7 +13,7 @@ disp('Controllo uguaglianza delle due implementazioni ')
 assert(max(abs(ypdf-ypdfCHK))<1e-10,['Errore nell''implementazione ' ...
     'manuale della densità'])
 
-% Rappresetazione grafica
+% Rappresentazione grafica
 subplot(2,1,1)
 plot(x,ypdf);
 
