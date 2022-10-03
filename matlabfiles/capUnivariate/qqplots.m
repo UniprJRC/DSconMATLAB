@@ -1,3 +1,7 @@
+% Parte preliminare di caricamento dati
+miofile="Firm.xlsx"; % Caricamento file Firm.xlsx dentro MATLAB 
+X=readtable(miofile,"ReadRowNames",true);
+
 %% Confronto quantili empirici con quelli della N(0,1)
 n=10000;
 % xnorm= dati generati da un N con media 5678
