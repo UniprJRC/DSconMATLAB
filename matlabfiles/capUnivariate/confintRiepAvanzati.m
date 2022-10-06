@@ -9,22 +9,22 @@ X=readtable(miofile,"ReadRowNames",true);
 conflevc=0.01;
 
 [mediej,sterrMediaj,nj,nomij]=grpstats(X.Wage,X.Education,conflevc);
-% mediej = vettore che conteine le medie aritmetiche di Wage per ogni
-% livello di education 
+% mediej = vettore che contiene le medie aritmetiche di Wage per ogni
+% livello di Education 
 % sterrMediaj = vettore che contiene gli standard
-% error delle medie aritmetiche per ogni gruppo (livello di education) 
+% error delle medie aritmetiche per ogni gruppo (livello di Education) 
 % nj = vettore che contiene le frequenze di ogni gruppo 
-% nomij = cell che contiene le etichette dei livelli di education
+% nomij = cell che contiene le etichette dei livelli di Education
 
 % print -depsc confintABC.eps;
 
 %% Costruzione tabella di contingenza tra Gender e Education 
 % Questa section non è stata inserita nel libro
 % All'interno della tabella di contingenza ci sono le frequenze
-% Gli argomenti 2 e 3 dell'output di crosstab non mi interessano di
+% Gli argomenti 2 e 3 dell'output di crosstab non mi interessano, di
 % conseguenza con il simbolo ~ non li faccio restituire (per risparmiare
 % spazio su disco)
-% Il quarto argomento di output di crosstab è un cell che contiene un
+% Il quarto argomento di output di crosstab è una cell che contiene un
 % numero di righe pari al massimo tra le modalità delle due variabili
 % categoriche e due colonne. In questo caso, X.Gender presenta due sole
 % modalità, X.Education 3 modalità, di conseguenza il quarto argomento di
@@ -112,7 +112,7 @@ boxplot(X.Wage,SesTitc);
 % print -depsc boxplotFMABC.eps;
 
 %% Parte non inserita nel libro
-% Obiettivo: modo alternativo tramite la chiamata a boxchar per costruire
+% Obiettivo: modo alternativo tramite la chiamata a boxchart per costruire
 % il boxplot distinto per maschi e femmine per ogni livello di titolo di
 % studio.
 % Il primo argomento di boxchart deve essere una variabile categorica
@@ -120,7 +120,7 @@ boxplot(X.Wage,SesTitc);
 % il boxplot per ogni modalità della variabile X.Gender
 % Con l'opzione GroupByColor andiamo a specificare che per ogni modalità di
 % X.gender dobbiamo costruire un boxplot separato per ogni livello di
-% Education. Da notare che X.Education npn necessariamente deve essere
+% Education. Da notare che X.Education non necessariamente deve essere
 % definita come categorica
 boxchart(categorical(X.Gender),X.Wage,'GroupByColor',X.Education);
 % Aggiunta della legenda al grafico
