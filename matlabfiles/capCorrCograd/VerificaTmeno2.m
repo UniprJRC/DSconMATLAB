@@ -30,6 +30,41 @@ end
 Testsor=sort(Test);
 
 
+%% Questa sezione non è nel libro
+% La funzione histfit, chiamata con un solo argomento di input
+% sovraimpone al grafico ad istogramma la distribuzione
+% normale.
+histfit(Test)
+% In questo caso si può notare che la distribuzione empirica 
+% è molto diversa dalla distribuzione normale
+
+% La funzione histfit chiamata con 3 argomenti di input nel terzo argomento
+% di input si può specificare quale distribuzione si vuole sovraimporrre.
+% Dall'help della funzione histfit si legge che per specificare di
+% sovraimporre la distribuzione T di Student occorre inserire la parola
+% 'tclocationscale'
+histfit(Test,[],'tlocationscale')
+
+% La funzione fitdist fornisce una stima dei gradi di libertà della
+% distribuzione dei valori contenuti dentro il vettore Test
+pd=fitdist(Test,'tlocationscale')
+% L'output di seguito che il valore stimato del parametro di location della
+% T di Student è 0.0030691. L'intervallo di confidenza contiene il valore 0.
+% Il valore stimato del parametro di scala
+% (dispersione) è 1.00075. L'intervallo di confidenza contiene il valore 1.
+% I gradi di libertà stimati sono molto vicini ad 8. L'unico valore intero
+% contenuto nell'intervallo di confidenza di nu è 8.
+%  t Location-Scale distribution
+%        mu = 0.0030691   [-0.00378487, 0.00992307]
+%     sigma =   1.00075   [0.993558, 1.00799]
+%        nu =   8.05123   [7.69018, 8.42923]
+% I valori che trovata ovviamente saranno leggermente diversi da quelli
+% sopra anche se molto vicini
+%
+% Morale della storia: i numeri contenuti nel vettore Test sono stati
+% generati da una distribuzione T di Student con n-2 gradi di libertà!
+
+
 %% Confronto dei quantili empirici con quelli teorici
 
 % Empirici = calcolo dei quantili empirici
