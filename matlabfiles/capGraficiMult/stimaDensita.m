@@ -1,7 +1,8 @@
-%% Caricamento del dataset richiesto
+%% Stima densità (metodi parametrici)
 load head.mat
 % p=numero di colonne del dataset
 p=size(head,2);
+
 close all
 for i=1:p
     % L'istruzione nexttile aggiunge un subplot a quelli già
@@ -18,7 +19,7 @@ end
 pd = fitdist(head{:,1},'Normal')
 
 
-%% Caricamento dati
+%% Stima densità metodi kernel (non parametrici)
 Xt=readtable("Firm.xlsx","ReadRowNames",true);
 nomiq=["Wage" "CommutingTime" "SmartWorkHours" "Seniority" ];
 Xt=Xt(:,nomiq);
