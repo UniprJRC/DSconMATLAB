@@ -1,9 +1,5 @@
 
-%% 1) Costruire il diagramma di dispersione (utilizzando il comando plot)
-% tra le due variabili inserendo la performance sull'asse delle ascisse ed
-% utilizzando come simboli per i punti quadrati ('Marker','s')
-% con bordo rosso ('MarkerEdgeColor','r') riempiti di colore nero
-% (MarkerFaceColor','k') di altezza pari a 12 ('MarkerSize',12)
+%% Diagramma di dispersione pernalizzato
 load stars.mat
 X=stars{:,:};
 plot(X(:,1),X(:,2),'o','Marker','p','MarkerEdgeColor','r', ...
