@@ -49,8 +49,4 @@ title('Barre 3D')
 % print -depsc grafuniv2serie.eps;
 
 
-% %% Creazione balloonplot
-% figure
-% balloonplot(X);
-% title('Balloonplot')
 

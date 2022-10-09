@@ -11,7 +11,7 @@ out=fitlm(X,y)
 resindexplot(out.Residuals{:,3})
 % print -depsc MULTREGres.eps;
 
-out.Residuals
+disp(out.Residuals)
 
 
 %% Rotate manually
