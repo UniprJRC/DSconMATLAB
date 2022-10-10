@@ -1,7 +1,7 @@
 % Tablla di contingenza di partenza
 N=[20, 40, 20; 10, 45 45; 0, 5, 15];
 
-% Estrai il numero di righe e di colonne delle tabella di input N
+% Estrai il numero di righe e di colonne della tabella di input N
 [I,J] = size(N);
 % Inizializzo C e D 
 C=0;
