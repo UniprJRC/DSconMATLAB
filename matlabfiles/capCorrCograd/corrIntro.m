@@ -25,6 +25,15 @@ xlabel("Seniority")
 ylabel("Wage")
 
 
+%% Scatter con assi cartesiani che passano per i punti medi
+% Questa sezione non è stata inserita nel libro
+scatter(X{:,9},X{:,6})
+medie=mean(X{:,[9 6]});
+xline(medie(1))
+yline(medie(2))
+
+xlabel("Seniority")
+ylabel("Wage")
 
 %% Calcolo correlazione
 rxy=corr(X.Seniority,X.Wage);
