@@ -23,7 +23,7 @@ title(['Funzione di densità: N('  medias ',' vars ')'])
 ylabel('f(x)')
 
 subplot(2,1,2)
-ycdf=normcdf(x,media,varianza);
+ycdf=normcdf(x,media,sigma);  %% NEL TESTO ERA RIPORTATO ERRONEAMENTE varianza
 plot(x,ycdf);
 title(['Funzione di ripartizione: N('  medias ',' vars ')'])
 ylabel('F(x)=Pr(X<x)')
