@@ -20,7 +20,7 @@ disp(prob56)
 x=(-9:0.0001:9)';
 ypdf=normpdf(x,media,sigma);
 plot(x,ypdf);
-normspec([4 5],media,sigma,'inside')
+normspec([5 6],media,sigma,'inside')
 title(['Funzione di densità: N('  num2str(media) ',' num2str(varianza) ')'])
 ylabel(['Pr(5<X<6)=' num2str(prob56)])
 
