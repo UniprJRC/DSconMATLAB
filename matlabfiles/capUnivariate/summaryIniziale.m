@@ -66,7 +66,7 @@ close all
 modalDaEsplodere={'B'};
 % Il terzo argomento di input di pie specifiche le etichette personalizzate
 % che si vogliono utilizzare per le 3 modalità
-et=["A=scuola dell'obbglico" "B=Diploma" "C=Laurea"];
+et=["A=scuola dell'obbligo" "B=Diploma" "C=Laurea"];
 pie(Xt.Education,modalDaEsplodere,et)
 
 %% Torta con legenda con posizionamento personalizzato
