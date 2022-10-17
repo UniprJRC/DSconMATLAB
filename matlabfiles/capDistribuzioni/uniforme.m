@@ -37,7 +37,7 @@ ylabel(['Pr(5<X<6)=' num2str(prob56)])
 % quantili u0.80 e u0.90 (valori che lasciano alla destra
 % una prob. di 0.20 e 0.10) in U(3,8)
 quant=[0.80 0.90];
-disp('Quantili 0.8 e 0.9 in una U(3,8))')
+disp('Quantili 0.8 e 0.9 in una U(3,8)')
 disp(unifinv(quant,a,b))
 
 
