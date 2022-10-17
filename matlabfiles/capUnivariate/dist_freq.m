@@ -75,7 +75,7 @@ for i=1:n % ciclo che scorre sugli elementi di x
     for j=1:length(classi)-1 % ciclo che scorre sugli elementi del vettore classi
         if x(i)> classi(j) && x(i) <= classi(j+1)
             % La seconda colonna della matrice FreqCHK viene aumentata di uno
-            % se x(i) è compreso tra class(j) e classi(j+1) 
+            % se x(i) è compreso tra classi(j) e classi(j+1) 
             FreqCHK(j,2)= FreqCHK(j,2)+1;
             % L'istruzione break serve per teminare il loop su j
             % e continuare con il loop su i. 
