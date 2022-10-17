@@ -1,4 +1,4 @@
-% Osservazione: peal
+% Osservazione: Si veda l'help di peaks per la documentazione
 
 % Mesh (reticolato)
 mesh(peaks)

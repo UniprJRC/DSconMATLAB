@@ -31,7 +31,7 @@ conflevc=0.01;
 % output (che di seguito viene chiamato labels) ha dimensione 3x2
 [Tabled,~,~,labels] = crosstab(X.Gender,X.Education);
 [r,c]=size(Tabled);
-% Trasformo l'array Tabled in formato table
+% Trasformo l'array Tabled in fornato table
 Ttable=array2table(Tabled,'Rownames',labels(1:r,1),'VariableNames',labels(1:c,2));
 disp(Ttable)
 
