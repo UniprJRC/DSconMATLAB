@@ -1,4 +1,3 @@
-
 %% N = tabella di contingenza di partenza
 N= [87 188;
     42 406];
@@ -25,13 +24,12 @@ pval=1-chi2cdf(Chi2,gdl);
 disp(['Il pvalue del test è: ' num2str(pval)])
 % Si fissa l'errore di prima specie
 alpha=0.001;
-% valorecrititco = quantile che lascia alla sua destra una prob di 0.05 in
+% valorecrititco = quantile che lascia alla sua destra una prob di 0.001 in
 % una v.c. chi2 con 1 grado di libertà
 valorecritico= chi2inv(1-alpha,gdl);
 
 if Chi2>valorecritico
-    disp('Ipotesi nulla di assenza di relazione tra X e Y rifiutata')
+    disp('Ipotesi nulla di assenza di relazione tra X è Y rifiutata')
 else
-    disp('Ipotesi nulla di assenza di relazione tra X e Y accettata')
+    disp('Ipotesi nulla di assenza di relazione tra X è Y accettata')
 end
-
