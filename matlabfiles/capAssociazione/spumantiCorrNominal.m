@@ -13,5 +13,7 @@ disp(Ntable)
 % calcolo di tutti gli indici e del relativo intervallo di confidenza
 out=corrNominal(Ntable);
 
+%% Parte non presente nel testo
 % Calcolo di tutti gli indici tramite la funzione corrNominal dell'FSDA toolbox partendo dalla matrice dei dati (senza passare attravero il calcolo della tabella di contingenza)
-% out=corrNominal([X.GUSTO X.ABBINAMENTO],'datamatrix',true)
+ out=corrNominal([X.GUSTO X.ABBINAMENTO],'datamatrix',true);
+ 
