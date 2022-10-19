@@ -8,7 +8,7 @@ X=Xtable{:,nomiq};
 % output della funzione corr
 [R,Pval]=corr(X);
 
-% Di seguito calcolo manualemnte la matrice dei p-values
+% Di seguito calcolo manualmente la matrice dei p-values
 % Calcolo del test di assenza di correlazione per ogni coppia di variabili
 Testt=(R./sqrt(1-R.^2))*sqrt(n-2);
 
