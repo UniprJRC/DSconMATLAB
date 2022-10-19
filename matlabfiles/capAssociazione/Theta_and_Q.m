@@ -14,8 +14,15 @@ title('Relazione tra Q e \theta')
 
 % print -depsc figs\thetaQ.eps;
 
+%% Relazione tra theta e Q attraverso il calcolo simbolico
+syms th
+Q=(th-1)./(th+1);
+fplot(Q,[0 20])
+xlabel('$\theta$','Interpreter','latex')
+ylabel('$Q= \frac{\theta-1}{\theta+1}$','Interpreter','latex')
+title('Relazione tra Q e \theta')
 
-%% Relazione tra theta e U
+%% Relazione tra theta e U (parte non presente nel libro)
 figure
 thx=0:0.1:20;
 U=(sqrt(thx)-1)./(sqrt(thx)+1);
