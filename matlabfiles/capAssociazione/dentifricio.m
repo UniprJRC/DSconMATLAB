@@ -29,5 +29,5 @@ assert(isequal(pval,pvalchk),"L'implementazione del pvalue di chi2 è diversa")
 Phi=sqrt(chi2/n);
 
 % Calcolo indice di Cramer
-V=Phi/min([I-1 J-1]);
+V=Phi/sqrt(min([I-1 J-1]));
 disp(['Indice di Cramer: ' num2str(V)])
