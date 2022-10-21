@@ -6,6 +6,7 @@ X=readtable("dentifricio.xlsx","Range","A1:B1577","Sheet","dati");
 disp(['Test chi2 calcolato da crosstab ' num2str(chi2)])
 disp(['pvalue del test chi2 calcolato da crosstab ' num2str(pval)])
 
+
 % Trova le dimensioni della tabella di contingenza e n
 [I,J]=size(N);
 n=sum(N,"all");
