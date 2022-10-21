@@ -18,7 +18,7 @@ end
 
 %% Calcolo p-value della statistica di Pearson
 % La statistica di Pearson si distriuisce come una v.c. Chi2 con (r-1)(c-1)
-% gradi di libertà. In questo esempio dato che r=c=2;
+% gradi di libertà. In questo esempio dato che I = J = 2;
 gdl=1;
 pval=1-chi2cdf(Chi2,gdl);
 disp(['Il pvalue del test è: ' num2str(pval)])
