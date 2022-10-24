@@ -7,8 +7,10 @@ n = sum(N(:));
 % ndotj= vettore riga che contiene le somme di colonna
 ndotj=sum(N,1);
 
+% ndotjmax = massimo delle somme di colonna
 ndotjmax=max(ndotj);
-% ssumnimax= sommatoria delle max freq di ogni colonna
+
+% sumnimax= sommatoria delle max freq di ogni riga
 sumnimax=sum(max(N,[],2));
 
 % Goodman and Kruskal lambda
