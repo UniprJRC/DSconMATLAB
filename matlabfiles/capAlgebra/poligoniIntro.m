@@ -33,7 +33,7 @@ ellp=polyshape(Ell);
 % disp("Area dell'ellisse (in maniera numerica)")
 AreaEll=area(ellp);
 % disp("Perimetro dell'ellisse (in maniera numerica)")
-PerimetroELl=perimeter(ellp);
+PerimetroEll=perimeter(ellp);
 disp("Centroide dell'ellisse (in maniera numerica)")
 [meaX1,meaX2]=centroid(ellp);
 disp([meaX1, meaX2])
@@ -44,9 +44,9 @@ disp(meaX)
 % print -depsc figs\intPoly1.eps;
 
 
-%% Punti dentro e fuodi dall'ellisse con colore diverso
+%% Punti dentro e fuori dall'ellisse con colore diverso
 
-% La funzion inpolygon restituisce un vettore booleano di lunghezza n
+% La funzione inpolygon restituisce un vettore booleano di lunghezza n
 % contenente true per i punti che sono dentro l'ellisse
 insideBoo = inpolygon(X(:,1),X(:,2),Ell(:,1),Ell(:,2));
 
