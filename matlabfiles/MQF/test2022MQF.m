@@ -10,8 +10,8 @@
 
 
 %% ESERCIZIO II 
-% Importare la serie dei prezzi dei prezzi di chiusura (ALT. EXCH. PRICE) dei titoli
-% BPER BANCA,  BUZZI UNICEM DAVIDE CAMPARI contenuti nel file Mib40.xlsx
+% Importare la serie dei prezzi di chiusura (ALT. EXCH. PRICE) dei titoli
+% BPER BANCA,  BUZZI UNICEM e  DAVIDE CAMPARI contenuti nel file Mib40.xlsx
 %
 % Estrarre i dati a partire dal due di gennaio 2015.
 % 
@@ -20,14 +20,15 @@
 % Calcolare sulle serie mensili, la serie delle medie mobili con il
 % metodo del livellamento esponenziale con la funzione movavg utilizzando
 % come finestra temporale 10 e 20 termini. 
-% Suddividere la finestra grafica in tre pannelli
+% Suddividere la finestra grafica in tre pannelli affiancati
+% orizzontalmente.
 % Rappresentare, per tutti e tre i titoli, tramite la
 % funzione plot, le serie mensili dei prezzi e le due serie
 % delle medie mobili calcolate in precedenza. 
 % Aggiungere ad ogni pannello la
 % legenda ed il nome del titolo. 
 % Discutere il momento in cui si è verificato un segnale
-% rialzista/ribassista per almeno una delle tre serie
+% rialzista/ribassista per almeno una delle tre serie.
 %
 % Calcolare la serie dei rendimenti mensili e mostrare l'andamento dei
 % rendimenti tramite stackedplot.
@@ -46,9 +47,10 @@
 % rosso le correlazioni significative (al livello di significatività
 % dell'uno per mille) nei diversi diagrammi di dispersione. 
 %
+
 % ESERCIZIO IV. Calcolare la probabiltà teorica in un campione bivariato
-% formato da 12 osservazioni estratte da una distribuzione normale bivariata
-% di osservare un valore del coefficiente di
+% formato da 12 osservazioni estratte da una distribuzione normale
+% bivariata, di osservare un valore del coefficiente di
 % correlazione campionario compreso nell'intervallo [-0.3 0.3] quando 
 % a) il vero coefficiente di correlazione nell'universo è pari a 0
 % b) il vero coefficiente di correlazione nell'universo è pari a 0.5.
