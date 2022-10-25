@@ -285,15 +285,36 @@ tr=sqrt(n-2)*r/sqrt(1-r^2);
 % correlazione lineare assuma valori nell'intervallo [-0.3 0.3];
 probrho0=tcdf(tr,n-2)-tcdf(-tr,n-2);
 
-% Se il vero valore di rho è diverso da zero, allora occorre fare
-% riferimento alla funzione corrcdf di FSDA toolbox.
+% Un modo alternativo è quello di fare riferimento alla funzione corrcdf di
+% FSDA toolbox
+% specificando come argomenti di input
+% r= coefficiente di correlazione campionario
+% rho = vero valore della correlazione nella popolazione
+% n = numerosità campionaria
+rho=0;
+probrho0CHK=corrcdf(r,rho,n)-corrcdf(-r,rho,n);
+% Confronto le due probabilità
+rchar=num2str(r);
+nchar=num2str(n);
+rown=string(['Pr(-' rchar '<r<' rchar '|rho=' num2str(rho) ', n=' nchar ')']);
+prob=[probrho0 probrho0CHK];
+probT=array2table(prob,"RowNames",rown,"VariableNames", ...
+    ["Prob. tramite T(n-2)" "Prob. tramite corrcdf"]);
+disp(probT)
+
+% Se il vero valore di rho è diverso da zero, l'unico modo per trovare la
+% probabilità richiesta è quello di fare riferimento alla funzione corrcdf
 rho=0.5;
-probrho05=corrcdf(r,rho,n-2)-corrcdf(-r,rho,n-2);
+probrho05=corrcdf(r,rho,n)-corrcdf(-r,rho,n);
+rown=string(['Pr(-' rchar '<r<' rchar '|rho=' num2str(rho) ', n=' nchar ')']);
+probTrho05=array2table(probrho05,"RowNames",rown,"VariableNames","Prob tramite corrcdf");
+disp(probTrho05)
+
 % Ovviamente probrho0> probrho05
 % Se il vero valore della correlazione è 0.5, il coefficiente di
 % correlazione campionario avrà una distribuzione centrata attorno a 0.5.
 
 % Osservazione: corrcdf contiene un integrale numerico e la densità è
 % approssimata di conseguenza probrho05 può avere un minimo margine di
-% errore.
+% errore dell'ordine di 10^-4
 
