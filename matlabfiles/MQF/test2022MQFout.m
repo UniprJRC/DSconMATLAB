@@ -155,14 +155,19 @@ head(Yt1CHK(:,1:3))
 % Per favore fatemi sapere le soluzioni alternative che proponete.
 
 
-%% Estrazione delle colonne richiestes
-% e Estraggo tutti i prezzi di chiusura dentro Y1
-% Prima colonna è il tempo
+%% Estrazione delle colonne richieste
+% vado a selezionare le colonne che contengono ALT_EXCH_PRICE
 Yt2=Yt1(:,4:6:length(nomi));
-% Vado a prendere le colonne richieste
-nomiY1=Yt2.Properties.VariableNames;
+% Vado a prendere le colonne richieste da Yt2
 Yt3=Yt2(:,["BPERBANCA_ALT_EXCH_PRICE" "BUZZIUNICEM_ALT_EXCH_PRICE" ...
     "DAVIDECAMPARIMILANO_ALT_EXCH_PRICE"]);
+% Osservazione: naturalmente avrei potuto estrarre le colonne 
+% ["BPERBANCA_ALT_EXCH_PRICE" "BUZZIUNICEM_ALT_EXCH_PRICE" ...
+%     "DAVIDECAMPARIMILANO_ALT_EXCH_PRICE"] 
+% direttamente da Yt1 come segue
+%Yt3=Yt1(:,["BPERBANCA_ALT_EXCH_PRICE" "BUZZIUNICEM_ALT_EXCH_PRICE" ...
+%    "DAVIDECAMPARIMILANO_ALT_EXCH_PRICE"]);
+
 % Rimpiazzo la stringa "_ALT_EXCH_PRICE" con ""
 % Questa istruzione non è strettamente necessaria
 varNames=Yt3.Properties.VariableNames;
