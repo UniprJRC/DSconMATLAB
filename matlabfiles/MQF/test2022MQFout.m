@@ -159,7 +159,7 @@ head(Yt1CHK(:,1:3))
 % vado a selezionare le colonne che contengono ALT_EXCH_PRICE
 % Si noti che l'end nella riga di seguito si riferisce alle colonna di Yt1
 Yt2=Yt1(:,4:6:end);
-% Un'istruzione alernativa era
+% Un'istruzione alternativa era
 % Yt2=Yt1(:,4:6:size(Yt1,2));
 
 % Vado a prendere le colonne richieste da Yt2
