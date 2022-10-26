@@ -1,4 +1,5 @@
 
+
 close all
 clear
 X=[1.7 3.5; 1 5; -2 2.5; 5 1 ];
@@ -7,6 +8,10 @@ zern=zeros(n,1);
 zerp=zeros(p,1);
 % Etichette dei punti A, B, C, ....
 labx=char((('A'+0):('A'+n-1))');
+
+% NON NEL LIBRO: un modo alternativo per ottenere il char array 4x1 era
+% labx=('A':'D')'
+
 
 % lwd = Linewidth delle frecce associate agli assi
 lwd=2;
@@ -17,8 +22,7 @@ colnewaxis='k';
 
 % fsize = FontSize delle label degli assi
 fsize=14;
-% kk = scalare che determina la lunghezza 
-% degli assi cartesiani
+% kk = scalare che determina la lunghezza degli assi cartesiani
 kk=5;
 
 % base canonica (matrice identità)
@@ -43,8 +47,7 @@ quiver(zerp,zerp,kk*E(:,1),kk*E(:,2),'off',...
     'LineWidth',lwd,'Color',coloriginalaxis)
 % label degli assi della base canonica
 labaxis=["e_1";"e_2"];
-text(kk*E(:,1),kk*E(:,2),labaxis,...
-    'HorizontalAlignment','left','Color',...
+text(kk*E(:,1),kk*E(:,2),labaxis,'HorizontalAlignment','left','Color',...
     coloriginalaxis,'FontSize',fsize)
 % scala uguale nei due assi
 axis equal
@@ -52,16 +55,9 @@ axis equal
 %% Pannello in altro a destra: vettori nella nuova base 
 % e coordinate dei punti nella nuova base
 subplot(nr,nc,2)
-% I vettori della nuova base dati dall'esercizio 
-% non sono altro che gli autovettori 
-% della matrice X'*X. Di seguito vengono calcolati
-% gli autovalori ed autovettori di X'X
-T=X'*X;
-[Vini,Laini]=eig(T);
-[~,order]=sort(diag(Laini),'descend');
-V=Vini(:,order);
-La=Laini(order,order);
 quiver(zern,zern,X(:,1),X(:,2),'off')
+% Nuova base
+V=[ 0.5156   -0.8569;  0.8569    0.5156];
 hold('on')
 Vtra=V';
 % Nuovi assi cartesiani ortogonali v_1 v_2
@@ -70,20 +66,17 @@ quiver(zerp,zerp,kk*Vtra(:,1),kk*Vtra(:,2), ...
 % label degli assi
 labnewaxis=["v_1";"v_2"];
 text(kk*Vtra(:,1),kk*Vtra(:,2),labnewaxis,...
-    'HorizontalAlignment','left', ...
-    'Color',colnewaxis,'FontSize',fsize)
+    'HorizontalAlignment','left', 'Color',colnewaxis,'FontSize',fsize)
 
-% Coordinate dei punti nel nuovo riferimento 
+% Y=X*V=Coordinate dei punti nel nuovo riferimento 
 % ortogonale V(:,1), V(:,2)
 Y=X*V;
 textNewCoo=labx+"=("+ string(num2str(Y(:,1),3)) + ...
     "," + string(num2str(Y(:,2),3))+")";
 textNewCoo=strrep(textNewCoo," ","");
-% L'istruzione di seguito inserisce l'indicazione 
-% delle coordinate dei punti nel nuovo sistema di 
-% riferimento (le etichette vengono plottate in
-% corrispondenza di X(:,1) e X(:,2) ossia delle 
-% vecchie coordinate)
+% L'istruzione di seguito inserisce l'indicazione delle coordinate dei
+% punti nel nuovo sistema di riferimento (le etichette vengono plottate in
+% corrispondenza di X(:,1) e X(:,2) ossia delle vecchie coordinate)
 text(X(:,1),X(:,2),textNewCoo,'Color',colnewaxis)
 axis equal
 
@@ -91,15 +84,15 @@ axis equal
 subplot(nr,nc,3)
 quiver(zern,zern,Y(:,1),Y(:,2),'off')
 hold('on')
-quiver(zerp,zerp,kk*E(:,1),kk*E(:,2),...
+quiver(zerp,zerp,kk*E(:,1),kk*E(:,2), ...
     'off','LineWidth',lwd,'Color',colnewaxis)
 
 text(Y(:,1),Y(:,2),textNewCoo,'Color',colnewaxis)
 text(kk*E(:,1),kk*E(:,2),labnewaxis,...
-    'HorizontalAlignment','left','Color',...
-    colnewaxis,'FontSize',fsize)
+    'HorizontalAlignment','left','Color', colnewaxis,'FontSize',fsize)
 axis equal
 
+%{
 %% Nel pannello in basso a destra si aggiunge una spiegazione dei vari assi
 % Osservazione: questo pannello non è stato inserito nel testo
 subplot(nr,nc,4);
@@ -115,5 +108,6 @@ msg={['Pannello in alto a sinistra: coordinate dei punti nello spazio originale'
 c.String=msg;
 c.Position=[0.6 0.15 0.3 0.3];
 wrappedtext = textwrap(c,c.String,60);
+%}
 
 % print -depsc figs\basecan.eps;
