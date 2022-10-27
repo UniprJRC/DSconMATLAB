@@ -1,4 +1,4 @@
-%% Genarazione dei due gruppi
+%% Generazione dei due gruppi
 rng default
 % Generazione dei dati
 n1=10;

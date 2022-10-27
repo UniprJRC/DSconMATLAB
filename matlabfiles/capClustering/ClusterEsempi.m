@@ -26,7 +26,7 @@ text(X(:,1),X(:,2),lab)
 
 % print -depsc figs\cluster.eps;
 
-%% Cluster generchico utilizzando il metodo di Ward
+%% Cluster gerarchico utilizzando il metodo di Ward
 % Si noti che questa volta l'input di linkage è la matrice dei dati
 % Il terzo argomento euclidean poteva essere omesso
 tree = linkage(X,'ward','euclidean');
@@ -54,7 +54,7 @@ spmplot(X,id)
 % il relativo dendrogramma, mostrando tutti i passi della procedura di
 % agglomerazione.
 % Personalizzare l'orientamento del dendrogramma  e/o la 'ColorThres
-% Metodo gerarchico del legamo medio.
+% Metodo gerarchico del legame medio.
 close all
 
 % Es. metodo del legame medio ('average')
