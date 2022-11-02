@@ -17,7 +17,7 @@ for i=1:2
 end
 
 %% Calcolo p-value della statistica di Pearson
-% La statistica di Pearson si distriuisce come una v.c. Chi2 con (r-1)(c-1)
+% La statistica di Pearson si distriuisce come una v.c. Chi2 con (I-1)(J-1)
 % gradi di libertà. In questo esempio dato che I = J = 2;
 gdl=1;
 pval=1-chi2cdf(Chi2,gdl);
