@@ -21,8 +21,8 @@ diff=N(1,1)-Ntheo11;
 diffstring=num2str(diff);
 if N(1,1)-Ntheo11>0
     disp('Associazione positiva')
-    disp(['La differenza tra n_{11} n e n_{11}^* è =' diffstring])
+    disp(['La differenza tra n11 e n11* è =' diffstring])
 else
     disp('Associazione negativa')
-    disp(['La differenza tra n_{11} n e n_{11}^* =' diffstring])
+    disp(['La differenza tra n11 e n11* =' diffstring])
 end
