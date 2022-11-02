@@ -10,7 +10,7 @@ for j=1:length(kk)
     k=kk(j);
     % Trova la coordinata y dell'equazione |x|^k+|y|^k=r^k
     y=(r^k-abs(x).^k).^(1/k);
-    % plot([x],[y])
+    % plot(x,y)
 
     plot([x;x],[y;-y])
     % Vengono aggiunti gli assi cartesiani
@@ -24,6 +24,43 @@ for j=1:length(kk)
     axis equal
 end
 % print -depsc figs\minkcontour.eps;
+
+%% NON NEL LIBRO
+% Ad ogni pannello si aggiunge la circonferenza di raggio r
+% Valore a piacere per r
+r=2;
+% Sequenza di valori di k richiesti dal testo dell'esercizio
+kk=[0.25 0.5 1 2 4 10];
+% Le coordinate x vanno da -r ad r
+x=(-r:0.001:r)';
+
+for j=1:length(kk)
+    subplot(2,3,j)
+    k=kk(j);
+    % Trova la coordinata y dell'equazione |x|^k+|y|^k=r^k
+    y=(r^k-abs(x).^k).^(1/k);
+    % plot(x,y)
+
+    plot([x;x],[y;-y])
+    % Vengono aggiunti gli assi cartesiani
+    xline(0)
+    yline(0)
+    % Viene fissato il limite min e max per l'asse x
+    xlim([-r*1.1 r*1.1])
+    % Il valore di k utilizzato viene inserito nel titolo
+    title(['k=' num2str(k)])
+    % Stessa scala per i due assi
+    axis equal
+    % viene aggiunta la circonferenza di raggio r
+    hold on
+    k=2;
+    y=(r^k-abs(x).^k).^(1/k);
+    plot([x;x],[y;-y])
+
+end
+
+
+
 
 %%  Distanza euclidea in funzione dei vettori elementari
 
