@@ -12,7 +12,7 @@ disp(D)
 X=[3 20;10 42;8 30; 2 12];
 % Calcolo della matrice delle distanze euclidee sugli 
 % scostamenti standardizzati
-% Utilizzo l'opzione seuclidead
+% Utilizzo l'opzione seuclidean
 dist=pdist(X,'seuclidean');
 % Standardizzo preliminarmente le variabili
 distchk=pdist(zscore(X));
