@@ -41,25 +41,10 @@ hold('on')
 axis equal
 Ell= ellipse(meaX,S,1);
 % print -depsc figs\rotazione1.eps;
+
 %% Calcolo in maniera numerica lunghezza semisse
 % Trasformo le coordinate dell'ellisse in un poligono
 ellp=polyshape(Ell);
-
-disp(['Area dell''ellisse: ' num2str(area(ellp))])
-disp(['Perimetro dell''ellisse: ' num2str(perimeter(ellp))])
-
-% gamma1 = lunghezza asse maggiore ellisse 
-gamma1=sqrt(Lambda(1,1));
-% gamma2= lunghezza asse minore ellisse
-gamma2=sqrt(Lambda(2,2));
-% Perimetro dell'ellisse
-disp(pi*(3*(gamma1+gamma2)-sqrt((3*gamma1+gamma2)*(gamma1+3*gamma2))))
-
-pi*sqrt(2*(gamma1^2+gamma2^2))
-% e= eccentricità dell'ellisse
-e=sqrt(1-(gamma2/gamma1)^2);
-h=(gamma1-gamma2)^2/((gamma1+gamma2)^2);
-pi*(gamma1+gamma2)*(1+3*h/(10+sqrt(4-h)))
 
 
 % Coordinate x e y della retta principale
@@ -77,7 +62,34 @@ lunSemiAxis=norm(in(end,:)-meaX);
 % sqrt(sum((in(end,:)-meaX).^2))
 disp(lunSemiAxis)
 
+%% Lunghezza semiasse ellisse e primo autovalore
+% La lunghezza del semiasse maggiore dell'ellisse ottenuto in maniera
+% numerica non è altro che la radice quadrata del primo autovalore
+
+% gamma1 = lunghezza asse maggiore ellisse
+gamma1=sqrt(Lambda(1,1));
+
+disp("Lunghezza del semiasse principale dell'ellisse")
+disp("come radice del primo autovalore")
+disp(gamma1)
+
+% gamma2= lunghezza asse minore ellisse
+gamma2=sqrt(Lambda(2,2));
+
+%% Area e perimetro dell'ellisse (in maniera numerica)
+disp(['Area dell''ellisse: ' num2str(area(ellp))])
+disp(['Perimetro dell''ellisse: ' num2str(perimeter(ellp))])
+
+
+%% Area e perimeto ellisse tramite formule esplicite
+disp("Area dell'ellisse (valore esatto): pi*gamma1*gamma2")
+disp(pi*gamma1*gamma2);
+
+disp('Perimetro dell''ellisse tramite formula di Ramanujan')
+disp(pi*(3*(gamma1+gamma2)-sqrt((3*gamma1+gamma2)*(gamma1+3*gamma2))))
+
 %% Rappresentazione dei punti nella base canonica e_1 e e_2
+
 plot(X1,X2,'o')
 xlabel('X1=Spesa pubblicitaria (mln €)')
 ylabel('X2=Fatturato (mln €)')
@@ -106,7 +118,8 @@ axis equal
 seq=1:n;
 textOut=string(seq(~in));
 text(Xtilde1(~in),Xtilde2(~in),textOut)
- % print -depsc figs\rotazione2.eps;
+% print -depsc figs\rotazione2.eps;
+
 %% Rappresentazione dei punti nel nuovo sistema di assi cartesiani (PC)
 figure
 Y=Xtilde*V;
@@ -121,7 +134,7 @@ seq=(1:size(X,1))';
 textOut=string(seq(~in));
 text(Y(~in,1),Y(~in,2),textOut)
 axis equal
- % print -depsc figs\rotazione3.eps;
+% print -depsc figs\rotazione3.eps;
 %% Rappresentazione dei punti nello spazio delle PC standardizzate
 figure
 Yst=zscore(Y);
@@ -137,17 +150,6 @@ ylabel(['$Y_2 \sqrt \lambda_2$=Seconda componente principale' ...
 textOut=string(seq(~in));
 text(Yst(~in,1),Yst(~in,2),textOut)
 axis equal
- % print -depsc figs\rotazione4.eps;
+% print -depsc figs\rotazione4.eps;
 
- % Mostro 
- Gamma=sqrt(Lambda);
- gamma1=Gamma(1,1);
- gamma2=Gamma(2,2);
- disp('Lunghezza semiasse maggiore (valore esatto) gamma_1')
- disp(gamma1);
-disp("Area dell'ellisse (valore esatto): pi*gamma1*gamma2i")
- disp('Lunghezza semiasse maggiore (valore esatto)')
- disp(pi*gamma1*gamma2);
-disp("Perimetro dell'ellisse (formula approssimata)")
-disp(2*pi*sqrt((gamma1(1)^2+gamma2(1)^2)/2))
 
