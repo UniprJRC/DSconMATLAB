@@ -67,6 +67,7 @@ title(['Retta principale: X2='  num2str(aprinc) '+' num2str(bprinc) 'X1'])
 
  % print -depsc figs\proiez2.eps;
 
+ 
  %% Aggiunta dei segmenti delle proiezioni ortogonali
 hold('on')
 % y1 coordinate dei punti nello spazio della prima PC
@@ -85,6 +86,7 @@ Xtildehat=y1.*v1';
 % che passa per il centroide (ossia il vettore delle medie aritmetiche)
 Xhat=Xtildehat+meaX;
 
+
 % Vengono aggiunte le linee che si riferiscono alle proiezioni
 % ortogonali dei punti lungo la retta principale.
 plot([Xhat(:,1) X1]',[Xhat(:,2) X2]','k')
@@ -98,11 +100,28 @@ title({'Diagramma di dispersione,' ...
  % print -depsc figs\proiez3.eps;
 
 
+%% PARTE NON PRESENTE NEL LIBRO
+% X1 X2 = punti originari
+figure
+plot(X1,X2,'x')
+hold('on')
+
+% Xhat(:,1) Xhat(:,2) coordinate dei punti proiettati lunga la retta
+% principale
+plot(Xhat(:,1) ,Xhat(:,2) ,'o')
+
+% Nel grafico precedente siamo andati a disegnare le rette associate alle
+% proiezioni ortogonali lungo la retta principale
+
 %% Xhat matrice che contiene le coordinate delle proiezioni 
 % dei punti sulla retta principale
 Residuals=X-Xhat;
 disp('Somma dei quadrati dei residui')
 disp(sum(Residuals.^2,'all')/(n-1));
+
+% La sommma dei quadrati delle differenze (divise per n-1) tra X e la sua
+% ricostruzione Xhat è esattamente uguale al secondo autovalore della
+% matrice S (v. p 346 del libro)
 
 %% Controllo che Residuals è uguale all'output della chiamata alla funzione
 % pcares. Il secondo argomento di questa funzione è il numero di dimensioni
