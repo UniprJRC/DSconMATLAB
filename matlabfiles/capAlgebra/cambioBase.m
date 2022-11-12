@@ -28,7 +28,7 @@ kk=5;
 % base canonica (matrice identità)
 E=eye(p);
 
-%% Pannello in altro a sinistra: punti nello spazio originale
+%% Pannello in alto a sinistra: punti nello spazio originale
 nr=2; nc=2;
 subplot(nr,nc,1)
 % quiver(zern,zern,X(:,1),X(:,2) traccia le frecce da 0,0 ai punti X(:,1) e
@@ -52,7 +52,7 @@ text(kk*E(:,1),kk*E(:,2),labaxis,'HorizontalAlignment','left','Color',...
 % scala uguale nei due assi
 axis equal
 
-%% Pannello in altro a destra: vettori nella nuova base 
+%% Pannello in alto a destra: vettori nella nuova base 
 % e coordinate dei punti nella nuova base
 subplot(nr,nc,2)
 quiver(zern,zern,X(:,1),X(:,2),'off')
