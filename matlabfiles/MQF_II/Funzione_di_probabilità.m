@@ -13,7 +13,7 @@ nbins=10;%numero delle colonne
 X_min=min(X); %minimo della variabile aleatoria X
 X_max=max(X); %massimo della variabile aleatoria X
 binc=linspace(X_min,X_max,nbins);%genera "nbins" numeri con valori equidistanti
-[N,xx]=hist(X,nbinc);%visualizza il numero degli elementi e la posizione 
+[N,xx]=hist(X,binc);%visualizza il numero degli elementi e la posizione 
 %del centro di ciascuna colonna
 bar(xx,N);%il grafico a colonne utilizzando le frequenze assolute
 bar(xx,N/sum(N));%il grafico a colonne utilizzando le frequenze relative
