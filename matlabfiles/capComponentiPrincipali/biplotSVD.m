@@ -43,11 +43,10 @@ dx=0.02;
 dy=0.03;
 text(Vgam(:,1)+dx,Vgam(:,2)+dy,varlabs,'Color','b');
 
-axislim=axis;
-% Aggiungo l'asse x
-line([axislim(1);axislim(2)], [0;0], 'Color','black');
-% Aggiungo l'asse y
-line([0;0],[axislim(3);axislim(4)], 'Color','black');
+% Vengono aggiunti gli assi cartesiani
+xline(0)
+yline(0)
+
  % print -depsc figs\biplotA.eps;
 
 %% B. BIPLOT CON CP NON STANDARDIZZATE E AUTOVETTORI
@@ -67,11 +66,9 @@ dx=0.02;
 dy=0.03;
 text(Vgam(:,1)+dx,Vgam(:,2)+dy,varlabs,'Color','b');
 
-axislim=axis;
-% Aggiungo l'asse x
-line([axislim(1);axislim(2)], [0;0], 'Color','black');
-% Aggiungo l'asse y
-line([0;0],[axislim(3);axislim(4)], 'Color','black');
+% Vengono aggiunti gli assi cartesiani
+xline(0)
+yline(0)
 
  % print -depsc figs\biplotB.eps;
 
@@ -99,11 +96,9 @@ dx=0.02;
 dy=0.03;
 text(PuntiColonna(:,1)+dx,PuntiColonna(:,2)+dy,varlabs,'Color','b');
 
-axislim=axis;
-% Aggiungo l'asse x
-line([axislim(1);axislim(2)], [0;0], 'Color','black');
-% Aggiungo l'asse y
-line([0;0],[axislim(3);axislim(4)], 'Color','black');
+% Vengono aggiunti gli assi cartesiani
+xline(0)
+yline(0)
  % print -depsc figs\biplotC.eps;
 
 %% UTILIZZO FUNZIONE MATLAB PCA (non  utilizzata nel testo)
@@ -113,3 +108,8 @@ line([0;0],[axislim(3);axislim(4)], 'Color','black');
 % score = componenti principali non standardizzate
 % latent = autovalori ordinati dal più grande al più piccolo
 [V,score,latent]=pca(Z);
+
+%% UTILIZZO FUNZIONE pcaFS
+clear
+Xtable=readtable('lavatrici.xlsx','ReadRowNames',true,'Sheet','dati');
+pcaFS(Xtable)
