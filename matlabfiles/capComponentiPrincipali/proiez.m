@@ -108,7 +108,7 @@ hold('on')
 
 % Xhat(:,1) Xhat(:,2) coordinate dei punti proiettati lunga la retta
 % principale
-plot(Xhat(:,1) ,Xhat(:,2) ,'o')
+axis equal
 
 % Nel grafico precedente siamo andati a disegnare le rette associate alle
 % proiezioni ortogonali lungo la retta principale
