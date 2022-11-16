@@ -105,6 +105,7 @@ title({'Diagramma di dispersione,' ...
 figure
 plot(X1,X2,'x')
 hold('on')
+plot(Xhat(:,1),Xhat(:,2),'x')
 
 % Xhat(:,1) Xhat(:,2) coordinate dei punti proiettati lunga la retta
 % principale
