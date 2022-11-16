@@ -34,8 +34,8 @@ kurtoscamp = (n-1)/((n-2)*(n-3))*((n+1)*kurtoscamp_parz-3*(n-1))+3;
 % Confronta le quantità calcolate precedentemente con le funzioni già
 % installate in Matlab.
 % Attenzione: Richiede l'installazione del toolbox "Statistics and Machine Learning"
-% dev = std(x, w); flag = 1 (default) == deviazione standard 
-% (imparziale); flag = 0 == deviazione standard (imparziale)
+% dev = std(x, flag); flag = 1 (default) == deviazione standard 
+% (parziale); flag = 0 == deviazione standard (imparziale)
 % skewn = skewness(x, flag); % flag = 1 (default) == l'indice di asimmetria 
 % (parziale); flag = 0 == l'indice di asimmetria (imparziale)     
 % kurtos = kurtosis(x, flag); % flag = 1 (default) == l'indice di curtosi 
