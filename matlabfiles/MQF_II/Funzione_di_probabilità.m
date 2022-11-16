@@ -30,6 +30,6 @@ bar(xx,N/sum(N),'edgecolor', [.25 .25 .25],'facecolor',[1, 0, 0]);%il grafico a 
 xlabel('x', 'FontWeight','bold', 'FontSize',12);
 title('Funzione di Probabilità', 'FontWeight','bold', 'FontSize',12);
 grid on;
-binopdf(1,10,1/2);%fai il confronto tra la probabilià vera e quella trovata
+binopdf(1,10,1/2);%fai il confronto tra la probabilità vera e quella trovata
 %con l'aiuto del grafico a colonne
-binopdf(5,10,1/2);%fai il confronto tra la probabilià vera e quella trovata
+binopdf(5,10,1/2);%fai il confronto tra la probabilità vera e quella trovata
