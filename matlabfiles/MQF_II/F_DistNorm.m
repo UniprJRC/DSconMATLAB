@@ -10,7 +10,7 @@ function [x, medcamp, stdevcamp, stdevcamp_parz, skewncamp, skewncamp_parz, kurt
 % da una distribuzione normale con parametri:
 %           mu     := la media della distribuzione normale
 %           sigma  := deviazione standard della distribuzione normale
-% OUTPUTS:  x      := vettore aleatoria simulato
+% OUTPUTS:  x      := vettore aleatorio simulato
 %           medcamp := media campionaria
 %           stdevcamp  := deviazione standard campionaria (imparziale)
 %           skewncamp  := l'indice di asimmetria campionaria (imparziale)
@@ -27,9 +27,9 @@ stdevcamp = sqrt(sum(x0.^2)/(n-1)); % deviazione standard (imparziale)
 stdevcamp_parz=sqrt((n-1)/n*sum(x0.^2)/(n-1));  % deviazione standard (parziale)
 skewncamp_parz = mean(x0.^3)/stdevcamp_parz^3; % l'indice di asimmetria (parziale)
 skewncamp=sqrt(n*(n-1))/(n-2)*skewncamp_parz; % l'indice di asimmetria (imparziale)
-kurtoscamp_parz = mean(x0.^4)/stdevcamp_parz^4;  % l'indice di curtosi (imparziale)
+kurtoscamp_parz = mean(x0.^4)/stdevcamp_parz^4;  % l'indice di curtosi (parziale)
 kurtoscamp = (n-1)/((n-2)*(n-3))*((n+1)*kurtoscamp_parz-3*(n-1))+3;  
-% l'indice di curtosi (parziale)
+% l'indice di curtosi (imparziale)
 
 % Confronta le quantità calcolate precedentemente con le funzioni già
 % installate in Matlab.
