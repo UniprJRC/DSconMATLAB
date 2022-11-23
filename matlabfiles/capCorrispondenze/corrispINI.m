@@ -56,7 +56,8 @@ c=(sum(N,1)/n)';
 Dr = diag(r);
 Dc = diag(c);
 
-%% Esercizio
+%% Verifica r e c (come medie airtmetiche ponderate)
+
 % Verifico che le masse di  colonna non sono altro che i
 % profili medi di riga e che le masse di riga non sono altro che i profili
 % medi di colonna.
@@ -247,7 +248,15 @@ ContrassolutiC=ColsPri.^2./distJ.^2;
 ContrrelativiC=ContrassolutiC./sum(ContrassolutiC,2);
 disp(ContrrelativiC)
 
+%% Chiamata a CorAna (sezione non presente nel testo)
 
+Lr=["A=Marca commerciale" "B=Marca industriale" "C=indifferente"];
+Lc=["Liguria" "Lombardia" "Piemonte" "Veneto"];
 
+Ntable=array2table(N,"RowNames",Lr,"VariableNames",Lc);
+out=CorAna(Ntable);
 
+CorAnaplot(out)
 
+% Chiamata a moonplot
+moonplot(out)
