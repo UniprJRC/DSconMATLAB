@@ -56,7 +56,7 @@ c=(sum(N,1)/n)';
 Dr = diag(r);
 Dc = diag(c);
 
-%% Verifica r e c (come medie airtmetiche ponderate)
+%% Verifica r e c (come medie aritmetiche ponderate)
 
 % Verifico che le masse di  colonna non sono altro che i
 % profili medi di riga e che le masse di riga non sono altro che i profili
