@@ -28,7 +28,7 @@ sigmaP  = sqrt(X'*V*X);
 
 %% genera 1000 portafogli aleatori
 n_portfolio = 1000;% il numero dei portafogli da generare
-r_p 		= zeros(n_portfolio,1);%p realloca il rendimento atteso dei portafogli 
+r_p 		= zeros(n_portfolio,1);% prealloca il rendimento atteso dei portafogli 
 var_p 	= zeros(n_portfolio,1);% prealloca la varianze dei rendimenti dei portafogli 
 Xp	 		= zeros(2,n_portfolio);% prealloca le quote dei due titoli per ciascun portafogli 
 
