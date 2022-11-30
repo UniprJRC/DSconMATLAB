@@ -10,5 +10,5 @@ A = [ 1, 1;
 b = [2; 2; 3];
 l_b = zeros(length(f),1);
 [x_asterisco,f_value] = quadprog(H,f,A,b,[],[],l_b,[]);
-f_x_asterisco=x_asterisco'*Q*x_asterisco+f*x_asterisco; % minimo della 
+f_x_asterisco=x_asterisco'*Q*x_asterisco+f'*x_asterisco; % minimo della 
 %funzione obiettivo

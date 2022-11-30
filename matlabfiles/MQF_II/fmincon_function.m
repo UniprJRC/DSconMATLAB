@@ -14,5 +14,5 @@ l_b = zeros(length(c),1);
 
 
 [x_asterisco, f_value] = fmincon(fun,[.5 .5]',A,b,[],[],l_b,[]); 
-f_x_asterisco=x_asterisco'*Q*x_asterisco+f*x_asterisco; % minimo della 
+f_x_asterisco=x_asterisco'*Q*x_asterisco+c*x_asterisco; % minimo della 
 %funzione obiettivo
