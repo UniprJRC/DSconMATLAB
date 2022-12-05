@@ -55,7 +55,7 @@ n		= 3;
 [Xmin, fvalmin] = fmincon(@(x) sqrt(x'*V*x), ... % la funzione da minimizzare
                 ones(n,1)/n, ...                 % imposta i valori di ipotesi/partenza
                 [], [], ...                      % nessun vincolo di disuguaglianza
-                ones(1,n), ...     	             % termine A -> vincolo di uguaglianza Aeq*x=beq
+                ones(1,n), ...     	             % termine Aeq -> vincolo di uguaglianza Aeq*x=beq
                 1, ...                           % termine beq -> vincolo di uguaglianza Aeq*x=beq
 				...							     % vincolo : somma(pesi) = 1
                 zeros(n, 1), []);                % limite inferiore sui pesi x               
@@ -69,16 +69,16 @@ mu_i    = linspace(mu_min,max(R),numberp); 			% il valore atteso desiderato
 sigma_i = zeros(numberp,1);                         % prealloca la deviazione standard dei portafogli 
 for i=1:numberp
     %%% per ciascun valore atteso calcola
-    %%% la funzione di covarianza utilizzando fmincon
+    %%% la deviazione standard del portafogli utilizzando la funzione fmincon
     [X, fval] = fmincon(@(x) sqrt(x'*V*x), ... % la funzione da minimizzare
                 ones(n,1)/n, ...               % imposta i valori di ipotesi/partenza
                 [], [], ...                    % nessun vincolo di disuguaglianza
-                [ones(1,n) ; R'], ...     	   % termine A -> vincolo di uguaglianza Ax=b
-                [ 1 ; mu_i(i) ], ...           % termine b -> vincolo di uguaglianza Ax=b
+                [ones(1,n) ; R'], ...     	   % termine Aeq -> vincolo di uguaglianza Aeqx=beq
+                [ 1 ; mu_i(i) ], ...           % termine beq -> vincolo di uguaglianza Aeqx=beq
 				...							   % primo vincolo : somma(pesi) = 1
 				...							   % secondo vincolo : valore atteso portafogli = mu_i
                 zeros(n, 1), []);              % limite inferiore sui pesi x              
-    sigma_i(i) = fval;                         % memorizzando la deviazione standard corrispondente
+    sigma_i(i) = fval;                         % memorizza la deviazione standard corrispondente
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
