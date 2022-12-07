@@ -2,7 +2,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% GENERA LA FRONTIERA EFFICIENTE NEL CASO DI DI DUE TITOLI
-%%% RISCHIOSI E DUE TITOLI RISCHIOSI E UNO NON RISCHIOSI
+%%% RISCHIOSI E UNO NON RISCHIOSO
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Input necessari per il modello media-varianza
@@ -83,3 +83,14 @@ scatter(fval_tangency,mu_tangency,50, 'k', 'filled')% plotta il portafogli di ta
 legend('Portafogli Aleatori con titoli rischiosi e il titolo risk-free','Portafogli Aleatori con solo titoli rischiosi', 'Portafogli di Tangenza', 'Location','northwest')
 % aggiungi legenda
 hold off;% interrompe la sovrapposizione di grafici
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Nota che per plottare la frontiera efficiente con i titoli rischiosi e quello 
+%%%%% non rischioso si potrebbe alternativamente utilizzare l'equazione di
+%%%%% una retta. 
+%%%%% Esempio: 
+%%%%% dev_new=linspace(0,fval_tangency+0.1, 50);
+%%%%% line_n=rf-fval*(dev_new);
+%%%%% plot(dev_new,line_n)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
