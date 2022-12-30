@@ -31,7 +31,7 @@ rng(20)
 n=200;
 % Valori x generati da U(-20,80)
 x=unifrnd(-20,80,n,1);
-a=2; %intecetta della vera retta
+a=2; %intercetta della vera retta
 b=15; % pendenza della vera retta
 sig=100;
 % ai punti della retta viene aggiunto un disturbo

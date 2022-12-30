@@ -51,13 +51,13 @@ disp(sum(sum(Ismis,2)>0))
 [n,p]=size(X);
 % nummiss1 = numero di valori mancanti per ogni colonna
 nummiss1=zeros(p,1);
-% mea= medie omettendo i missing values
+% meas= medie omettendo i missing values
 meas=nummiss1;
 % sigmas = deviazioni standard omettendo i missing values
 sigmas=meas;
 % Outsup  = outliers superiori
 Outsup=meas;
-% Outinf =outliers inferiori
+% Outinf = outliers inferiori
 Outinf=meas;
 % ciclo for sulle colonne della table X per estrarre le informazioni richieste
 for j=1:p
