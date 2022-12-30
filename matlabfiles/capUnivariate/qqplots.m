@@ -7,7 +7,7 @@ n=10000;
 % xnorm= dati generati da un N con media 5678
 % e sigma 1234
 xnorm=randn(n,1)*1234+5678;
-% nu = gradi di libetà
+% nu = gradi di libertà
 nu=5;
 % xstudentt dati generati da T(5)
 xstudentt=trnd(nu,n,1);

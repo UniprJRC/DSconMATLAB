@@ -35,7 +35,7 @@ boo=strcmp(X.Gender,'M');
 % booleano era
 % boo=categorical(X.Gender)=="M";
 
-% quan= quantili richiesi
+% quan= quantili richiesti
 quan=0.1:0.05:0.9;
 % Calcolo i quantili separatamente per M e F
 qM=quantile(X.Wage(boo),quan);

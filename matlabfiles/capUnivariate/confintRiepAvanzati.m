@@ -56,6 +56,28 @@ disp(Xtab(:,1:6))
 bar(categorical(Xtab.Properties.RowNames),Xtab.mean_Wage)
 % print -depsc barreFMABC.eps;
 
+%% Calcolo statistiche di interesse (con nomi più evocativi)
+% PARTE NON NEL LIBRO 
+% groupingVARS = cell che contiene le variabili classificatorie
+groupingVARS={'Gender', 'Education'}; 
+% groupingVARS poteva essere definita anche come
+% array of strings come segue
+% groupingVARS=["Gender", "Education"];
+% statDiInteresse sono le statistiche di interesse che devono essere
+% calcolate
+statDiInteresse=["mean" "std" "meanci"];
+% varDiInteresse = nomi delle variabili su cui devono essere calcolate
+% le statistiche di interesse.
+varDiInteresse=["Wage" "Seniority"];
+Xtab=grpstats(X,groupingVARS,statDiInteresse, ...
+    "DataVars",varDiInteresse,'Alpha',conflevc);
+
+
+disp(Xtab(:,1:6))
+% Grafico a barre
+bar(categorical(Xtab.Properties.RowNames),Xtab.mean_Wage)
+% print -depsc barreFMABC.eps;
+
 
 %% Da Xtab ottengo la tabella che mi interessa
 
@@ -97,6 +119,7 @@ tabPivotCHK=unstack(X,'Wage',varDaEspandere, ...
 tabPivotCHK.Properties.RowNames=tabPivotCHK{:,1};
 tabPivotCHK=tabPivotCHK(:,2:end);
 
+
 %% Boxplot per sesso e titolo di studio
 close all
 % Calcolo del boxplot per ogni combinazione di sesso e titolo di studio
@@ -108,21 +131,14 @@ SesTit=string(X.Gender)+string(X.Education);
 % alfabetico
 SesTitc=categorical(SesTit,unique(SesTit));
 boxplot(X.Wage,SesTitc);
-
+ylabel('Retribuzione')
 % print -depsc boxplotFMABC.eps;
 
-%% Parte non inserita nel libro
-% Obiettivo: modo alternativo tramite la chiamata a boxchart per costruire
-% il boxplot distinto per maschi e femmine per ogni livello di titolo di
-% studio.
-% Il primo argomento di boxchart deve essere una variabile categorica
-% Con l'istruzione categorical(X.Gender) andiamo a specificare che vogliamo
-% il boxplot per ogni modalità della variabile X.Gender
-% Con l'opzione GroupByColor andiamo a specificare che per ogni modalità di
-% X.gender dobbiamo costruire un boxplot separato per ogni livello di
-% Education. Da notare che X.Education non necessariamente deve essere
-% definita come categorica
+%% Boxplot per sesso e titolo di studio (parte non inserita nel libro)
+
 boxchart(categorical(X.Gender),X.Wage,'GroupByColor',X.Education);
+ylabel('Retribuzione')
 % Aggiunta della legenda al grafico
 legend
+% print -depsc boxchartFMABC.eps;
 

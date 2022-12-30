@@ -4,14 +4,14 @@ Xt=readtable(miofile,"ReadRowNames",true);
 
 %% Impostazione tipologia delle varibili
 
-% Definisco la variabili Gender come qualitativa nominale (categorical
+% Definisco la variabile Gender come qualitativa nominale (categorical
 % senza ordine tra le modalità)
 Xt.Gender = categorical(Xt.Gender);
-% Definisco la variabili Education come qualitativa ordinale (categorical
+% Definisco la variabile Education come qualitativa ordinale (categorical
 % con ordine tra le modalità A<B<C)
 % Per ulteriori informazioni su questa operazione consultare
 % https://it.mathworks.com/help/matlab/matlab_prog/convert-table-variables-containing-strings-to-categorical.html
-Xt.Education=categorical(Xt.Education,{'A','B','C'},'Ordinal',true');
+Xt.Education=categorical(Xt.Education,{'A','B','C'},'Ordinal',true);
 summary(Xt)
 
 %% Distribuzioni di frequenze (variabili categoriche)

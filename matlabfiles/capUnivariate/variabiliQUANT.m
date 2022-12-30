@@ -59,7 +59,7 @@ disp(skT)
 Z=zscore(Xd); % Z = matrice degli scostamenti standardizzati
 skCHK=(n/((n-1)*(n-2)))*sum(Z.^3,1);
 assert(max(abs(sk-skCHK)<tol),"Implementazione" + ...
-    "errata dedli indici di asimmetria ")
+    "errata degli indici di asimmetria ")
 
 % Calcolo degli indici di curtosi
 disp('Indici di curtosi (calcolati tramite la funzione kurtosis)')
@@ -73,7 +73,7 @@ disp(kurT)
 kurCHK=((n+1)*n)/((n-1)*(n-2)*(n-3))*sum(Z.^4,1) ...
     -3*(n-1)^2/((n-2)*(n-3))+3;
 assert(max(abs(kur-kurCHK)<tol),"Implementazione" + ...
-    "errata dedli indici di curtosi ")
+    "errata degli indici di curtosi ")
 
 %% Grafico a istogramma variabile quantitativa
 % Di seguito vengono elencati svariati modi in cui può essere chiamata la
