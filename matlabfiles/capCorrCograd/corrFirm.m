@@ -4,7 +4,7 @@ X=Xtable{:,nomiq};
 % n= numerosità del campione
 % p= numero di variabili
 [n,p]=size(X);
-% Matrice di correlazione e relativi p-values nel secodo argomento di
+% Matrice di correlazione e relativi p-values nel secondo argomento di
 % output della funzione corr
 [R,Pval]=corr(X);
 

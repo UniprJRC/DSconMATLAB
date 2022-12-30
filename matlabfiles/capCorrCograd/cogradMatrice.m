@@ -3,8 +3,8 @@ Xtable=readtable("Firm.xlsx","ReadRowNames",true);
 nomiq=["Wage" "CommutingTime" "SmartWorkHours" "Seniority" ];
 X=Xtable{:,nomiq};
 
-% Matrice di cograduazione di Spearman e relativi p-values nel secodo argomento di
-% output della funzione corr
+% Matrice di cograduazione di Spearman e relativi p-values nel secondo
+% argomento di output della funzione corr
 [Rho,Pvalrho]=corr(X,'type','Spearman');
 Rhot=array2table(Rho,"RowNames",nomiq,"VariableNames",nomiq);
 

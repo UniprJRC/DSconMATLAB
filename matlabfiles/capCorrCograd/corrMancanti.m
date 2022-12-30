@@ -1,6 +1,6 @@
 Xtable=readtable('tagliatelle.xlsx','Sheet','Dati','Range','A1:C41');
 X=Xtable{:,:};
-% Criterio listwise'
+% Criterio listwise
 [~,pvalRhoList]=corr(X,'type','Spearman','rows','complete');
 % Criterio pairwise
 [~,pvalRhoPair]=corr(X,'type','Spearman','rows','pairwise');

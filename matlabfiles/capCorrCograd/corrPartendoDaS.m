@@ -3,7 +3,7 @@
 Xtable=readtable("Firm.xlsx","ReadRowNames",true);
 nomiq=["Wage" "CommutingTime" "SmartWorkHours" "Seniority" ];
 X=Xtable{:,nomiq};
-% Xtilde = matrice degli scostamenti dalla media;
+% Xtilde = matrice degli scostamenti dalla media
 Xtilde=X-mean(X);
 % Z= matrice degli scostamenti standardizzati
 Z=Xtilde./std(X);

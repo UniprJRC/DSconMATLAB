@@ -3,7 +3,7 @@
 x=(1:6)';
 y=2+3*x;
 % Modifichiamo la coordinata di un punto in modo da distruggere
-% la relazione lineare ma mantenere la pefetta cograduazione.
+% la relazione lineare ma mantenere la perfetta cograduazione.
 y(1)=1;
 scatter(x,y)
 xlabel('asse x')
