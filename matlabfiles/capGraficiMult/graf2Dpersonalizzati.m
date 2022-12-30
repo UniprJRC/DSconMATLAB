@@ -30,7 +30,7 @@ ylabel('Intensità della luce')
 close all
 load fisheriris
 labels = {'Lunghezza sepali','Ampiezza dei sepali',...
-    'Lunghezza dei petali','Ampiezza dei sepali'};
+    'Lunghezza dei petali','Ampiezza dei petali'};
 i=2;
 j=3;
 scatterhistogram(meas(:,i),meas(:,j),'GroupData',species,'LineWidth',1.2)
