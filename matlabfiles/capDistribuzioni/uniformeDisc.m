@@ -40,4 +40,5 @@ in=num2str(imax);
 titolo=['Grafico a barre di ' num2str(n) ' numeri casuali '];
 sottotitolo=['generati da una distribuzione uniforme discreta definita nell''insieme (' i1 ',' i2 ', ...,' in ')'];
 title(titolo,sottotitolo)
+% print -depsc figs\uniformeDisc.eps;
 

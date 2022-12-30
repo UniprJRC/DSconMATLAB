@@ -27,7 +27,7 @@ ylabel(['Pr(5<X<6)=' num2str(prob56)])
 
 %%  Rappresentazione grafica Pr 5<X<6
 
-% Calcolo della densità tramita la funzione normpdf
+% Calcolo della densità tramite la funzione normpdf
 x=(-9:0.0001:9)';
 ypdf=normpdf(x,media,sigma);
 plot(x,ypdf);
@@ -53,8 +53,7 @@ ylabel(['Pr(5<X<6)=' num2str(prob56)])
 disp('Quantile 0.975 in N(3,4)')
 disp(norminv(0.975,media,sigma))
 
-
-% quantili nella N(0,1)
+% quan = vettore che contiene le probabilità associate ai quantili richiesti
 quant=[0.005, 0.025, 0.975 0.995];
 nomiquant="z"+quant;
 xz=norminv(quant);

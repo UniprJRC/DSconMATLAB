@@ -11,7 +11,7 @@ disp(prob56)
 
 %% Visualizzazione grafica della prob. calcolata
 
-% Calcolo della densità tramita la funzione unifpdf
+% Calcolo della densità tramite la funzione unifpdf
 x=(-a-1:0.0001:b+1)';
 ypdf=unifpdf(x,a,b);
 plot(x,ypdf,'LineWidth',2);

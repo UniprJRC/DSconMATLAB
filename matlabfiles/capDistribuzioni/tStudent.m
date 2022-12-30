@@ -2,7 +2,7 @@
 nu=20;
 % la probabilità di ottenere un valore in modulo superiore a 2.7
 disp('--------------')
-disp('|P(T(20)|>2.7')
+disp('P(|T(20)|>2.7)')
 disp(2*tcdf(2.7,nu,'upper'))
 
 
