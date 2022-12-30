@@ -78,7 +78,7 @@ legend("Punti dentro l'ellisse di confidenza", ...
 xcoo=[min(X(:,1))-20; max(X(:,1))+20];
 ycoo=a+b*xcoo;
 % La funzione intersect effettua l'intersezione tra due poligoni
-% Il secondo argomento argomento di input di intersect è una matrice a due
+% Il secondo argomento di input di intersect è una matrice a due
 % colonne che definisce le coordinate  della retta (bastano due righe)
 [Pointsin,Pointsout]=intersect(ellp,[xcoo ycoo]);
 
