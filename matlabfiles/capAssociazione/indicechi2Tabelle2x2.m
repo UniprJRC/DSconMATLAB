@@ -17,14 +17,15 @@ for i=1:2
 end
 
 %% Calcolo p-value della statistica di Pearson
-% La statistica di Pearson si distriuisce come una v.c. Chi2 con (I-1)(J-1)
-% gradi di libertà. In questo esempio dato che I = J = 2;
+% La statistica di Pearson si distribuisce come una v.c. Chi2 con
+% (I-1)(J-1) gradi di libertà. In questo esempio dato che I = J = 2,
+% i gradi di libertà sono uguali ad uno.
 gdl=1;
 pval=1-chi2cdf(Chi2,gdl);
 disp(['Il pvalue del test è: ' num2str(pval)])
 % Si fissa l'errore di prima specie
 alpha=0.001;
-% valorecrititco = quantile che lascia alla sua destra una prob di 0.001 in
+% valorecritico = quantile che lascia alla sua destra una prob di 0.001 in
 % una v.c. chi2 con 1 grado di libertà
 valorecritico= chi2inv(1-alpha,gdl);
 
