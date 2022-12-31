@@ -35,51 +35,41 @@ conflevc=0.01;
 Ttable=array2table(Tabled,'Rownames',labels(1:r,1),'VariableNames',labels(1:c,2));
 disp(Ttable)
 
-%% Calcolo statistiche di interesse
-% groupstats = cell che contiene le variabili classificatorie
-groupstats={'Gender', 'Education'}; % groupvars
-% groupstats poteva essere definita anche come
-% array of strings come segue
-% groupstats=["Gender", "Education"];
+%% Calcolo statistiche di interesse per l'intero campione
+
+% In questa prima parte calcolo le statistiche di interesse
+% (media, standard deviation e intervallo di confidenza)
+% per l'intero campione (senza di distinzione di Gender oppure di
+% Education)
 % statDiInteresse sono le statistiche di interesse che devono essere
 % calcolate
 statDiInteresse=["mean" "std" "meanci"];
-% vars = nomi delle variabili su cui devono essere calcolate
-% le statistiche di interesse.
-vars=["Wage" "Seniority"];
-Xtab=grpstats(X,groupstats,statDiInteresse, ...
-    "DataVars",vars,'Alpha',conflevc);
+
+% varDiInteresse = nomi delle variabili su cui devono essere calcolate
+% le statistiche di interesse (terzo argomento di input di grpstats).
+varDiInteresse=["Wage" "Seniority"];
+
+XtabComplessiva=grpstats(X,[],statDiInteresse, ...
+    "DataVars",varDiInteresse,'Alpha',conflevc);
+disp(XtabComplessiva(:,1:7))
 
 
-disp(Xtab(:,1:6))
-% Grafico a barre
-bar(categorical(Xtab.Properties.RowNames),Xtab.mean_Wage)
-% print -depsc barreFMABC.eps;
-
-%% Calcolo statistiche di interesse (con nomi più evocativi)
-% PARTE NON NEL LIBRO 
+%% Calcolo statistiche di interesse per i sottogruppi richiesti
 % groupingVARS = cell che contiene le variabili classificatorie
 groupingVARS={'Gender', 'Education'}; 
 % groupingVARS poteva essere definita anche come
 % array of strings come segue
 % groupingVARS=["Gender", "Education"];
-% statDiInteresse sono le statistiche di interesse che devono essere
-% calcolate
-statDiInteresse=["mean" "std" "meanci"];
-% varDiInteresse = nomi delle variabili su cui devono essere calcolate
-% le statistiche di interesse.
-varDiInteresse=["Wage" "Seniority"];
+
 Xtab=grpstats(X,groupingVARS,statDiInteresse, ...
     "DataVars",varDiInteresse,'Alpha',conflevc);
-
-
 disp(Xtab(:,1:6))
 % Grafico a barre
 bar(categorical(Xtab.Properties.RowNames),Xtab.mean_Wage)
 % print -depsc barreFMABC.eps;
 
 
-%% Da Xtab ottengo la tabella che mi interessa
+%% Da Xtab ottengo la tabella che mi interessa tramite funzione unstack
 
 % Creazione tabella pivot tra Wage e Education,
 % all'interno di ogni cella il salario medio
@@ -87,38 +77,31 @@ bar(categorical(Xtab.Properties.RowNames),Xtab.mean_Wage)
 % varDaEspandere è la variabile le cui modalità devono essere inserite
 % nelle colonne della tabella
 varDaEspandere='Education'; % terzo argomento di input di unstack
-% varSulleRighe è la variabile di raggruppamento da inserire 
-% nelle righe della tabella
-varSulleRighe='Gender';
 % varInternoTabella = i numeri che devono essere inseriti
 % all'interno della tabella
 varInternoTabella="mean_Wage"; % secondo argomento di input di unstack
+% varSulleRighe è la variabile di raggruppamento da inserire 
+% nelle righe della tabella. 
+varSulleRighe='Gender';
 tabPivot=unstack(Xtab,varInternoTabella,varDaEspandere, ...
     'GroupingVariables',varSulleRighe);
 % disp(tabPivot)
-tabPivot.Properties.RowNames=string(tabPivot{:,1}); %% Oss. istruzione string non necessaria
+tabPivot.Properties.RowNames=tabPivot{:,1}; 
 tabPivot=tabPivot(:,2:end);
 disp("Tabella pivot tra Sesso e Education")
 disp("All'interno di ogni cella c'è la retr. media")
 disp(tabPivot)
 
-%% Modo alternativo per costruire la tabella pivot
-% Con questo metodo si parte direttamente dalla table di
-% partenza X
-% Il secondo argomento di input di unstack è la variabile da 
-% inserire dentro la tabella.
+%% Modo alternativo per costruire la tabella pivot (partendo da X)
+
 % funz = funzione da applicare alla variabile dentro la tabella
 % se invece della media avessi voluto il conteggio funz=@numel;
 % numel sta per number of elements
 funz=@mean; 
 tabPivotCHK=unstack(X,'Wage',varDaEspandere, ...
     'AggregationFunction',funz,"GroupingVariables",varSulleRighe);
-% Osservazione: nel testo c'è l'istruzione string(tabPivot{:,1}), tuttavia
-% la funzione string non è necessaria in quanto tabPivotCHK{:,1} contiene
-% un cell array of characters
 tabPivotCHK.Properties.RowNames=tabPivotCHK{:,1};
 tabPivotCHK=tabPivotCHK(:,2:end);
-
 
 %% Boxplot per sesso e titolo di studio
 close all
