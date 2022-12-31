@@ -35,7 +35,23 @@ conflevc=0.01;
 Ttable=array2table(Tabled,'Rownames',labels(1:r,1),'VariableNames',labels(1:c,2));
 disp(Ttable)
 
-%% Calcolo statistiche di interesse
+%% Calcolo statistiche di interesse (NON NEL LIBRO)
+
+% In questa prima parte calcolo le statistiche di interesse
+% (media, standard deviation e intervallo di confidenza)
+% per l'intero campione (senza di distinzione di Gender oppure di
+% Education)
+% statDiInteresse sono le statistiche di interesse che devono essere
+% calcolate
+statDiInteresse=["mean" "std" "meanci"];
+% vars = nomi delle variabili su cui devono essere calcolate
+% le statistiche di interesse.
+vars=["Wage" "Seniority"];
+XtabComplessiva=grpstats(X,[],statDiInteresse, ...
+    "DataVars",vars,'Alpha',conflevc);
+disp(XtabComplessiva(:,1:7))
+
+%% Calcolo statistiche di interesse per ogni valore di Gender e Education
 % groupstats = cell che contiene le variabili classificatorie
 groupstats={'Gender', 'Education'}; % groupvars
 % groupstats poteva essere definita anche come

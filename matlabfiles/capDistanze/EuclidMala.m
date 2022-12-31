@@ -6,7 +6,7 @@ mu=[2;3];
 covarianza=0.93;
 R= [1.2 covarianza;covarianza 0.95];
 % Genero i dati utilizzando la distribuzione normale bivariata
-% con i valoro di mu e Sigma specificati 
+% con i valori di mu e Sigma specificati 
 X = mvnrnd(mu,R,n);
 
 %% Calcolo della distanza Euclidea e di Mahalanobis dal centroide

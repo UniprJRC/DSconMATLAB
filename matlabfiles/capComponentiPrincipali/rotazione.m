@@ -42,7 +42,18 @@ axis equal
 Ell= ellipse(meaX,S,1);
 % print -depsc figs\rotazione1.eps;
 
+
+% Tutte le variabili generate dal codice di cui sopra
+% sono presenti nel file mat denominato
+% workspacePreliminareEllisse.mat
+clear
+
+
 %% Calcolo in maniera numerica lunghezza semisse
+
+% Carico workspace con le variabili necessarie
+load workspacePreliminareEllisse
+
 % Trasformo le coordinate dell'ellisse in un poligono
 ellp=polyshape(Ell);
 

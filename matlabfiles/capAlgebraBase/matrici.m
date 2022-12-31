@@ -30,8 +30,8 @@ A=eye(4,6);
 p=5;
 id=zeros(p,p);
 for i=1:p
-    for j=1:p
-        if i==j
+    for k=1:p
+        if i==k
             id(i,i)=1;
         end
     end
@@ -69,8 +69,8 @@ assert(maxdiff,"Errore di programmazione nella verifica ..." + ...
 
 %% Matrici ortogonali
 n=5;
-for j=1:6
-    A = gallery('orthog',n,j);
+for k=1:6
+    A = gallery('orthog',n,k);
     % Verifico l'ortogonalità di A per ogni valore di k
     maxdiff=max(abs(A'*A-eye(n)),[],'all');
     assert(maxdiff<1e-12,"Errore di programmazione nella verifica " + ...
