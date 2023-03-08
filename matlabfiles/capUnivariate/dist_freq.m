@@ -120,4 +120,4 @@ disp(stringa)
 disp(classe_appartenza(1:5))
 % viene creata la distribuzione di frequenza richiesta
 disp('Distribuzione di frequenza assoluta e percentuale')
-tabulate(indici_classi);
+tabulate(classe_appartenza);
