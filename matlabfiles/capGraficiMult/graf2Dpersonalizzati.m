@@ -1,5 +1,5 @@
 
-%% Diagramma di dispersione pernalizzato
+%% Diagramma di dispersione personalizzato
 load stars.mat
 X=stars{:,:};
 plot(X(:,1),X(:,2),'o','Marker','p','MarkerEdgeColor','r', ...
