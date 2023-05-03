@@ -1,3 +1,6 @@
+miofile="Firm.xlsx"; % Caricamento file Firm.xlsx dentro MATLAB 
+X=readtable(miofile,"ReadRowNames",true);
+
 %% Costruzione tablle pivot tramite la funzion pivot (SOLO MATLAB 2023A)
 
 % Variabile Gender sulle righe (nessuna variabile sulle colonne)
