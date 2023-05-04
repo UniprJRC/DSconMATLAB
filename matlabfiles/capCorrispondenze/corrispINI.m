@@ -225,7 +225,8 @@ disp(ColsPri(:,1).^2.*c/(Gam(1,1)^2))
 % sum(ColsPri(:,1).^2.*c) è la varianza ponderata della 
 % prima dimensione (primo autovalore =Gam(1,1)^2)
 
-% Contributi delle diverse colonne alla determinazione del secondo autov
+% Contributi delle diverse colonne alla determinazione del secondo
+% autovalore
 disp("Contributi delle diverse righe alla spiegazione del secondo autov.")
 disp(ColsPri(:,2).^2.*c/(Gam(2,2)^2))
 % Osservazione: la quantità
