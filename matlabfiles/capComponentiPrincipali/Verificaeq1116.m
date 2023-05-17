@@ -3,11 +3,11 @@
 rng(10)
 n=50;
 p1=3;
-X=[randn(n,p1) ones(n,5)];
+X=[randn(n,p1) ones(n,7)];
 p=size(X,2);
 r=rank(X);
-disp(["Dimensioni X" string(n) "x" string(p)])
-disp(["Rango della matrice X=" string(r)])
+disp(['Dimensioni X: ' num2str(n) 'x' num2str(p)])
+disp(['Rango della matrice X=' num2str(r)])
 % w = vettore dei pesi
 w=rand(n,1);
 % meX = vettore 1xp che contiene le medie pesate
@@ -28,14 +28,15 @@ for i=1:n
     xitilde=Xtilde(i,:)';
     totsum=totsum+w(i)*xitilde'*Dcminus1*xitilde;
 end
+disp(['\sum Dist Mahalanobis^2 w_i=' num2str(totsum)])
 % Z = matrice degli scostamenti standardizzati ponderati
 Z=Dr^(1/2)*Xtilde*Dc^(-1/2);
-disp(["tr(Z'Z)=" string(trace(Z'*Z))]);
-disp(["sum z_ij^2 "  string(sum(Z.^2,'all'))])
+disp(['tr(Z''Z)=' num2str(trace(Z'*Z))]);
+disp(['sum_ij z_ij^2='  num2str(sum(Z.^2,'all'))])
 % svd di Z
 [U,Gamma,V]=svd(Z,'econ');
 % somma dei qudarati dei valori singolari
-% La matrice Gamma ha 4 valori singolari uguali a 0
-sumgamsquared=sum(Gamma.^2,'all');
-disp(["sum \gam_i^2=" sumgamsquared])
-disp(["r*sum(w)=" string(p*sum(w))])
+% La matrice Gamma ha solo 4 valori singolari diversi da 0
+sumgamsquared=sum(diag(Gamma(1:r,1:r)^2));
+disp(['sum_l gamma_l^2=' num2str(sumgamsquared)])
+disp(['p*sum(w)=' num2str(p*sum(w))])
