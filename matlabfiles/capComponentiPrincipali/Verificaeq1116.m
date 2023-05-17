@@ -1,9 +1,8 @@
 %% Verifica equazione 11.16
-% Per replicabilità dei risultati utilizzare rng(10).
 rng(10)
 n=50;
-p1=3;
-X=[randn(n,p1) ones(n,7)];
+% Genero una matrice di rango 4
+X=[randn(n,3) ones(n,7)];
 p=size(X,2);
 r=rank(X);
 disp(['Dimensioni X: ' num2str(n) 'x' num2str(p)])
