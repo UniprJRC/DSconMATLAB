@@ -30,7 +30,7 @@ alpha=0.001;
 valorecritico= chi2inv(1-alpha,gdl);
 
 if Chi2>valorecritico
-    disp('Ipotesi nulla di assenza di relazione tra X è Y rifiutata')
+    disp('Ipotesi nulla di assenza di relazione tra X e Y è rifiutata')
 else
-    disp('Ipotesi nulla di assenza di relazione tra X è Y accettata')
+    disp('Ipotesi nulla di assenza di relazione tra X e Y è accettata')
 end
