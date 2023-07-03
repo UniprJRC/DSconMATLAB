@@ -4,45 +4,51 @@ Xt=readtable(miofile,"ReadRowNames",true);
 Xt.Gender = categorical(Xt.Gender);
 Xt.Education=categorical(Xt.Education,{'A','B','C'},'Ordinal',true');
 
-% Estrazione delle variabili quantitative nell'array Xd
+% Estrazione delle variabili quantitative nell'array Xd e nella table Xtq
 % Osservazione: Xd contiene solo i numeri (matrice 107x4 di doubles)
+% Xtq è la table (107x4) riferita solo alle variabile quantitative
 nomiq=["Wage" "CommutingTime" "SmartWorkHours" "Seniority" ];
-Xd=Xt{:,nomiq};
+Xdq=Xt{:,nomiq};
+Xtq=Xt(:,nomiq);
 
 % Formattazione della visualizzazione dei numeri
 % con solo due cifre decimali
 format bank
 
-%% Calcolo delle medie campionarie
-disp('Medie campionarie')
-medie=mean(Xd);
+%% Calcolo delle medie campionarie (convertendo in array)
+disp('Medie campionarie (convertendo prima in array)')
+medie=mean(Xdq);
 medieT=array2table(medie,"VariableNames",nomiq);
 disp(medieT)
 
+%% Calcolo delle medie campionarie (applicando mean alla table)
+medieCHK=mean(Xtq);
+disp('Medie campionarie (funzione mean applicata alla table Xt)')
+disp(medieCHK)
+
 %% Calcolo delle mediane campionarie
-disp('Mediane campionarie')
-mediane=median(Xd);
-medianeT=array2table(mediane,"VariableNames",nomiq);
-disp(medianeT)
+disp('Mediane campionarie (median applicata direttamente alla table)')
+mediane=median(Xtq);
+disp(mediane)
 
 
 %% Calcolo degli scostamenti quadratici medi corretti
-scorr=std(Xd);
+% scorr= standard deviations in formato table
+scorr=std(Xtq);
 
 % n= numerosità del campione
-n=size(Xd,1);
+n=size(Xdq,1);
 
-% Implementazione manuale di scorr
-scorrCHK=sqrt(sum((Xd-medie).^2)/(n-1));
+% Implementazione manuale di scorr (scorrCHK è un array di dati numerici)
+scorrCHK=sqrt(sum((Xdq-medie).^2)/(n-1));
 
 tol=1e-12;
-assert(max(abs(scorr-scorrCHK)<tol),"Implementazione" + ...
+assert(max(abs(scorr{:,:}-scorrCHK)<tol),"Implementazione" + ...
     "errata di scorr ")
 
 disp('Coefficienti di variazione (CV)')
-cv=scorr./abs(medie);
-cvT=array2table(cv,"VariableNames",nomiq);
-disp(cvT)
+cvt=scorr./abs(medie);
+disp(cvt)
 
 
 %% Indici di asimmetria e curtosi
@@ -51,12 +57,12 @@ disp(cvT)
 disp('Indici di asimmetria (calcolati tramite la formula skewness)')
 % Il secondo argomento di skewness consente di specificare che
 % vogliamo la versione corretta (non distorta) dell'indice
-sk=skewness(Xd,0);
+sk=skewness(Xdq,0);
 skT=array2table(sk,"VariableNames",nomiq);
 disp(skT)
 
 % Indici di skewness calcolati manualmente
-Z=zscore(Xd); % Z = matrice degli scostamenti standardizzati
+Z=zscore(Xdq); % Z = matrice degli scostamenti standardizzati
 skCHK=(n/((n-1)*(n-2)))*sum(Z.^3,1);
 assert(max(abs(sk-skCHK)<tol),"Implementazione" + ...
     "errata degli indici di asimmetria ")
@@ -65,7 +71,7 @@ assert(max(abs(sk-skCHK)<tol),"Implementazione" + ...
 disp('Indici di curtosi (calcolati tramite la funzione kurtosis)')
 % Il secondo argomento di kurtosis consente di specificare che
 % vogliamo la versione corretta (non distorta) dell'indice
-kur=kurtosis(Xd,0);
+kur=kurtosis(Xdq,0);
 kurT=array2table(kur,"VariableNames",nomiq);
 disp(kurT)
 
