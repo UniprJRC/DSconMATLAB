@@ -109,7 +109,7 @@ end
 assert(isequal(Freq,FreqCHK1),"frequenze tramite ciclo for diverse" + ...
     "dalle frequenze ottenute tramite doppio ciclo for");
 
-%% Soluzione tramite chiamata alla funzione discretize (modo non inserito nel testo)
+%% Soluzione tramite chiamata alla funzione discretize
 clc
 rownam={'<=-2' '(- 2  0]' '(0  1.5]' '>1.5'};
 classi=[-Inf;-2; 0; 1.5; Inf];
