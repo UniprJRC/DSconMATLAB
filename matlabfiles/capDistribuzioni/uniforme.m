@@ -12,7 +12,10 @@ disp(prob56)
 %% Visualizzazione grafica della prob. calcolata
 
 % Calcolo della densità tramite la funzione unifpdf
-x=(-a-1:0.0001:b+1)';
+% Per rappresentare la densità scelgo in maniera soggettiva un intervallo x
+% che parte da a-1 e arriva fino a b+1. Similmente, anche il passo della
+% sequenza utilizzato (in questo caso 0.0001) è soggettivo.
+x=(a-1:0.0001:b+1)';
 ypdf=unifpdf(x,a,b);
 plot(x,ypdf,'LineWidth',2);
 ylim([0 0.25])
@@ -31,6 +34,10 @@ fill(x(aa:bb),[0;ypdf(aa+1:bb-1);0],'g')
 ylabel(['Pr(5<X<6)=' num2str(prob56)])
 % print -depsc figs\uniffill.eps;
 
+%% Visualizzazione grafica tramite la chiamata a distribspec
+pd=makedist('Uniform','Lower',a,'Upper',b);
+distribspec(pd, [5 6], 'inside');
+% print -depsc figs\uniffill1.eps;
 
 %% Quantili
 
