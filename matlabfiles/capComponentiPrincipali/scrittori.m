@@ -7,3 +7,4 @@ out=pcaFS(Xtable)
 % print -depsc scriexp.eps;
 % print -depsc scribip.eps;
 % print -depsc scribip1.eps;
+% print -depsc scrioutliermap.eps;
