@@ -9,11 +9,15 @@ set(gca,'XDir','reverse')
 xlabel('Temperatura della superficie')
 ylabel('Intensità della luce')
 title('Diagramma Hertzsprung-Russell')
-
 % print -depsc diagrammaHR.eps;
 
+%% Aggiunta delle regioni verticali 
+% xregion([3.45; 4.6],[3.6; 4.7])
+% oppure
+xregion([3.45 4.6; 3.6 4.7])
 
 
+% print -depsc diagrammaHRxregion.eps;
 %% scatter con boxplot ai margini
 close all
 load stars.mat
