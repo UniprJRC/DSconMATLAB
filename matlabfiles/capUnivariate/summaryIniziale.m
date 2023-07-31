@@ -1,7 +1,7 @@
 %% Caricamento dati
 miofile="Firm.xlsx";
 Xt=readtable(miofile,"ReadRowNames",true);
-
+ 
 %% Impostazione tipologia delle varibili
 
 % Definisco la variabile Gender come qualitativa nominale (categorical
