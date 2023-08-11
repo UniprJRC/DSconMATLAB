@@ -1,37 +1,64 @@
-% Stima del modello Trend+Stagionalità+Irregolare per la serie Airline (Box  e Jenkins)
-air    = load('Data_Airline.mat');
-vy     = log(air.Data); 
-cn     = length(vy);
-vdate  = datetime(air.dates, "ConvertFrom", "datenum")
-figure("Name","Serie");
-subplot(2,1,1); plot(vdate, air.Data); title('Serie Airline');
-subplot(2,1,2); plot(vdate, vy);       title('Trasformazione logaritmicaLogarithmic transformation'); 
+% Stima del modello Trend+Stagionalità+Irregolare per la serie Airline
+%% Caricamento dati e grafico
+air   = load('Data_Airline.mat');
+y     = log(air.Data);
+vdate  = datetime(air.dates, "ConvertFrom", "datenum");
+subplot(2,1,1);
+plot(vdate, air.Data);
+title('Serie Airline');
+subplot(2,1,2);
+plot(vdate, y);
+title('Trasformazione logaritmica');
+
+% print -depsc airline.eps;
+
+
+%% Creazione della matrice delle dummy stagionali e del trend
 mD = dummyvar(month(vdate));  % 12 dummy stagionali
-vt = (1:cn)';                 % regressore trend
-%% Specificazione non vincolata (non identificata) - nota il Warning"
-mX = [vt, mD];
-Mdl0 = fitlm(mX,vy, 'VarNames',{'Trend', 'D1','D2','D3','D4','D5','D6',...
-    'D7','D8','D9','D10','D11','D12', 'y'})
-%% s-1 dummies D_jt^*, j = 1, ..., s-1
+n     = length(y);
+trend = (1:n)';                % regressore trend
+
+%% Specificazione non vincolata (non identificata)
+X = [trend, mD];
+nomivar=["Trend" "D"+(1:12) "y"];
+Mdl0 = fitlm(X,y, 'VarNames',nomivar);
+disp(Mdl0)
+
+%% Par. 1: matrice X con s-1 dummies D_jt^*, j = 1, ..., s-1
 mDt = mD(:,1:11)-mD(:,12);
-mX = [vt, mDt ];
-Mdl1 = fitlm(mX,vy, 'VarNames',{'Trend', 'D1t','D2t','D3t','D4t','D5t','D6t',...
-    'D7t','D8t','D9t','D10t','D11t', 'y'})
+X1 = [trend, mDt];
+nomivar1=["Trend", "D"+(1:11)+"t" "y"];
+Mdl1 = fitlm(X1,y, 'VarNames',nomivar1);
+disp(Mdl1)
+% Coefficiente stagionale in corrispondenza della stagione s
 dseas_s = -sum(Mdl1.Coefficients.Estimate(3:end));
-vseascoef = [Mdl1.Coefficients.Estimate(3:end); dseas_s ];
-%% Eliminiamo l'intercetta
-mX = [vt, mD];
-Mdl2 = fitlm(mX,vy, 'Intercept', false, 'VarNames',{'Trend', 'D1','D2','D3','D4','D5','D6',...
-    'D7','D8','D9','D10','D11','D12', 'y'})
-dbeta0 = mean(Mdl2.Coefficients.Estimate(2:end));
-vseascoef = Mdl2.Coefficients.Estimate(2:end)-dbeta0;
-sum(vseascoef)
-%% Eliminiamo la dummy D_st
-mX = [vt, mD(:,1:11)];
-Mdl3 = fitlm(mX,vy, 'VarNames',{'Trend', 'D1','D2','D3','D4','D5','D6',...
-    'D7','D8','D9','D10','D11', 'y'})
-dbeta0 = Mdl3.Coefficients.Estimate(1) + sum(Mdl3.Coefficients.Estimate(3:end))/12; % intercept
-dseas_s = -sum(Mdl3.Coefficients.Estimate(3:end))/12;
-vseas_1 = Mdl3.Coefficients.Estimate(3:end)+Mdl3.Coefficients.Estimate(1)-dbeta0;
-vseascoef = [vseas_1; dseas_s ];
- 
+% Coefficienti stagionali a somma sero
+seascoef1 = [Mdl1.Coefficients.Estimate(3:end); dseas_s];
+assert(abs(sum(seascoef1))<1e-15,"Coeff stag con somma diversa da 0")
+
+%% Par. 2: eliminiamo l'intercetta dalla chiamata a fitlm
+X2 = [trend, mD];
+nomivar2=["Trend", "D"+(1:12)+"t" "y"];
+Mdl2 = fitlm(X2, y, 'Intercept', false, 'VarNames',nomivar2);
+beta0 = mean(Mdl2.Coefficients.Estimate(2:end));
+seascoef2 = Mdl2.Coefficients.Estimate(2:end)-beta0;
+assert(max(abs(seascoef2-seascoef1))<1e-14,"stag diverse da prima par")
+
+
+%% Par. 3: eliminiamo la dummy D_st (ultima stagione)
+X3 = [trend, mD(:,1:11)];
+nomivar3=["Trend", "D"+(1:11)+"t" "y"];
+Mdl3 = fitlm(X3,y, 'VarNames',nomivar3);
+beta0dagger=Mdl3.Coefficients.Estimate(1);
+% Stima dell'intercetta
+beta0 =  beta0dagger + sum(Mdl3.Coefficients.Estimate(3:end))/12;
+% Stima dei coefficienti stagionali delta1, ..., deltas-1
+dseas = beta0dagger+Mdl3.Coefficients.Estimate(3:end)-beta0;
+% Stima del coefficiente stagionale deltas
+seas_s = beta0dagger-beta0;
+seascoef3 = [dseas; seas_s];
+assert(max(abs(seascoef3-seascoef1))<1e-14,"stag diverse da prima par")
+
+%% Controllo uguaglianza tra i valori stimati nelle diverse param.
+assert(max(abs(Mdl1.Fitted-Mdl2.Fitted))<1e-14,"yhat diversi")
+assert(max(abs(Mdl1.Fitted-Mdl3.Fitted))<1e-14,"yhat diversi")

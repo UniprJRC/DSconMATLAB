@@ -11,15 +11,18 @@ xlim([t(1)-calmonths(6), t(end)+calmonths(6)]);
 % exportgraphics(g,'enso.eps');
 % exportgraphics(g,'enso.pdf')
 
-%% sample ACF
- % alternatively use this code
+%% Matrice degli sfasamenti
 K = 5;
-Ylags = [y, NaN(n,K)];
-for k = 1:K
+Ylags = NaN(n,K+1);
+for k = 0:K
     Ylags(k+1:end,k+1) = y(1:n-k);
 end
+
 % Modo alternativo per ottenere la matrice sfasata
 YlagsCHK=lagmatrix(y,0:5);
+diff=max(abs(Ylags-YlagsCHK),[],'all');
+assert(diff==0,"Errore di implementazione nella " + ...
+    "matrice degli sfasamenti")
 
 %% Autocorrelazioni 
 % con denominatore della covarianza n-k
@@ -64,7 +67,9 @@ for j = 1:floor(n/2)
     Perio0(j) = mdl.SSR/(4*pi);
 end
 omega = 2 * pi * (1:floor(n/2))' / n; % Frequenze di Fourier
-bar(omega, Perio0); xlim([0 pi]); xlabel('\omega'); ylabel('I(\omega)');
+bar(omega, Perio0); 
+xlim([0 pi]); 
+xlabel('\omega'); ylabel('I(\omega)');
 set(gca,'TickLabelInterpreter','latex');
 
 %% Periodogram via Fast Fourier Transform
@@ -72,7 +77,8 @@ vj = (0:floor(n/2))'; omega = 2 * pi * vj / n; % Frequenze di Fourier
 Perio = abs(fft(y)).^2/(n*2*pi) ;
 Perio = Perio(1:length(omega));
 Perio(2)  % valore identico a Perio_j calcolato in precedenza
-plot(omega, Perio); xlim([0 pi]); xlabel('\omega'); ylabel('I(\omega)');
+plot(omega, Perio); 
+xlim([0 pi]); xlabel('\omega'); ylabel('I(\omega)');
 set(gca,'TickLabelInterpreter','latex'); 
 %
 g = figure;
