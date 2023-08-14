@@ -1,4 +1,4 @@
-mY  = readmatrix("  ","Sheet","Sheet 1","Range","DF13:NZ16");
+mY  = readmatrix("sts_trtu_m.xlsx","Sheet","Sheet 1","Range","DF13:NZ16");
 vy = log(mY(3,:)');
 % date
 cstarty = 2000; cstartm = 1; cstartd = 31;
