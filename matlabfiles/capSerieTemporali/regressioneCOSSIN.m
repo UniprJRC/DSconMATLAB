@@ -15,16 +15,16 @@ Xseaso=Xseaso(:,1:end-1);
         
 % Creazione del nome delle variabili
 nomivar1=[(1:numcomp)+"Cos", (1:(numcomp-1))+"Sin"];
-myname = sort(nomivar1) % alterna i nomi Coseno e Seno
-myname2=[myname "vendite"]
+myname = sort(nomivar1); % alterna i nomi Coseno e Seno
+myname2=[myname "vendite"];
  
 % transformo l'array in tabella
-Xseaso2 = array2table([Xseaso y.vendite])
-Xseaso2.Properties.VariableNames=myname2
+Xseaso2 = array2table([Xseaso y.vendite]);
+Xseaso2.Properties.VariableNames=myname2;
 % Fit minimi quadrati per trovare gli alpha e i beta
 % per tutti i modelli richiesti
 fitseaso = fitlm(Xseaso2);
-Xseaso2rid = [Xseaso2(:,1:4) Xseaso2(:,end)]
+Xseaso2rid = [Xseaso2(:,1:4) Xseaso2(:,end)];
 fitseasorid = fitlm(Xseaso2rid);
 
 % Rappresentazione grafica delle serie osservate e dei valori previsti dai modelli
