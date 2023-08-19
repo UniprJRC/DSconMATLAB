@@ -8,8 +8,8 @@ summary(volantini)
 totvola = sum(volantini.nvol);
 %Il totale dei volantini distribuiti ammonta a quasi 44000
 
-% converte il tipo di edificio in modo categorico per la legenda
-% da usare nella mappa
+% converte il tipo di edificio in modo categorico per l'uso dell'opzione
+% 'ColorData' da usare nella funzione geobubble
 volantini.building=categorical(volantini.building);
 % crea il grafico con il titolo che può essere ingrandito o rimpicciolito
 % con il mouse. L'opzione 'ColorData', identifica il tipo di edificio 
