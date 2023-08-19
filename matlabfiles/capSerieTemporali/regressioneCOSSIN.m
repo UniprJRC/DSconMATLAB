@@ -1,26 +1,25 @@
 % Carica i dati di input
 y = readtable("totalsales.xlsx");
-s1 = size(y);
-T = s1(1);
-sss = 1:T;
-freqseaso = 12;
-numcomp = floor(freqseaso/2); % Utile quando si usano valori dispari di freqseaso (non in questo caso) 
+n = size(y,1);
+t = 1:n;
+s = 12;
+numcomp = floor(s/2); % Utile quando si usano valori dispari di freqseaso (non in questo caso)
 % Ciclo per creare le basi ortogonali Coseno e Seno
-Xseaso = zeros(T,numcomp*2);
-    for j=1:numcomp
-        Xseaso(:,2*j-1:2*j)=[cos(j*2*pi*sss/freqseaso); sin(j*2*pi*sss/freqseaso)].'; % Trasposta della matrice
-    end
-% Rimuovo l'ultima colonna di Xseaso 
-Xseaso=Xseaso(:,1:end-1); 
-        
+Xseaso = zeros(n,numcomp*2);
+for j=1:numcomp
+    varpi=j*2*pi/s;
+    Xseaso(:,2*j-1:2*j)=[cos(varpi*t); sin(varpi*t)].'; % Trasposta della matrice
+end
+% Rimuovo l'ultima colonna di Xseaso  (in quanto uguale a 0)
+Xseaso=Xseaso(:,1:end-1);
+
 % Creazione del nome delle variabili
-nomivar1=[(1:numcomp)+"Cos", (1:(numcomp-1))+"Sin"];
-myname = sort(nomivar1); % alterna i nomi Coseno e Seno
-myname2=[myname "vendite"];
- 
+nomivar1=["Cos"; "Sin"]+(1:numcomp);
+myname=nomivar1(1:end-1)';
+
 % transformo l'array in tabella
 Xseaso2 = array2table([Xseaso y.vendite]);
-Xseaso2.Properties.VariableNames=myname2;
+Xseaso2.Properties.VariableNames=[myname;"vendite"];
 % Fit minimi quadrati per trovare gli alpha e i beta
 % per tutti i modelli richiesti
 fitseaso = fitlm(Xseaso2);
