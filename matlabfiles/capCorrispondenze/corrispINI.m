@@ -167,7 +167,7 @@ ColsPri     = Dc^(-1/2) * V*Gam;
 %% Grafico di analisi delle corrispondenze
 close all
 titl={'Grafico di analisi delle corrispondenze.' , ...
-    'Plot of $X=D_r^{-1/2}U \Gamma$ and $Y= D_r^{-1/2} V \Gamma$'};
+    'Plot of $X=D_r^{-1/2}U \Gamma$ and $Y= D_c^{-1/2} V \Gamma$'};
 symbolrows='o';
 symbolcols='^';
 % Color for symbols and text for rows points
