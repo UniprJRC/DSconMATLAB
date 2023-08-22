@@ -54,23 +54,27 @@ easterPeriod=ia+(-ch1:ch2);
 % easterDummy = vettore che assume valore 1 in corrispondenza del periodo
 % Pasquale (da 3 giorni prima della Pasqua fino a due giorni dopo)
 easterDummy(easterPeriod(:))=1;
-easter = (easterDummy - mean(easterDummy))/(ch1+ch2+1);
+easter = easterDummy/(ch1+ch2+1);
 Ett   = retime(timetable(vdate,easter),'monthly','sum');
+Ett.easter = Ett.easter - 1/12;
+
 % Variabile dummy per il range di date definito da TR
 Ett=Ett(TR,:);
 % Xcaltt = timetable con gli effetti di calendatio
 Xcaltt=[GBtt Ett];
 
 % Variabili dummies mensili (effetti stagionali)
-times=Xcaltt.Properties.RowTimes;
-Seas=dummyvar(times.Month);
+tempi=Xcaltt.Properties.RowTimes;
+Seas=dummyvar(tempi.Month);
 SeasD = Seas(:,1:end-1)-Seas(:,end);
 trend=(1:n)';
-TStt=array2timetable([y trend SeasD],'RowTimes',times);
+TStt=array2timetable([y trend SeasD],'RowTimes',tempi);
 
 yXtt=[TStt Xcaltt];
 yXtt.Properties.VariableNames(1:13)=["y" "trend" "Seas"+(1:11)];
-tempi=yXtt.Properties.RowTimes;
+
+yXtt=[TStt Xcaltt];
+yXtt.Properties.VariableNames(1:13)=["y" "trend" "Seas"+(1:11)];
 
 yX=timetable2table(yXtt,'ConvertRowTimes',false);
 
@@ -125,8 +129,8 @@ plot(t,[yXt.y mdl.Fitted])
 %plot(t0, mdl.Residuals.Raw)
 autocorr(mdl.Residuals.Raw);
 title('{\bf Autocorrelazione dei residui}')
-g = figure();
 
+figure();
 subplot(3,2,1); 
 plot(t,[y vT]); 
 set(gca,'TickLabelInterpreter','latex');
@@ -169,7 +173,7 @@ ylabel(' ')
 %% Previsione - test sample 2017.1-2019.12
 % mXo = mX(cn-5-12*6+1:cn-5-12*3,:);
 % tnew = t(cn-5-12*6+1:cn-5-12*3); 
-% vyo = y(cn-5-12*6+1:cn-5-12*3);
+%vyo = y(cn-5-12*6+1:cn-5-12*3);
 % [vypred, myci] = predict(mdl, mXo, 'Alpha',0.001);
 
 

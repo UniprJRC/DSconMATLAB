@@ -19,16 +19,16 @@ vlom_star = vlom;
 vlom_star(month(TT_ndow.vdate) ==  2) = 28.25;
 vleapy = vlom-vlom_star;
 %% Pasqua
-mEaster = readmatrix('Easter.xlsx'); % the file Easter.xlsx contains the Easter dates from 1900 to 2099
+mEaster = readmatrix('Easter.xlsx'); %   il file Easter.xlsx contiene le date della Pasqua dal 1900 al 2099
 mEaster = mEaster(cstarty-1900+1:cendy-1900+1,:);
 vEasterdates = datetime(mEaster);
 vEaster = datenum(mEaster);
 vd = datenum(vdate);
 ch1 = 3; ch2 = 2;
-vEasterDummy = sum((vd <= (vEaster+ch2)') & (vd >= (vEaster-ch1)'),2) ;
-vEasterDummyC = (vEasterDummy - mean(vEasterDummy))/(ch1+ch2+1);
-TT_e   = retime(timetable(vdate,vEasterDummyC),'monthly','sum');  
-TT_cal = timetable(TT_ndow.vdate, TT_ndow.mD(:,2:end)-TT_ndow.mD(:,1), vleapy,TT_e.vEasterDummyC  ); 
+vEasterDummy = sum((vd <= (vEaster+ch2)') & (vd >= (vEaster-ch1)'),2)/(ch1+ch2+1) ;
+TT_e   = retime(timetable(vdate,vEasterDummy),'monthly','sum') ;  
+vEasterRegr =TT_e.vEasterDummy-meanTT_e.vEasterDummy);
+TT_cal = timetable(TT_ndow.vdate, TT_ndow.mD(:,2:end)-TT_ndow.mD(:,1), vleapy,vEasterRegr); 
 TR = timerange(t1c,t2);
 mXcal = table2array(TT_cal(TR,:));
 cn = size(mXcal, 1);
