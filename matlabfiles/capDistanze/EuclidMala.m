@@ -31,7 +31,7 @@ ds_mahalFSDA=(mahalFS(X,cent,S)).^2;
 % dipende dal valore della corrispondente distanza
 scatter(X(:,1),X(:,2),50,d2_Euclidean,'o','filled')
 hb = colorbar;
-ylabel(hb,'Distanza Euclidea')
+ylabel(hb,'Distanza euclidea')
 colormap jet
 % Le osservazioni che presentano la più grande distanza Euclidea sono
 % quelle in basso a sinistra e quelle in alto a destra.
@@ -41,7 +41,7 @@ colormap jet
 figure
 scatter(X(:,1),X(:,2),50,d2_Euclidean,'o','filled')
 hb = colorbar;
-ylabel(hb,'Distanza Euclidea')
+ylabel(hb,'Distanza euclidea')
 colormap jet
 prob=[0.50 0.75 0.95];
 hold('on')
