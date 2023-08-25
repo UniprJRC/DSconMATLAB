@@ -83,22 +83,22 @@ set(gca,'TickLabelInterpreter','latex');
 % exportgraphics(g,'gKernels.pdf')
 
 %% Estensione della serie con h previsioni 
-% mediante trend lineare adattato alle prime e ultime cm  osservazioni
+% mediante trend lineare adattato alle prime e ultime m  osservazioni
 chmax = 40;   
-cm = 30; 
+m = 30; 
 % Modello stimato in base alle prime cm osservazioni
-vy0   = flip(y(1:cm)); 
-mX0 = (1:cm)'; 
-mdl0  = fitlm(mX0,vy0);
+y0   = flip(y(1:m)); 
+X0 = (1:m)'; 
+mdl0  = fitlm(X0,y0);
 % Previsioni da aggiungere prima di y(1) in modo da estendere
 % la serie a sinistra
-yhatprima  = predict(mdl0, (cm+1:cm+chmax)'); 
+yhatprima  = predict(mdl0, (m+1:m+chmax)'); 
 yhatprima  = flip(yhatprima);
 
-vy1   = y(n-cm+1:n); 
-mX1 = (1:cm)'; 
-mdl1  = fitlm(mX1,vy1);
-yhatdopo  = predict(mdl1, (cm+1:cm+chmax)'); 
+y1   = y(n-m+1:n); 
+X1 = (1:m)'; 
+mdl1  = fitlm(X1,y1);
+yhatdopo  = predict(mdl1, (m+1:m+chmax)'); 
 
 vyext = [yhatprima; y; yhatdopo];   % serie estesa 
 %plot(vyext)
@@ -106,12 +106,14 @@ vyext = [yhatprima; y; yhatdopo];   % serie estesa
 %% Cross-validation
 chmin = 3; 
 % Yfitted = [];
-Yfitted(n,(chmax-chmin+1));
+Yfitted=zeros(n,chmax-chmin+1);
 vCVscore = NaN(chmax-chmin,1);
 for h = chmin:chmax
     vyext = [yhatprima(end-h+1:end); y; yhatdopo(1:h)];
     vh = (-h:h)';
-    vw_t = (1-(abs(vh)/h).^3).^3; vw_t = vw_t/(sum(vw_t));
+    % kernel tricube
+    vw_t = (1-(abs(vh)/h).^3).^3; 
+    vw_t = vw_t/(sum(vw_t));
     dw0  = vw_t(h+1);
     vyf = filter(vw_t, 1, vyext );
     vyhat = vyf(2*h+1:end);
@@ -133,7 +135,7 @@ legend( {'Serie', '$h=5$', '$h=10$', '$h=15$'}, ...
 grid on; box on;
 % exportgraphics(g,'gTrendTemp.pdf')
 
-%% pesi per coefficiente angolare beta_1, kernel uniforme
+%% Pesi per coefficiente angolare beta_1, kernel uniforme
 ch = 25;
 vh = (-ch:ch)';
 vw_beta0 = ones(2*ch+1,1)/(2*ch+1);
