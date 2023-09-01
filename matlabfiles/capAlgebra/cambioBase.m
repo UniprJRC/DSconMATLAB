@@ -80,8 +80,8 @@ textNewCoo=strrep(textNewCoo," ","");
 text(X(:,1),X(:,2),textNewCoo,'Color',colnewaxis)
 axis equal
 
-%% Pannello in basso a sinistra: vettori nella nuova base 
-subplot(nr,nc,3)
+%% Pannello in basso: vettori nella nuova base 
+subplot(nr,nc,3:4)
 quiver(zern,zern,Y(:,1),Y(:,2),'off')
 hold('on')
 quiver(zerp,zerp,kk*E(:,1),kk*E(:,2), ...

@@ -1,6 +1,5 @@
 %% N = tabella di contingenza di partenza
-N= [87 188;
-    42 406];
+N= [87 188; 42 406];
 n=sum(N,'all');
 
 %% Calcolo indice Chi2 senza cicli for
