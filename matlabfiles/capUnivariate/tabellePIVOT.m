@@ -6,6 +6,8 @@ X=readtable(miofile,"ReadRowNames",true);
 % Variabile Gender sulle righe (nessuna variabile sulle colonne)
 pivot(X,'Rows','Gender')
 
+pivot(X,'Rows','Gender','RowLabelPlacement','rownames')
+
 % Variabile Gender sulle righe, Variabile Education sulle colonne
 % All'interno le frequenze
 pivot(X,'Rows','Gender','Columns','Education')

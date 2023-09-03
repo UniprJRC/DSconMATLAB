@@ -17,4 +17,8 @@ out=corrNominal(Ntable);
 % Calcolo di tutti gli indici tramite la funzione corrNominal dell'FSDA
 % toolbox partendo dalla matrice dei dati (senza passare attraverso il
 % calcolo della tabella di contingenza)
+% corrNominal con primo argomento di input l'array nx2
  out=corrNominal([X.GUSTO X.ABBINAMENTO],'datamatrix',true);
+
+%% corrNominal con primo argomento di input la table nx2
+outCHK=corrNominal(X(:,["GUSTO" "ABBINAMENTO"]),'datamatrix',true);
