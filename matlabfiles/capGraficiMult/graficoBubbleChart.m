@@ -1,12 +1,15 @@
-%% bubblechart con 3 variabili (senza colorbar)
+%% Caricamento dati
 X=readtable("regioni.xlsx",'ReadRowNames',true);
+
+%% bubblechart con 3 variabili (senza colorbar)
 % Grafico a bolle 
 bubblechart(X,"TassoPassaggio","TassoIscrizione","Residenti")
 nomi=X.Properties.RowNames;
 % L'istruzione text aggiunge le etichette ai punti
 text(X.TassoPassaggio,X.TassoIscrizione,nomi)
 
-%% bubblechart con 4 vaiabili (con colorbar) 
+%% bubblechart con 4 variabili (con colorbar) 
+figure
 iscrFR="IscrittiFuoriRegione";
 % bubblechart viene chiamato con 4 argomenti di input
 bubblechart(X,"TassoPassaggio","TassoIscrizione","Residenti",iscrFR)
