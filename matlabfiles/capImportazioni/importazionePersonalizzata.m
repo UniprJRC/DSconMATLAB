@@ -8,7 +8,7 @@ preview(filename,opts)
 opts.VariableTypes([4 7])={'double'};
 Y = readtimetable(filename,opts);
 head(Y)
-%% retime e convert2
+%% Cambiamento periodicità: retime e convert2annual 
 
 funzioneRichiesta="max";
 Y1=retime(Y,"yearly",funzioneRichiesta);
