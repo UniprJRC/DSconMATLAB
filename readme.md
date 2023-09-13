@@ -20,9 +20,9 @@ I seguenti collegamenti puntano alle risorse del capitolo di interesse (tra pare
 
 1. [Introduzione all’utilizzo di MATLAB e alla gestione dei dati](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capStruttureDati)  (capStruttureDati)
 2. [Algebra lineare di base](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capAlgebraBase)     (capAlgebraBase)                     
-3. [Analisi esplorative dei dati e tabelle pivot](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capImportazioni) (capImportazioni)
-4. [La matrice dei dati e le analisi univariate](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capUnivariate) (capUnivariate)
-5. [Variabili casuali: densità e distribuzioni](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capDistribuzioni) (capDistribuzioni)
+3. [Analisi esplorative dei dati e tabelle pivot](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capImportazioni) (capUnivariate)
+4. [Importazione dei dati dal mondo web (in tempo reale)](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capUnivariate) (capImportazioni)
+5. [Variabili casuali: densità,e distribuzioni e stime dei parametri](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capDistribuzioni) (capDistribuzioni)
 6. [I trattamenti preliminari dei dati](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capPreliminari) (capPreliminari)
 7. [La relazione tra le variabili quantitative: correlazione e cograduazione](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capCorrCograd) (capCorrCograd)
 8. [L’associazione](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capAssociazione) (capAssociazione)
