@@ -15,6 +15,9 @@ sel2=timerange('1999','2001','years');
 TT(sel2,:)
 
 
+%% Estrazione di un intervallo di date con unità di misura i mesi
+timerange(datetime(2022,5,1),datetime(2023,11,4),'months')
+
 %% Estrazione di record (esercizio 4.4)
 
 % booleano per gli anni richiesti
