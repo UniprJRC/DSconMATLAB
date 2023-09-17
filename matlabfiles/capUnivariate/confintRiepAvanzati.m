@@ -99,7 +99,7 @@ disp(tabPivot)
 tabPivotModoAlt=unstack(Xtab(:,["Gender" "Education" "mean_Wage"]),...
 varInternoTabella,varDaEspandere);
 % disp(tabPivot)
-tabPivotModoAlt.Properties.RowNames=tabPivot{:,1}; 
+tabPivotModoAlt.Properties.RowNames=tabPivotModoAlt{:,1}; 
 tabPivotModoAlt=tabPivotModoAlt(:,2:end);
 disp("Tabella pivot tra Sesso e Education")
 disp("All'interno di ogni cella c'è la retr. media")
@@ -125,7 +125,12 @@ tabPivotCHK=tabPivotCHK(:,2:end);
 % "GroupingVariables",varSulleRighe
 funz=@mean; 
 variabiliCheInteressano=["Gender" "Education" "Wage"];
-tabPivotCHK1=unstack(X(:,variabiliCheInteressano),'Wage',varDaEspandere, ...
+% Xsel = table che contiene le 3 variabili che interessano. 
+% Gender dovrà essere inserito sulle righe.
+% Le modalità di Education contengono i nomi delle variabili 
+% nella table di output
+Xsel=X(:,variabiliCheInteressano);
+tabPivotCHK1=unstack(Xsel,'Wage',varDaEspandere, ...
     'AggregationFunction',funz);
 tabPivotCHK1.Properties.RowNames=tabPivotCHK1{:,1};
 tabPivotCHK1=tabPivotCHK1(:,2:end);
