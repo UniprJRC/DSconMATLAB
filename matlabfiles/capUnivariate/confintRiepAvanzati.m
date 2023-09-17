@@ -92,6 +92,19 @@ disp("Tabella pivot tra Sesso e Education")
 disp("All'interno di ogni cella c'è la retr. media")
 disp(tabPivot)
 
+%% Chiamata ad unstack senza il Name/value 'GroupingVariables',varSulleRighe
+% Parte non inserita nel libro
+% In questo caso il primo argomento di input di unstack è la table con solo
+% le 3 colonne che interessano 
+tabPivotModoAlt=unstack(Xtab(:,["Gender" "Education" "mean_Wage"]),...
+varInternoTabella,varDaEspandere);
+% disp(tabPivot)
+tabPivotModoAlt.Properties.RowNames=tabPivot{:,1}; 
+tabPivotModoAlt=tabPivotModoAlt(:,2:end);
+disp("Tabella pivot tra Sesso e Education")
+disp("All'interno di ogni cella c'è la retr. media")
+disp(tabPivotModoAlt)
+
 %% Modo alternativo per costruire la tabella pivot (partendo da X)
 
 % funz = funzione da applicare alla variabile dentro la tabella
@@ -102,6 +115,20 @@ tabPivotCHK=unstack(X,'Wage',varDaEspandere, ...
     'AggregationFunction',funz,"GroupingVariables",varSulleRighe);
 tabPivotCHK.Properties.RowNames=tabPivotCHK{:,1};
 tabPivotCHK=tabPivotCHK(:,2:end);
+
+
+%% Modo alternativo per costruire la tabella pivot (partendo da X)
+% Parte non inserita nel libro
+% Seleziono solo le 3 colonne che mi interessano nel primo argomento di
+% input
+% In questa chiamata non è necessario spefificare 
+% "GroupingVariables",varSulleRighe
+funz=@mean; 
+variabiliCheInteressano=["Gender" "Education" "Wage"];
+tabPivotCHK1=unstack(X(:,variabiliCheInteressano),'Wage',varDaEspandere, ...
+    'AggregationFunction',funz);
+tabPivotCHK1.Properties.RowNames=tabPivotCHK1{:,1};
+tabPivotCHK1=tabPivotCHK1(:,2:end);
 
 %% Boxplot per sesso e titolo di studio
 close all
