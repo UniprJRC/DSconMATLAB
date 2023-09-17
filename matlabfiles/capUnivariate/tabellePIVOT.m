@@ -93,7 +93,9 @@ pv5=pivot(X1,'Rows',{'Gender' 'Seniority'},'Columns','Education', ...
     'DataVariable','Wage','Method','median');
 disp(pv5)
 
+
 %% Inizio Esercizio 3.10
+
 % Se c'è più di una variabile sulle colonne, MATLAB crea tabelle nested
 % una dentro l'altra 
 disp('Tabella pivot pv6')
