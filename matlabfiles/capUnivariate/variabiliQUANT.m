@@ -117,3 +117,5 @@ NomeaCaso=histogram(Xt.Education,'BarWidth',0.5);
 % Cambio il colore delle barre
 NomeaCaso.FaceColor='r';
 
+% Cambio l'orientamento
+NomeaCaso.Orientation="horizontal";

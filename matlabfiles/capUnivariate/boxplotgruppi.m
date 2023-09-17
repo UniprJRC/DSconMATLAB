@@ -11,9 +11,10 @@ add2boxplot(X(:,"Wage"),X.Gender)
 % print -depsc boxplotMF.eps;
 
 %% Modo alternativo (non inserito nel libro)
+% Estrazione dei valori di Wage tramite {}
 miofile="Firm.xlsx"; % Caricamento file Firm.xlsx dentro MATLAB 
 X=readtable(miofile,"ReadRowNames",true);
-nomeVariabile="CommutingTime"; % CommutingTime
+nomeVariabile="Wage"; 
 subplot(1,2,1)
 boxplot(X{:,nomeVariabile})
 % add2boxplot accetta in input anche la table
