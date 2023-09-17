@@ -69,7 +69,7 @@ modalDaEsplodere={'B'};
 et=["A=scuola dell'obbligo" "B=Diploma" "C=Laurea"];
 pie(Xt.Education,modalDaEsplodere,et)
 
-%% Torta con legenda con posizionamento personalizzato
+%% Torta con legenda e posizionamento personalizzato
 close all
 modalDaEsplodere={'B'};
 pie(Xt.Education,modalDaEsplodere)
