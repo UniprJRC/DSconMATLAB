@@ -149,7 +149,7 @@ boxplot(X.Wage,SesTitc);
 ylabel('Retribuzione')
 % print -depsc boxplotFMABC.eps;
 
-%% Boxplot per sesso e titolo di studio (parte non inserita nel libro)
+%% Boxplot per sesso e titolo di studio (tramite chiamata a boxchart)
 
 boxchart(categorical(X.Gender),X.Wage,'GroupByColor',X.Education);
 ylabel('Retribuzione')
