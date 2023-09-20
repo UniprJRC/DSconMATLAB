@@ -78,13 +78,22 @@ pv4=pivot(X1,'Rows',{'Wage' 'Seniority'},'Columns','Education', ...
     'RowsBinMethod',{1500:1000:4500 0:15:45});
 disp(pv4)
 
-% Parte non presente nel libro
+%% Parte non presente nel libro
 % In alternativa ad un cell array i due criteri di raggruppamento possono
 % essere inseriti in uno string array
 pv4chk=pivot(X1,'Rows',["Wage" "Seniority"],'Columns','Education', ...
     'RowsBinMethod',{1500:1000:4500 0:15:45});
 assert(isequal(pv4,pv4chk),"Cell arrary o array di stringhe non corretti")
 
+%% Parte non inserita nel libro 
+% Se c'è più più di un criterio di raggruppamento per riga
+% "RowLabelPlacement","rownames" crea nomi righe che combinano i due
+% criteri di raggruppamento
+pv4ConNomiRighe=pivot(X1,'Rows',{'Gender' 'Education'},'Columns','Seniority', ...
+    'ColumnsBinMethod',0:15:45,"RowLabelPlacement","rownames");
+disp(pv4ConNomiRighe)
+
+%% Parte inserita nel libro
 % Se una variabile è già qualitativa e non deve essere raggruppata in
 % classi utilizzare 'none'
 disp('Tabella pivot punto 5)')
@@ -119,7 +128,7 @@ disp('Nomi delle variabili di pv7')
 disp(pv7.Properties.VariableNames)
 
 
-%% Parte di seguito non libro
+%% Parte non inserita nel libro 
 % Aggiunta opzione 'RowLabelPlacement','rownames'
 pv8=pivot(X1,'Columns',{'Gender' 'Seniority'},'Rows','Education', ...
     'ColumnsBinMethod',{'none' [0 20 45]}, ...
