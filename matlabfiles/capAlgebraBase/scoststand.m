@@ -21,12 +21,12 @@ assert(maxdiff<1e-12,"Errore di programmazione nella costruzione " + ...
 bar(Z)
 title(['Rappresentazione tramite barre ' ...
     'degli scostamenti standardizzati'])
- % print -depsc figs\scoststand1.eps;
+% print -depsc figs\scoststand1.eps;
 
-% Zrob = matrice degli scostamenti standardizzati 
+% Zrob = matrice degli scostamenti standardizzati
 % robusta utilizzando l'espansione implicita
 Zrob=(X-median(X)) ./ (1.4826* mad(X,1));
-% Zrobchk = matrice degli scostamenti standardizzati 
+% Zrobchk = matrice degli scostamenti standardizzati
 % robusta utilizzando la funzione zscoreFS
 Zrobchk=zscoreFS(X);
 maxdiff=max(abs(Zrob-Zrobchk),[],"all");
@@ -36,5 +36,22 @@ figure
 bar(Zrob)
 title(['Rappresentazione tramite barre ' ...
     'degli scostamenti standardizzati robusti'])
- % print -depsc figs\scoststand2.eps;
+% print -depsc figs\scoststand2.eps;
+
+
+%% Parte non inserita nel libro 
+% (v. materiale aggiuntivo nel sito di Giappichelli)
+Zchk1=normalize(X);
+maxdiff=max(abs(Z-Zchk1),[],"all");
+assert(maxdiff<1e-12,"Errore di programmazione nella costruzione " + ...
+    "della matrice degli scostamenti standardizzati")
+
+
+%% Esempio di utilizzo di normalize con una table
+% Viene caricata in memoria la table delle 
+load citiesItaly.mat
+ZItaly=normalize(citiesItaly);
+
+%% Standardizzazione robusta
+ZItalyROB=zscoreFS(citiesItaly);
 
