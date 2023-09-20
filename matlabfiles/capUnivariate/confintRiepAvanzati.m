@@ -49,6 +49,12 @@ statDiInteresse=["mean" "std" "meanci"];
 % le statistiche di interesse (terzo argomento di input di grpstats).
 varDiInteresse=["Wage" "Seniority"];
 
+%% Questa section non è nel libro
+% estraggo dentro Xsel le due variabili che mi interessano
+Xsel=X(:,varDiInteresse);
+grpstats(Xsel,[],statDiInteresse)
+
+%% Parte di nuovo nel libro
 XtabComplessiva=grpstats(X,[],statDiInteresse, ...
     "DataVars",varDiInteresse,'Alpha',conflevc);
 disp(XtabComplessiva(:,1:7))
@@ -64,6 +70,16 @@ groupingVARS={'Gender', 'Education'};
 Xtab=grpstats(X,groupingVARS,statDiInteresse, ...
     "DataVars",varDiInteresse,'Alpha',conflevc);
 disp(Xtab(:,1:6))
+
+%% Questa section non è nel libro
+% Estraggo dentro Xsel1 le 4 variabili che mi interessano
+% 2 sono le variabili per cui devo calcolare le statistiche
+% 2 sono le variabili di raggruppamento
+varDiInteresse1=[varDiInteresse "Gender" "Education"];
+Xsel1=X(:,varDiInteresse1);
+grpstats(Xsel1,groupingVARS,statDiInteresse)
+
+%% Parte di nuovo nel libro
 % Grafico a barre
 bar(categorical(Xtab.Properties.RowNames),Xtab.mean_Wage)
 % print -depsc barreFMABC.eps;
@@ -92,12 +108,13 @@ disp("Tabella pivot tra Sesso e Education")
 disp("All'interno di ogni cella c'è la retr. media")
 disp(tabPivot)
 
-%% Chiamata ad unstack senza il Name/value 'GroupingVariables',varSulleRighe
+%% Questa section non è nel libro
+% Chiamata ad unstack senza il Name/value 'GroupingVariables',varSulleRighe
 % Parte non inserita nel libro
 % In questo caso il primo argomento di input di unstack è la table con solo
 % le 3 colonne che interessano 
-tabPivotModoAlt=unstack(Xtab(:,["Gender" "Education" "mean_Wage"]),...
-varInternoTabella,varDaEspandere);
+Xtabsel=Xtab(:,["Gender" "Education" "mean_Wage"]);
+tabPivotModoAlt=unstack(Xtabsel,varInternoTabella,varDaEspandere);
 % disp(tabPivot)
 tabPivotModoAlt.Properties.RowNames=tabPivotModoAlt{:,1}; 
 tabPivotModoAlt=tabPivotModoAlt(:,2:end);
@@ -121,7 +138,7 @@ tabPivotCHK=tabPivotCHK(:,2:end);
 % Parte non inserita nel libro
 % Seleziono solo le 3 colonne che mi interessano nel primo argomento di
 % input
-% In questa chiamata non è necessario spefificare 
+% In questa chiamata non è necessario specificare 
 % "GroupingVariables",varSulleRighe
 funz=@mean; 
 variabiliCheInteressano=["Gender" "Education" "Wage"];
