@@ -134,7 +134,8 @@ tabPivotCHK.Properties.RowNames=tabPivotCHK{:,1};
 tabPivotCHK=tabPivotCHK(:,2:end);
 
 
-%% Modo alternativo per costruire la tabella pivot (partendo da X)
+%% Questa section non è nel libro
+% Modo alternativo per costruire la tabella pivot (partendo da X)
 % Parte non inserita nel libro
 % Seleziono solo le 3 colonne che mi interessano nel primo argomento di
 % input
