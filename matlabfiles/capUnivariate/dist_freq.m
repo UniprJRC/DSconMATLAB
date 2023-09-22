@@ -94,7 +94,7 @@ assert(isequal(Freq,FreqCHK),"frequenze tramite ciclo for diverse" + ...
 
 %% Risoluzione dell'esercizio in maniera vettoriale
 
-% Questa volta classi contiene anche l'estermo inferiore
+% Questa volta classi contiene anche l'estremo inferiore
 % della prima classe
 classi=[-Inf;-2; 0; 1.5; Inf];
 
