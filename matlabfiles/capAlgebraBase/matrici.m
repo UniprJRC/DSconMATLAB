@@ -27,6 +27,13 @@ I=eye(3)
 A=eye(4,6);
 
 %% Matr id con doppio ciclo for
+% Osservazione: nell'esercizio del libro la variabile k è denominata j
+% Ovviamente (a meno che non sia espressamente specificato) posso scegliere
+% qualsiasi nome per le variabili purché siano soddisfatte una serie di
+% regole (ad esempio i nomi delle variabili non possono iniziare con un
+% numero).
+% Maggiori dettagli sono contenuti in
+% https://www.geeksforgeeks.org/variable-names-in-matlab/
 p=5;
 id=zeros(p,p);
 for i=1:p
