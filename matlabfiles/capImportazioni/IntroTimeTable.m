@@ -10,6 +10,10 @@ TT=table2timetable(Xt);
 sel=timerange('1996-12-05','1998-06-01');
 TT(sel,:)
 
+%% Parte non nel libro
+sel=timerange('-inf','1998-06-01');
+% significa tutte le date prima del primo giugno 1998
+
 %% Estrazione di record (secondo criterio)
 sel2=timerange('1999','2001','years');
 TT(sel2,:)
@@ -17,6 +21,7 @@ TT(sel2,:)
 
 %% Estrazione di un intervallo di date con unità di misura i mesi
 timerange(datetime(2022,5,1),datetime(2023,11,4),'months')
+
 
 %% Estrazione di record (esercizio 4.4)
 
