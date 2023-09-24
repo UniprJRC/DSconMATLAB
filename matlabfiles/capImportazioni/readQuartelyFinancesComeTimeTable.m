@@ -1,18 +1,13 @@
-%% File di corredo per l'esercizio 4.3
+%% File di corredo all'Esercizio 4.5
 
-%% Guardo in anteprima l'output del caricamentod dati
 miofile="quarterlyFinances1999To2019.csv";
-opts = detectImportOptions(miofile);
-preview(miofile,opts)
-
-%% Mostro il formato di caricamento delle variabili
-disp(opts.VariableTypes)
+TT=readtimetable(miofile,"StartTime",datetime(1999,1,1), ...
+    "TimeStep",calquarters,'TrimNonNumeric',true);
+head(TT(:,1:3),4)
 
 
-%% detectImportOptions con l'opzione 'TrimNonNumeric'
-opts = detectImportOptions(miofile,'TrimNonNumeric',true);
-preview(miofile,opts)
-disp(opts.VariableTypes)
-
-%% Caricamento effettivo
-X=readtable(miofile,opts);
+%% Parte non presente nel libro
+% StartTime poteva anche essere definito come character
+TT1=readtimetable(miofile,"StartTime",'01/01/1999', ...
+    "TimeStep",calquarters,'TrimNonNumeric',true);
+head(TT1(:,1:3),4)
