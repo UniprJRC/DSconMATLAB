@@ -4,8 +4,8 @@ Xt=readtable(miofile,"ReadRowNames",true);
 Xt.Gender = categorical(Xt.Gender);
 Xt.Education=categorical(Xt.Education,{'A','B','C'},'Ordinal',true');
 
-% Estrazione delle variabili quantitative nell'array Xd e nella table Xtq
-% Osservazione: Xd contiene solo i numeri (matrice 107x4 di doubles)
+% Estrazione delle variabili quantitative nell'array Xdq e nella table Xtq
+% Osservazione: Xdq contiene solo i numeri (matrice 107x4 di doubles)
 % Xtq è la table (107x4) riferita solo alle variabile quantitative
 nomiq=["Wage" "CommutingTime" "SmartWorkHours" "Seniority" ];
 Xdq=Xt{:,nomiq};
