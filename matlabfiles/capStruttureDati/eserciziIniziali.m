@@ -89,6 +89,6 @@ subset1 = Firm(Firm.Gender == "F", :);
 
 subset2 = Firm(Firm.Gender == "F" & Firm.Education == "B", :);
 
-subset3 = Firm(Firm.Gender == "F" & Firm.Education == "B" | Firm.Gender == "M" & Firm.Wage > 4000, :);
+subset3 = Firm((Firm.Gender == "F" & Firm.Education == "B") | (Firm.Gender == "M" & Firm.Wage > 4000), :);
 
 subset4 = Firm(Firm.Wage >= 3000 &  Firm.Wage < 3500, :);
