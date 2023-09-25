@@ -18,8 +18,8 @@ conflevc=0.01;
 
 % print -depsc confintABC.eps;
 
-%% Costruzione tabella di contingenza tra Gender e Education 
-% Questa section non è stata inserita nel libro
+%% Questa section non è nel libro
+% Costruzione tabella di contingenza tra Gender e Education 
 % All'interno della tabella di contingenza ci sono le frequenze
 % Gli argomenti 2 e 3 dell'output di crosstab non mi interessano, di
 % conseguenza con il simbolo ~ non li faccio restituire (per risparmiare
@@ -147,8 +147,8 @@ variabiliCheInteressano=["Gender" "Education" "Wage"];
 % Gender dovrà essere inserito sulle righe.
 % Le modalità di Education contengono i nomi delle variabili 
 % nella table di output
-Xsel=X(:,variabiliCheInteressano);
-tabPivotCHK1=unstack(Xsel,'Wage',varDaEspandere, ...
+Xsel2=X(:,variabiliCheInteressano);
+tabPivotCHK1=unstack(Xsel2,'Wage',varDaEspandere, ...
     'AggregationFunction',funz);
 tabPivotCHK1.Properties.RowNames=tabPivotCHK1{:,1};
 tabPivotCHK1=tabPivotCHK1(:,2:end);
