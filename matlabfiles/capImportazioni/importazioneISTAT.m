@@ -13,11 +13,16 @@ TT=table2timetable(X2(:,2:end),'RowTimes',Time);
 disp(TT(:,1:3))
 
 %% Modo alternativo non presente nel libro di creare TT partendo da X2
-% Invece di creare la sequenza temporale, di inizio e fino la ricavo dalla
+% Invece di creare la sequenza temporale, di inizio e fine la ricavo dalla
 % prima colonna di X2
-% La sintassi "'x'yyyy_QQQ" significa il primo carattere è pari a x
-% Dopo ci sono gli anni a 4 cifre
-% Dopo ci sono i trimestri in formato abbreviato Q1, Q2, ..., Q4
+% La sintassi "'x'yyyy_QQQ" significa:
+% il primo carattere è pari a x,
+% dopo ci sono gli anni a 4 cifre,
+% dopo ci sono i trimestri in formato abbreviato Q1, Q2, ..., Q4
+% Si veda la sezione Format dell'help di datetime
+% https://it.mathworks.com/help/matlab/ref/datetime.html#buhzxmk-1-Format
+% QQQ	Quarter, abbreviated	Q2
+
 times=datetime(X2{:,1},'InputFormat',"'x'yyyy_QQQ");
 
 TTchk=table2timetable(X2(:,2:end), 'RowTimes',times);
