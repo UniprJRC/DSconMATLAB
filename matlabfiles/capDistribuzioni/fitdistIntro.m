@@ -1,6 +1,6 @@
 %% Esempio di utilizzo di fitdist
 
-%% Dati generati da una T con 2 gradi di libertà
+%% Dati generati da una T con 5 gradi di libertà
 rng default
 nu=5; % gradi di libertà
 n=100; % dimensione del campione
