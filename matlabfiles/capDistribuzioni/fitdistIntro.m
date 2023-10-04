@@ -18,7 +18,9 @@ stimeN=fitdist(X,"Normal");
 disp(stimeN)
 
 %% Viene adattato un modello Weibull
-stimeW=fitdist(X,"Weibull");
+% Viene applicato il valore assoluto in quanto la distribuzione di Weibull
+% è definita nell'intervallo x [0 Inf).
+stimeW=fitdist(abs(X),"Weibull");
 disp(stimeW)
 
 
