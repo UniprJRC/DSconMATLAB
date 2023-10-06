@@ -2,7 +2,7 @@
 
 % viene fissato a 100 il seed dei numeri casuali
 rng(100)
-% n = numeri di numeri casuali che vengono generati
+% n = numero di numeri casuali che vengono generati
 n=1000;
 x=randn(n,1);
 % classi = vettore che contiene gli estremi superiori
