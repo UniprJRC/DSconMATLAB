@@ -44,7 +44,7 @@ ylabel(['Pr(5<X<6)=' num2str(prob56)])
 
 %% Quantili
 
-% quantile 0.975 (valore che lascia alla sua sinistra una prob. di 2.5 per
+% quantile 0.975 (valore che lascia alla sua destra una prob. di 2.5 per
 % cento) in N(3,4)
 disp('Quantile 0.975 in N(3,4)')
 disp(norminv(0.975,media,sigma))
