@@ -19,6 +19,10 @@ end
 %%Grafico in coordinate parallele
 parallelplot(X)
 
+%% Grafico in coordinate parallele (input una table)
+parallelplot(array2table(X))
+
+
 % print -depsc coordinatepar.eps;
 % parallelcoords(zscore(X))
 %%  FIRM
