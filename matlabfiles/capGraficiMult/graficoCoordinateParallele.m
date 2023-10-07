@@ -25,8 +25,7 @@ parallelplot(array2table(X))
 
 % print -depsc coordinatepar.eps;
 % parallelcoords(zscore(X))
-%%  FIRM
-
+%%  Dataset Firm.xlsx grafico in coord parallele con var raggruppamento
 Xt=readtable("Firm.xlsx","ReadRowNames",true);
 parallelplot(Xt,'CoordinateVariables',["Education" "Wage" ...
     "Seniority" "CommutingTime" "SmartWorkHours"], ...
@@ -34,15 +33,7 @@ parallelplot(Xt,'CoordinateVariables',["Education" "Wage" ...
 
 % print -depsc coordinateparFirm.eps;
 
-
-
-
-%% Rappresentazione in coordinate parallele dei Fisher Iris
-% 15) Ripetere il grafico precedente ma questa volta plottare solo la mediana
-% ed i percentili 0.05 e 0.95 for ciascun gruppo e un'ampiezza di linea
-% pari a 2
-
-% Load the Fisher iris sample data.
+%% Dataset fisheriris grafico in coord parallele con var raggruppamento
 load fisheriris.mat
 nr=2; nc=1;
 subplot(nr,nc,1)
