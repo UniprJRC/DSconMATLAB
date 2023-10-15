@@ -203,7 +203,7 @@ p=3;
 rng(123)
 X=10+3*randn(n,p);
 % Un modo alternativo per generare i dati era
-%X=normrnd(3,10,n,p);
+%X=normrnd(10,3,n,p);
 % Contaminazione delle righe 5 e 8 con il valore 100
 X([5 8],:)=100;
 % Z = matrice degli scostamenti standardizzati utilizzando
