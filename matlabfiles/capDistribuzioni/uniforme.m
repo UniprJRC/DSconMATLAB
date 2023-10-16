@@ -1,11 +1,11 @@
 
-%% Calcolo probabilità in una U(3 8)
+%% Calcolo probabilità in una U(3, 8)
 a=3;
 b=8;
 
 % la probabilità di ottenere un valore compreso tra 5 e 6 in U(3,8)
 disp('--------------')
-disp('P(5<X<6) in U(3,8)')
+disp('P(5<X<6) in U(3, 8)')
 prob56=unifcdf(6,a,b)-unifcdf(5,a,b);
 disp(prob56)
 
@@ -42,19 +42,19 @@ distribspec(pd, [5 6], 'inside');
 %% Quantili
 
 % quantili u0.80 e u0.90 (valori che lasciano alla destra
-% una prob. di 0.20 e 0.10) in U(3,8)
+% una prob. di 0.20 e 0.10) in U(3, 8)
 quant=[0.80 0.90];
-disp('Quantili 0.8 e 0.9 in una U(3,8)')
+disp('Quantili 0.8 e 0.9 in una U(3, 8)')
 disp(unifinv(quant,a,b))
 
 
-%% Estrazione di n numeri da U(3,8)
+%% Estrazione di n numeri da U(3, 8)
 % Fisso un determinato seed di numeri casuali
 seed=123;
 rng(seed)
 n=10000;
 p=1;
-% rand genera valori da U(0,1).
+% rand genera valori da U(0, 1).
 % Trasformo i valori generati dall'intevallo [0 1]
 % all'intervallo [a b]
 X=rand(n,p)*(b-a)+a;
