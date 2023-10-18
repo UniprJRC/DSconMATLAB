@@ -1,4 +1,4 @@
-%5 Caricamento dati
+% Caricamento dati
 load('multiple_regression.txt');
 y=multiple_regression(:,4);
 X=multiple_regression(:,1:3);
