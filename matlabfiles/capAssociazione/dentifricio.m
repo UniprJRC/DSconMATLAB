@@ -15,6 +15,11 @@ n=sum(N,"all");
 Ntable=array2table(N,"RowNames",labels(1:I,1),"VariableNames",labels(1:J,2));
 disp(Ntable)
 
+%% Parte non nel libro
+% Costruzione di Ntable tramite chiamata a pivot
+NtableCHK=pivot(X,"Rows","Dentifricio","Columns","Regione",'RowLabelPlacement','rownames');
+
+%% Parte di nuovo nel libro
 % Calcolo manuale del test chi2
 Ntheo=sum(N,2)*sum(N,1)/n;
 chi2chk=sum(((N-Ntheo).^2)./Ntheo,'all');
