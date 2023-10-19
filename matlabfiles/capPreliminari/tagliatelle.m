@@ -25,7 +25,7 @@ X1=X;
 X1(nummissR>0,:)=[];
 
 % Vengono cancellate le colonne con più di 3 missing values
-% X2 contiene solo la prima colonna (tagliat)
+% X2 contiene solo la prima colonna (umidit)
 X2=X;
 X2(:,nummissC>3)=[];
 
