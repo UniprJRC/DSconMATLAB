@@ -10,7 +10,13 @@ Ntable=array2table(N,'RowNames',labels(1:r,1),'VariableNames',labels(1:c,2));
 
 disp('Tabella di contingenza originale')
 disp(Ntable)
-% calcolo di tutti gli indici e del relativo intervallo di confidenza
+
+%% Parte non inserita nel libro 
+% Tabella di contingenza tramite la funzione pivot
+PV=pivot(X,"Rows","GUSTO","Columns","ABBINAMENTO","RowLabelPlacement","rownames");
+disp(PV)
+
+%% calcolo di tutti gli indici e del relativo intervallo di confidenza
 out=corrNominal(Ntable);
 
 %% corrNominal con 'name',value ,'datamatrix',true
