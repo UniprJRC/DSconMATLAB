@@ -1,6 +1,7 @@
 %% Caricamento dati
 X=readtable('tagliatelle.xlsx','Sheet','Dati','Range','A1:C41');
 % Mostro le prime 5 righe della table X
+disp('Prime 5 righe della table in input X')
 disp(head(X,5))
 
 %%  Analisi dei missing values 
