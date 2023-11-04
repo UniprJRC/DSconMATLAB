@@ -1,4 +1,3 @@
-
 %% Importazione dati 
 X = readtable("grafuniv.xlsx",'ReadRowNames',true);
 rownam=X.Properties.RowNames;
