@@ -25,7 +25,7 @@ title('Grafico a barre verticali')
 % un modo alternativo per inserire i nomi delle righe come intestazione
 % delle barre è quello di attribuire la proprietà categorical al vettore
 % che contiene i nomi delle righe della table
-% bar(categorical(X.Properties.RowNames),X{:,1})
+% bar(categorical(X.Properties.RowNames,X.Properties.RowNames),X{:,1})
 
 subplot(2,2,2) % inserisce il secondo grafico nel pannello in alto a dx
 % La funzione barh crea il grafico a barre orizzontale
