@@ -11,7 +11,7 @@ assert(rankA==1,"Errore di programmazione rango A=x1*x1' è 1")
 % rango della matrice A =x1 x2'
 B=x1*x2';
 rankB=rank(B);
-assert(rankB==1,"Errore di programmazione rango B=x2*x2' è 1")
+assert(rankB==1,"Errore di programmazione rango B=x1*x2' è 1")
 % rango della matrice C =x1 x1'+ x2 x2'
 C=x1*x1'+x2*x2';
 rankC=rank(C);
