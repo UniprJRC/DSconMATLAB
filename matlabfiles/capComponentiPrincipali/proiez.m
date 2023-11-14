@@ -122,7 +122,7 @@ disp(sum(Residuals.^2,'all')/(n-1));
 
 % La sommma dei quadrati delle differenze (divise per n-1) tra X e la sua
 % ricostruzione Xhat è esattamente uguale al secondo autovalore della
-% matrice S (v. p 346 del libro)
+% matrice S (v. p 436 del libro)
 
 %% Controllo che Residuals è uguale all'output della chiamata alla funzione
 % pcares. Il secondo argomento di questa funzione è il numero di dimensioni
