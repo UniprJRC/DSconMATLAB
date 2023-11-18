@@ -180,11 +180,8 @@ plot(Yst(:,1),Yst(:,2),'o')
 xlabel('Prima componente principale stand. (Indice di povertà)');
 ylabel('Seconda componente principale stand. (Indice di malessere delle aziende)');
 text(Yst(:,1),Yst(:,2),Xtable.Properties.RowNames)
-axislim=axis;
-% Aggiungo l'asse x
-line([axislim(1);axislim(2)], [0;0], 'Color','black');
-% Aggiungo l'asse y
-line([0;0],[axislim(3);axislim(4)], 'Color','black');
+xline(0)
+yline(0)
 
 % Aggiunta delle frecce che rappresentano le correlazioni tra le variabili
 % originarie e le componenti principali
