@@ -20,7 +20,7 @@ Xtilde=X-meX;
 S=Xtilde'*Dr*Xtilde/sum(w);
 % Dc = matrice diagonale con Var(X_j) sulla diagonale
 Dc=diag(diag(S));
-% Dcminus1 inverda di Dc
+% Dcminus1 inversa di Dc
 Dcminus1=Dc^-(1);
 totsum=0;
 for i=1:n
