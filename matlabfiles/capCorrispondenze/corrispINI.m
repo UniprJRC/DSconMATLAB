@@ -20,7 +20,7 @@ n=sum(N,'all');
 % frequenze relative f_ij
 P = (1/n) * N;
 
-% Verifico tramite moltiplicazione matriciale che la somma degli elrmenti
+% Verifico tramite moltiplicazione matriciale che la somma degli elementi
 % di P è pari 1.
 onesI1=ones(I,1);
 onesJ1=ones(J,1);
@@ -259,5 +259,5 @@ out=CorAna(Ntable);
 
 CorAnaplot(out)
 
-% Chiamata a moonplot
+%% Chiamata a moonplot
 moonplot(out)
