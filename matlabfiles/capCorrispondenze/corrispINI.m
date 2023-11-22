@@ -115,7 +115,7 @@ U   = U(:,1:k);
 V   = V(:,1:k);
 
 
-%% Inerzia totale come somma dei quadrati valori singolari
+%% Inerzia totale come somma dei quadrati dei valori singolari
 
 % Gam2= matrice diagonale che contiene sulla diagonale principale i
 % quadrati dei valori singolari
