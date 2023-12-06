@@ -28,9 +28,9 @@ title('Grafico a barre verticali')
 % bar(categorical(X.Properties.RowNames,X.Properties.RowNames),X{:,1})
 
 subplot(2,2,2) % inserisce il secondo grafico nel pannello in alto a dx
-% La funzione barh crea il grafico a barre orizzontale
+% La funzione barh crea il grafico a barre orizzontali
 barh(Xd,'BaseValue',mx)
-% Nel grafico a barre orizzontale andiamo a inserire i nomi della table
+% Nel grafico a barre orizzontali andiamo a inserire i nomi della table
 % nelle etichette dell'asse y
 set(gca,'yticklabel',rownam)
 title('Grafico a barre orizzontali')
