@@ -21,3 +21,8 @@ subplot(2,2,3:4)
 qqplot(X.Wage);
 title('qqplot della variabile Wage')
 % print -depsc qqplot.eps;
+
+%% Messaggio per i "newcomers"
+disp('Se siete arrivati fino a questo punto siete riusciti')
+disp('ad eseguire il file qqplot.m')
+disp('CONGRATULAZIONI!')
