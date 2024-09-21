@@ -108,6 +108,13 @@ end
 
 assert(isequal(Freq,FreqCHK1),"frequenze tramite ciclo for diverse" + ...
     "dalle frequenze ottenute tramite doppio ciclo for");
+%% Parte non nel libro: soluzione tramite chiamata a discretize con terzo argomento categorical
+clc
+classi=[-Inf;-2; 0; 1.5; Inf];
+[classe_appartenza]=discretize(x,classi,'categorical');
+fprintf(['Etichetta della classe di appartenenza ' ...
+    'delle \n prime cinque modalità del vettore x \n']);
+disp(classe_appartenza(1:5))
 
 %% Soluzione tramite chiamata alla funzione discretize
 clc
