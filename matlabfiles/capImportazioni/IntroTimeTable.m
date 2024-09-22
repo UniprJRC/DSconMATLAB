@@ -14,13 +14,20 @@ TT(sel,:)
 sel=timerange('-inf','1998-06-01');
 % significa tutte le date prima del primo giugno 1998
 
+%% Parte non nel lbro
+% le due date da inserire dentro timerange invece di essere definite come
+% due characters potevano essere introdotte tramite datetime(Y,M,G)
+sel=timerange(datetime(1996,12,05),datetime(1998,06,01));
+TT(sel,:)
+
+
 %% Estrazione di record (secondo criterio)
 sel2=timerange('1999','2001','years');
 TT(sel2,:)
 
 
 %% Estrazione di un intervallo di date con unità di misura i mesi
-timerange(datetime(2022,5,1),datetime(2023,11,4),'months')
+timerange(datetime(2022,15,1),datetime(2023,11,4),'months')
 
 
 %% Estrazione di record (esercizio 4.4)
