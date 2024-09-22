@@ -35,6 +35,18 @@ GUIquantile(Xt.Education,0.7)
 
 %% Materiale extra non incluso nel libro
 
+% Funzione groupcounts
+% Se il primo argomento di groupcounts è una table
+% allora il secondo argomento contiene il nome (i nomi) delle variabili su
+% cui occorre calcolare la distribuzione di frequenze
+% Ad esempio
+Xt1=groupcounts(Xt,"Education");
+% consente di avere in output una table con i livellod i Education
+% Se l'input è un vettore matrice o cell array allora 
+[freq,modalita,freqperc]=groupcounts(Xt.Education);
+% consente di avere dentro freq le frequenze dentro modalità le modalità  e
+% dentro freqperc i vettore delle frequenze percentuali
+
 %% Grafico a torta  per la variabile Education
 pie(Xt.Education)
 
