@@ -3,23 +3,23 @@ close all
 miofile="Firm.xlsx";
 X=readtable(miofile,"ReadRowNames",true);
 
-%% Rappresentazione grafica intervalli di confidenza al 99 per cento 
+%% Rappresentazione grafica intervalli di confidenza al 99 per cento
 % per ogni livello di Education
 % conflevc = complemento ad uno del livello di confidenza
 conflevc=0.01;
 
 [mediej,sterrMediaj,nj,nomij]=grpstats(X.Wage,X.Education,conflevc);
 % mediej = vettore che contiene le medie aritmetiche di Wage per ogni
-% livello di Education 
+% livello di Education
 % sterrMediaj = vettore che contiene gli standard
-% error delle medie aritmetiche per ogni gruppo (livello di Education) 
-% nj = vettore che contiene le frequenze di ogni gruppo 
+% error delle medie aritmetiche per ogni gruppo (livello di Education)
+% nj = vettore che contiene le frequenze di ogni gruppo
 % nomij = cell che contiene le etichette dei livelli di Education
 
 % print -depsc confintABC.eps;
 
 %% Questa section non è nel libro
-% Costruzione tabella di contingenza tra Gender e Education 
+% Costruzione tabella di contingenza tra Gender e Education
 % All'interno della tabella di contingenza ci sono le frequenze
 % Gli argomenti 2 e 3 dell'output di crosstab non mi interessano, di
 % conseguenza con il simbolo ~ non li faccio restituire (per risparmiare
@@ -62,7 +62,7 @@ disp(XtabComplessiva(:,1:7))
 
 %% Calcolo statistiche di interesse per i sottogruppi richiesti
 % groupingVARS = cell che contiene le variabili classificatorie
-groupingVARS={'Gender', 'Education'}; 
+groupingVARS={'Gender', 'Education'};
 % groupingVARS poteva essere definita anche come
 % array of strings come segue
 % groupingVARS=["Gender", "Education"];
@@ -96,13 +96,13 @@ varDaEspandere='Education'; % terzo argomento di input di unstack
 % varInternoTabella = i numeri che devono essere inseriti
 % all'interno della tabella
 varInternoTabella="mean_Wage"; % secondo argomento di input di unstack
-% varSulleRighe è la variabile di raggruppamento da inserire 
-% nelle righe della tabella. 
+% varSulleRighe è la variabile di raggruppamento da inserire
+% nelle righe della tabella.
 varSulleRighe='Gender';
 tabPivot=unstack(Xtab,varInternoTabella,varDaEspandere, ...
     'GroupingVariables',varSulleRighe);
 % disp(tabPivot)
-tabPivot.Properties.RowNames=tabPivot{:,1}; 
+tabPivot.Properties.RowNames=tabPivot{:,1};
 tabPivot=tabPivot(:,2:end);
 disp("Tabella pivot tra Sesso e Education")
 disp("All'interno di ogni cella c'è la retr. media")
@@ -112,11 +112,11 @@ disp(tabPivot)
 % Chiamata ad unstack senza il Name/value 'GroupingVariables',varSulleRighe
 % Parte non inserita nel libro
 % In questo caso il primo argomento di input di unstack è la table con solo
-% le 3 colonne che interessano 
+% le 3 colonne che interessano
 Xtabsel=Xtab(:,["Gender" "Education" "mean_Wage"]);
 tabPivotModoAlt=unstack(Xtabsel,varInternoTabella,varDaEspandere);
 % disp(tabPivot)
-tabPivotModoAlt.Properties.RowNames=tabPivotModoAlt{:,1}; 
+tabPivotModoAlt.Properties.RowNames=tabPivotModoAlt{:,1};
 tabPivotModoAlt=tabPivotModoAlt(:,2:end);
 disp("Tabella pivot tra Sesso e Education")
 disp("All'interno di ogni cella c'è la retr. media")
@@ -127,7 +127,7 @@ disp(tabPivotModoAlt)
 % funz = funzione da applicare alla variabile dentro la tabella
 % se invece della media avessi voluto il conteggio funz=@numel;
 % numel sta per number of elements
-funz=@mean; 
+funz=@mean;
 tabPivotCHK=unstack(X,'Wage',varDaEspandere, ...
     'AggregationFunction',funz,"GroupingVariables",varSulleRighe);
 tabPivotCHK.Properties.RowNames=tabPivotCHK{:,1};
@@ -139,13 +139,13 @@ tabPivotCHK=tabPivotCHK(:,2:end);
 % Parte non inserita nel libro
 % Seleziono solo le 3 colonne che mi interessano nel primo argomento di
 % input
-% In questa chiamata non è necessario specificare 
+% In questa chiamata non è necessario specificare
 % "GroupingVariables",varSulleRighe
-funz=@mean; 
+funz=@mean;
 variabiliCheInteressano=["Gender" "Education" "Wage"];
-% Xsel = table che contiene le 3 variabili che interessano. 
+% Xsel = table che contiene le 3 variabili che interessano.
 % Gender dovrà essere inserito sulle righe.
-% Le modalità di Education contengono i nomi delle variabili 
+% Le modalità di Education contengono i nomi delle variabili
 % nella table di output
 Xsel2=X(:,variabiliCheInteressano);
 tabPivotCHK1=unstack(Xsel2,'Wage',varDaEspandere, ...
@@ -175,3 +175,12 @@ ylabel('Retribuzione')
 legend
 % print -depsc boxchartFMABC.eps;
 
+%% violinplot per sesso e titolo di studio (tramite chiamata a boxchart)
+if isMATLABReleaseOlderThan("R2024b") ==false
+    violinplot(categorical(X.Gender),X.Wage,'GroupByColor',X.Education);
+    ylabel('Retribuzione')
+    % Aggiunta della legenda al grafico
+    legend(categories(categorical(X.Education)))
+    % Si noti che solo l'istruzione legend senza specificare le categorie non
+    % funziona
+end
