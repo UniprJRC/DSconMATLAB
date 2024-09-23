@@ -41,17 +41,17 @@ if isMATLABReleaseOlderThan("R2024b") ==false
     withpoints=true;
     subplot(1,2,1)
     violinplot(xsel)
-    hold('on')
+    
     if withpoints==true
-
+        hold('on')
         one=ones(size(X,1),1);
         scatter(one,xsel)
     end
 
     subplot(1,2,2)
     violinplot(categorical(X.Gender),xsel)
+    
     if withpoints==true
-
         hold('on')
         boo=X.Gender=="M";
         % punti relativi ai maschi
