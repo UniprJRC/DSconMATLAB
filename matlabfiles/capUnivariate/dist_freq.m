@@ -109,14 +109,17 @@ end
 assert(isequal(Freq,FreqCHK1),"frequenze tramite ciclo for diverse" + ...
     "dalle frequenze ottenute tramite doppio ciclo for");
 %% Parte non nel libro: soluzione tramite chiamata a discretize con terzo argomento categorical
+% 3 argomenti in input nella funzione discretize
 clc
 classi=[-Inf;-2; 0; 1.5; Inf];
 [classe_appartenza]=discretize(x,classi,'categorical');
 fprintf(['Etichetta della classe di appartenenza ' ...
     'delle \n prime cinque modalità del vettore x \n']);
 disp(classe_appartenza(1:5))
+tabulate(classe_appartenza);
 
 %% Soluzione tramite chiamata alla funzione discretize
+% quattro argomenti di input di discretize
 clc
 rownam={'<=-2' '(- 2  0]' '(0  1.5]' '>1.5'};
 classi=[-Inf;-2; 0; 1.5; Inf];
