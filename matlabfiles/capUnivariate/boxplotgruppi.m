@@ -54,7 +54,7 @@ if isMATLABReleaseOlderThan("R2024b") ==false
     if withpoints==true
         hold('on')
         % Osservazione: dato che quando trasformo la variabile in
-        % categorica le modalità sono inserite in ordine alfabetico il
+        % categorica le modalità sono inserite in ordine alfabetico, il
         % primo violinplot si riferisce alla modalità F
         boo=X.Gender=="F";
         % punti relativi alle donne
