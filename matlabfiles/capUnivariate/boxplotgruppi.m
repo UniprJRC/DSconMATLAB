@@ -53,10 +53,13 @@ if isMATLABReleaseOlderThan("R2024b") ==false
     
     if withpoints==true
         hold('on')
-        boo=X.Gender=="M";
-        % punti relativi ai maschi
+        % Osservazione: dato che quando trasformo la variabile in
+        % categorica le modalità sono inserite in ordine alfabetico il
+        % primo violinplot si riferisce alla modalità F
+        boo=X.Gender=="F";
+        % punti relativi alle donne
         scatter(one(boo,1),xsel(boo))
-        % punti relativi alle femmine
+        % punti relativi agli uomini
         scatter(2*one(~boo,1),xsel(~boo))
     end
     % L'istruzione sgtitle inserisce un title
