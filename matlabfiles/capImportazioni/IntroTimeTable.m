@@ -16,7 +16,7 @@ sel=timerange('-inf','1998-06-01');
 
 %% Parte non nel lbro
 % le due date da inserire dentro timerange invece di essere definite come
-% due characters potevano essere introdotte tramite datetime(Y,M,G)
+% due characters potevano essere introdotte tramite datetime(Y,M,D)
 sel=timerange(datetime(1996,12,05),datetime(1998,06,01));
 TT(sel,:)
 
