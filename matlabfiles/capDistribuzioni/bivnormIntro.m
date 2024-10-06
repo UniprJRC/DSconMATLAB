@@ -1,4 +1,4 @@
-% meshgrid(1:3) costruisce tutte le possibili combinazioni di nei delle
+% meshgrid(1:3) costruisce tutte le possibili combinazioni delle
 % coppie di numeri 1:3 1:3
 % ad esempio (1,1) (2,1) (3,1) (1,2) ... (3,3)
 % 
