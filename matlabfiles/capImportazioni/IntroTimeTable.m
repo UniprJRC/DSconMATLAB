@@ -40,3 +40,54 @@ mesi= TT.Properties.RowTimes.Month>=3 & TT.Properties.RowTimes.Month<=4;
 giorni=TT.Properties.RowTimes.Day >=20;
 % I tre criteri vengono combinati tramite operatore logico and
 disp(TT(anni & mesi & giorni,1:4))
+
+
+%% Ulteriori esempi con timerange (PARTE NON INSERITA NEL TESTO) 
+
+% Es. di data passata come stringa con formato riconosciuto
+TR      = timerange("2016-01-01","2022-12-31")
+
+% Es. di data passata come stringa con formato non riconosciuto
+% Dato che il formato "01-01-2016" non viene riconosciuto
+% occorre convertire la stringa con datetime
+TR      = timerange(datetime("01-01-2016","InputFormat","dd-MM-yyyy"), ...
+    datetime("31-12-2022","InputFormat","dd-MM-yyyy"))
+
+% Esempio di stringa contentente data non univoca
+% In questo caso MATLAB fornisce uno warning
+% Le date sono ambigue. MATLAB assume che il formato si MM/dd/uuuu
+% ma avverte che il formato potrebbe anche essere 'dd/MM/uuuu'
+TR=timerange("02/01/2016","11/12/2022");
+
+
+%% Esempio di stringa ambigua
+% La data è il primo di febbraio del 2016 oppure
+% il due di gennaio del 2016?
+stringaContenenteData="01/02/2016";
+disp('Data non chiara')
+disp(stringaContenenteData)
+disp('Conversione con il formato "dd/MM/yyyy"')
+ini1=datetime(stringaContenenteData,'InputFormat',"dd/MM/yyyy");
+disp(ini1)
+disp('Conversione con il formato "MM/dd/yyyy"')
+ini2=datetime(stringaContenenteData,'InputFormat',"MM/dd/yyyy");
+disp(ini2)
+
+%% Osservazione 
+% Nei numeri passati a datetime  con il formato t = datetime(Y,M,D)
+% nell'help di datetime si dice che "If an element of the Y, M, D, falls
+% outside the conventional range, then datetime adjusts both that element
+% and the same element of the previous input."
+
+% Questo significa che è possibile (ad esempio) nel secondo argomento 
+% scrivere un valore maggiore di 12
+Y=2022;
+M=16;
+D=3;
+disp(['Y=' num2str(Y) ' M=' num2str(M) ' D=' num2str(D)])
+disp([' La sintassi datetime(2022,16,3) ' ...
+    'corrisponde al 3 di aprile 2023'])
+disp(datetime(Y,M,D))
+
+% Similmente posso scrivere per D un numero maggiore di 31. 
+% Ad esempio, datetime(2023,2,50) corrisponde al 22-Mar-2023
