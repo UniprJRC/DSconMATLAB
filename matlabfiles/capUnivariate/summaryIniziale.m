@@ -41,10 +41,10 @@ GUIquantile(Xt.Education,0.7)
 % cui occorre calcolare la distribuzione di frequenze
 % Ad esempio
 Xt1=groupcounts(Xt,"Education");
-% consente di avere in output una table con i livellod i Education
+% consente di avere in output una table con i livelli di Education
 % Se l'input è un vettore matrice o cell array allora 
 [freq,modalita,freqperc]=groupcounts(Xt.Education);
-% consente di avere dentro freq le frequenze dentro modalità le modalità  e
+% consente di avere dentro freq le frequenze, dentro modalità le modalità e
 % dentro freqperc i vettore delle frequenze percentuali
 
 %% Grafico a torta  per la variabile Education
