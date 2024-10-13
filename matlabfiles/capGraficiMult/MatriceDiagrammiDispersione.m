@@ -69,7 +69,7 @@ spmplot(meas,'group',species,'overlay',overlay,'plo',plo)
 %% Nuovo 'Name',Value typespm dentro spmplot
 % E' possibile specificare se la scatterplot matrix deve essere solo
 % triangolare inferiore o superiore e quale tipo di diagramma.
-% Il Name Value è "typspm",Tipospm
+% Il Name Value è "typespm",Tipospm
 % Tipospm è una struct con i fields lower e upper per controllare il tipo
 % di diagramma da inserire rispettavamente sotto o sopra la diagonale
 % principale.
