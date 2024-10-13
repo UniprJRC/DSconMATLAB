@@ -17,11 +17,18 @@ subplot(nr,nc,1)
 % La funzione bar crea il grafico a barre verticali
 bar(mesi,Xd)
 title('Grafico a barre verticali')
+% Osservazione: nella versioni di MATLAB  a partire dalla 2023b 
+% funziona anche l'istruzione
+% bar(X.Properties.RowNames,Xd)
+
 
 subplot(nr,nc,2)
 % La funzione barh crea il grafico a barre orizzontali
 barh(mesi, Xd)
 title('Grafico a barre orizzontali')
+% Osservazione: nella versioni di MATLAB  a partire dalla 2023b 
+% funziona anche l'istruzione
+% barh(X.Properties.RowNames,Xd)
 
 subplot(nr,nc,3)
 % colonne in pila
@@ -41,10 +48,17 @@ subplot(nr,nc,5)
 area(mesi,100*Xd./sum(Xd,2),2)
 title('Area in pila al 100%')
 
+% Si noti che l'istruzione di seguito non funziona
+% area(X.Properties.RowNames,100*Xd./sum(Xd,2),2)
+
 subplot(nr,nc,6)
 % barre 3D
 bar3(mesi, Xd)
 title('Barre 3D')
+
+% Si noti che l'istruzione di seguito non funziona
+% bar3(X.Properties.RowNames,Xd)
+
 
 % print -depsc grafuniv2serie.eps;
 
