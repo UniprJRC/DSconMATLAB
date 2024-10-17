@@ -1,4 +1,4 @@
-% Inizializzo n (numeri di elementi della sequenza di Finonacci) 
+% Inizializzo n (numeri di elementi della sequenza di Fibonacci) 
 % ed il vettore f che conterrà i numeri della sequenza di
 % Fibonacci
 n=10;
