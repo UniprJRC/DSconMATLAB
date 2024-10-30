@@ -9,7 +9,7 @@ X =[1 1 1 1 1 5	169	450 ;
 l=[2*ones(1,5) ones(1,3)];
 % rowlab = string array che contiene i nomi delle righe di X
 rowlab=string(('A':'F')');
-% La funzioen GowerIndex accetta anche un input di tipo table
+% La funzione GowerIndex accetta anche un input di tipo table
 Xtable=array2table(X,"RowNames",rowlab);
 [IndSimG, IndSimGtable]=GowerIndex(Xtable,'l',l);
 disp(IndSimGtable)
