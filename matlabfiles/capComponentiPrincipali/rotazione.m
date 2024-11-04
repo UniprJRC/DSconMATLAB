@@ -42,7 +42,7 @@ axis equal
 Ell= ellipse(meaX,S,1);
 % print -depsc figs\rotazione1.eps;
 
-
+%% Clear della memoria
 % Tutte le variabili generate dal codice di cui sopra
 % sono presenti nel file mat denominato
 % workspacePreliminareEllisse.mat
