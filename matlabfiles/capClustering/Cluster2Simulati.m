@@ -26,7 +26,7 @@ text(X(:,1),X(:,2),lab)
 
 % print -depsc figs\cluster.eps;
 
-%% Cluster gerarchico utilizzando il metodo di Ward
+%% Cluster gerarchico utilizzando il metodo di Ward (Es. 14.4)
 % Si noti che questa volta l'input di linkage è la matrice dei dati
 % Il terzo argomento euclidean poteva essere omesso
 tree = linkage(X,'ward','euclidean');
