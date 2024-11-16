@@ -9,7 +9,7 @@ i=2; j=5;
 epre=zeros(n,1);
 epre(i)=1;
 % epost = vettore elementare e_j di lunghezza p (tutti elementi uguali a
-% zero tranne quello in posizione j che risulta uguale ad 1.
+% zero tranne quello in posizione j che risulta uguale ad 1)
 epost=zeros(p,1);
 epost(j)=1;
 
