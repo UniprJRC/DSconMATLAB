@@ -67,8 +67,8 @@ MatriceEtic=categorical(MatriceEti,etichette,'Ordinal',true);
 
 Nt=array2table(MatriceEtic,"VariableNames",titsel);
 
-i=2; % Variabile da insere nelle righe della heatmap
-j=3; % Variabile da insere nelle colonne della heatmap
+i=2; % Variabile da inserire nelle righe della heatmap
+j=3; % Variabile da inserire nelle colonne della heatmap
 heatmap(Nt,i,j)
 
 % print -depsc heatmapTAB.eps;

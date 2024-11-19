@@ -8,9 +8,9 @@ Xd=X{:,1:2};
 % Questo per forzare Matlab ad utilizzare l'ordine presente dentro
 % X.Properties.RowNames
 mesi=categorical(X.Properties.RowNames,X.Properties.RowNames);
-% Provate a vedere cosa succede se l'istruzione categorical si elimina
-% e si utilizza semplicemente l'istruzione
-% mesi=categorical(X.Properties.RowNames)
+% Provate a vedere cosa succede se il secondo argomento di input di
+% categorical si elimina e si utilizza semplicemente l'istruzione
+% mesi=categorical(X.Properties.RowNames);
 nr=2; % nr= numeri di righe nella finestra grafica
 nc=3; % nc = numero di colonne nella finestra grafica
 subplot(nr,nc,1)
