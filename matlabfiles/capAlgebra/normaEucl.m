@@ -1,5 +1,5 @@
-% Numeri dalla Chi2 5
-% Per repllcabilità dei risultati porre $n=100000$, $p=3$ e fissare il seed
+% Numeri dalla Chi2 con 5 gradi di libertà.
+% Per replicabilità dei risultati porre $n=100000$, $p=3$ e fissare il seed
 % dei numeri casuali a 25.
 rng(25)
 n=100000;
