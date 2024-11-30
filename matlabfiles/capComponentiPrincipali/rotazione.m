@@ -1,4 +1,4 @@
-% Componenti principali come rotazione degli assi cartesiani
+% Componenti principali come rotazione degli assi cartesiani
 
 %% Diagramma di dispersione, ellisse di confidenza e assi dell'ellisse
 close all
@@ -49,7 +49,7 @@ Ell= ellipse(meaX,S,1);
 clear
 
 
-%% Calcolo in maniera numerica lunghezza semisse
+%% Calcolo in maniera numerica lunghezza semiasse
 
 % Carico workspace con le variabili necessarie
 load workspacePreliminareEllisse
