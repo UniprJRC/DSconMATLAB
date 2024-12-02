@@ -34,7 +34,7 @@ disp(['tr(Z''Z)=' num2str(trace(Z'*Z))]);
 disp(['sum_ij z_ij^2='  num2str(sum(Z.^2,'all'))])
 % svd di Z
 [U,Gamma,V]=svd(Z,'econ');
-% somma dei qudarati dei valori singolari
+% Somma dei quadrati dei valori singolari
 % La matrice Gamma ha solo 4 valori singolari diversi da 0
 sumgamsquared=sum(diag(Gamma(1:r,1:r)^2));
 disp(['sum_l gamma_l^2=' num2str(sumgamsquared)])
