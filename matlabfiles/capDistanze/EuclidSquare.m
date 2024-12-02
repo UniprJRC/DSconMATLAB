@@ -25,7 +25,7 @@ disp(D)
 % norminv(0.75) è il valore esatto per il fattore di correzione 1.4826
 MADs=mad(X,1)/norminv(0.75);
 % Se il secondo argomento di input è seuclidean è possibile specificare
-% come deveono essere standardizzate le variabili
+% come devono essere standardizzate le variabili
 dist=pdist(X,'seuclidean',MADs);
 % Nell'istruzione segue lavoro direttamente sugli scostamenti 
 % standardizzati robusti
