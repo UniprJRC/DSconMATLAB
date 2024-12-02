@@ -1,7 +1,4 @@
-%% TESTO
-
-
-% Tabella relativa all'uso della marca di dentrifricio in 4 regioni
+%% Dati di input: tabella di contingenza 13.5
 N=[49	111	13	49
 16	551	241	7
 34	358	30	117];
@@ -251,12 +248,10 @@ disp(ContrrelativiC)
 
 %% Chiamata a CorAna (sezione non presente nel testo)
 
-% Tabella relativa all'uso della marca di dentrifricio in 4 regioni
+% Tabella relativa all'uso della marca di dentifricio in 4 regioni
 N=[49	111	13	49
 16	551	241	7
 34	358	30	117];
-% I = numero di righe della tabella di contingenza
-% J = numero di colonne della tabella di contingenza
 [I,J]=size(N);
 
 Lr=["A=Marca commerciale" "B=Marca industriale" "C=indifferente"];
