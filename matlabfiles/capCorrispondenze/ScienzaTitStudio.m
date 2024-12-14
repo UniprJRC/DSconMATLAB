@@ -16,17 +16,18 @@ Lc={'1LicElem' '2LicMedia' '3Diploma' ...
 % che l'input è una matrice dei dati e di conseguenza la routine deve
 % calcolare internamente la tabella di contingenza
 format bank
-out=CorAna(X(:,1:2),'datamatrix',true,'Lr',Lr,'Lc',Lc)
+out=CorAna(X(:,1:2),'datamatrix',true,'Lr',Lr,'Lc',Lc);
 
 % print -depsc scienzaedu.eps;
 
 
-%% In alternativa per leggere i dati si poteva utilizzare
-% Da notare che in questo caso Xchk un array e non una table 
-Xchk=xlsread('scienza.xlsx','dati','A2:B872','basic');
-
-% Dato che Xchk è un array 
-outchk=CorAna(Xchk,'datamatrix',true,'Lr',Lr,'Lc',Lc);
+%% In alternativa 
+% Costruzione della tabella pivot
+PVT=pivot(X,"Rows","SCIENZA","Columns","TITOLO_STUDIO",'RowLabelPlacement','rownames');
+% Inserimento etichette di riga e colonna nella tabella pivot
+PVT.Properties.RowNames=Lr;
+PVT.Properties.VariableNames=Lc;
+outchk=CorAna(PVT);
 
 %% Contribution biplot
 plots=struct;
