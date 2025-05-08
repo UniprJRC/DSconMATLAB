@@ -28,3 +28,19 @@ X1=unstack(Xsel,"VALORE","INDICATORE");
 X1.Properties.RowNames=X1{:,1};
 X1=X1(:,2:end);
 
+
+%% Parte non nel libro: scaricamento dati 2024
+!git clone https://github.com/IlSole24ORE/QDV2024.git
+
+%% Caricamento dataset 2024 in MATLAB
+nomeCartella='QDV2024';
+nomeFile='20241216_QDV2024_001.csv';
+X=readtable([nomeCartella filesep nomeFile]);
+
+%% Creazione della table contenente la matrice dei dati province x variabili 
+Xsel=X(:,["DENOMINAZIONECORRENTE" "VALORE","INDICATORE"]);
+X1=unstack(Xsel,"VALORE","INDICATORE");
+
+% La prima colonna di X1 deve diventare i nomi delle righe
+X1.Properties.RowNames=X1{:,1};
+X1=X1(:,2:end);
