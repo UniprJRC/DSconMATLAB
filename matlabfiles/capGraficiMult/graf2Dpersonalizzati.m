@@ -4,12 +4,8 @@ load stars.mat
 X=stars{:,:};
 plot(X(:,1),X(:,2),'o','Marker','p','MarkerEdgeColor','r', ...
     'MarkerFaceColor','k','MarkerSize',12)
-% Per invertire la direzione dell'asse x
-set(gca,'XDir','reverse')
-xlabel('Temperatura della superficie')
-ylabel('Intensità della luce')
-title('Diagramma Hertzsprung-Russell')
-% print -depsc diagrammaHR.eps;
+set(gca,"XDir","reverse")
+
 
 %% Aggiunta delle regioni verticali 
 % xregion([3.45; 4.6],[3.6; 4.7])

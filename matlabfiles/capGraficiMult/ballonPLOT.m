@@ -16,7 +16,7 @@ rowslab={'Laundry' 'Main-meal' 'Dinner' 'Breakfast' 'Tidying' 'Dishes' ...
     'Repairs' 'Holidays'};
 colslab={'Wife'	'Alternating'	'Husband'	'Jointly'};
 tableN=array2table(N,'VariableNames',colslab,'RowNames',rowslab);
-% In this case a table is supplied
+%    In this case a table is supplied
 balloonplot(tableN);
 
 % print -depsc balloonPLOT.eps;

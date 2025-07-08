@@ -1,6 +1,3 @@
-% Numeri dalla Chi2 con 5 gradi di libertà.
-% Per replicabilità dei risultati porre $n=100000$, $p=3$ e fissare il seed
-% dei numeri casuali a 25.
 rng(25)
 n=100000;
 p=3;
@@ -19,7 +16,7 @@ disp(varianze)
 
 Xtilde=X-medie;
 Z=zscore(X);
-%% Calcolo delle norme richieste tramite ciclo for
+%% Calcolo varianze e sigma tramite le norme
 for j=1:p
     Xtildej=Xtilde(:,j);
     normXtildej=sqrt(sum(Xtildej.^2));
@@ -28,9 +25,10 @@ for j=1:p
     diff=abs(normXtildej-normXtildejCHK);
     assert(diff<1e-12,"Errore di programmazione " + ...
         "nell'implementazione della norma euclidea")
-    diff1=abs(normXtildej-sigma(j)*sqrt(n-1));
+    % Verifica uguaglianza varianze
+    diff1=abs(normXtildej^2/(n-1)-varianze(j));
     assert(diff1<1e-12,"Errore di programmazione " + ...
-        "nell'implementazione della norma euclidea")
+        "nell'implementazione della varianza tramite la norma")
     Zj=Z(:,j);
     normZj=sqrt(sum(Zj.^2));
     % Di seguito chiamiamo direttamente la funzione norm
@@ -38,9 +36,9 @@ for j=1:p
     diff2=abs(normZj-normZjCHK);
     assert(diff2<1e-12,"Errore di programmazione " + ...
         "nell'implementazione della norma euclidea")
-    diff3=abs(normZj-sqrt(n-1));
+    diff3=abs(normZj/sqrt(n-1)-1);
     assert(diff3<1e-12,"Errore di programmazione " + ...
-        "nell'implementazione della norma euclidea")
+        "nell'implementazione di sigma tramite la norma")
 end
 
 
