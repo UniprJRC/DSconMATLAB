@@ -28,3 +28,6 @@ out=corrNominal(Ntable);
 
 %% corrNominal con primo argomento di input la table nx2
 outCHK=corrNominal(X(:,["GUSTO" "ABBINAMENTO"]),'datamatrix',true);
+
+%% Opzione plots
+ out=corrNominal([X.GUSTO X.ABBINAMENTO],'datamatrix',true,'plots',true);
