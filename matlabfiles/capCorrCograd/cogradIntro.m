@@ -13,7 +13,6 @@ disp(Datirank)
 rhochk=corr(Datirank(:,1), Datirank(:,2));
 disp(['Indice rho di Spearman calcolato su Datirank: ' num2str(rhochk)])
 
-
 rho=corr(Xtable{:,"MOVIMENTI"},Xtable{:,"PASSEGGERI"},'Type','Spearman');
 disp(['Indice rho di Spearman chiamando corr con Type: ' num2str(rho)])
 
