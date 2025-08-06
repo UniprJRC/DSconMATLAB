@@ -2,57 +2,49 @@
 X = readtable("grafuniv.xlsx",'ReadRowNames',true);
 rownam=X.Properties.RowNames;
 % Xd = array che contiene i 12 numeri
-Xd=X{:,:};
-n=size(X,1);
+Xd=X{:,1};
+rownam=categorical(rownam,rownam);
 
 %% Creazione dei grafici
-subplot(2,2,1)  % inserisce il primo grafico nel pannello in alto a sx
-% La funzione bar crea il grafico a barre
-% L'opzione 'BaseValue',mean(Xd) specifica
-% dove l'asse x interseca l'asse y
+subplot(2,3,1)  % inserisce il primo grafico nel pannello in alto a sx
+% La funzione bar crea il grafico a barre verticali
 mx=mean(Xd);
-bar(Xd,'BaseValue',mx)
-% la funzione MATLAB gca (get current axes) consente di avere un handle 
-% alle diverse proprietà del grafico
-% Ad esempio la funzione
-% get(gca,'xticklabel') consente di recuperare le etichette delle barre
-% sull'asse delle ascisse
-% L'istruzione che segue specifica che le etichette delle barre devono
-% essere i nomi delle righe della table X
-set(gca,'xticklabel',rownam)
+bar(rownam,Xd,'BaseValue',mx)
 title('Grafico a barre verticali')
 
-% un modo alternativo per inserire i nomi delle righe come intestazione
-% delle barre è quello di attribuire la proprietà categorical al vettore
-% che contiene i nomi delle righe della table
-% bar(categorical(X.Properties.RowNames,X.Properties.RowNames),X{:,1})
-
-subplot(2,2,2) % inserisce il secondo grafico nel pannello in alto a dx
-% La funzione barh crea il grafico a barre orizzontali
-barh(Xd,'BaseValue',mx)
-% Nel grafico a barre orizzontali andiamo a inserire i nomi della table
-% nelle etichette dell'asse y
-set(gca,'yticklabel',rownam)
+subplot(2,3,2) 
+barh(rownam,Xd,'BaseValue',mx) % grafico a barre orizzontali
 title('Grafico a barre orizzontali')
 
-subplot(2,2,3) % inserisce il terzo grafico nel pannello in basso a sx
-% La funzione plot crea il grafico a linee
-plot(Xd)
-% Vado ad inserire i nomi della table
-% nelle etichette dell'asse x.
-% La proprietà 'xtick',1:n consente di specificare che ci devono essere n
-% etichette. La proprietà 'xticklabel' consente di specificare quali devono
-% essere queste n etichette. In questo caso le n etichette corrispondono
-% alle n righe della table originaria
-set(gca,'xtick',1:n,'xticklabel',rownam)
+subplot(2,3,3) 
+plot(rownam,Xd) % grafico a linee
 title('Grafico a linee')
 
-subplot(2,2,4) % inserisce il grafico nel pannello in basso a dx
+subplot(2,3,4) 
 % La funzione area crea il grafico ad area
-area(Xd)
-set(gca,'xtick',1:n,'xticklabel',rownam)
+area(rownam,Xd) % grafico ad area
 title('Grafico ad area')
 
+subplot(2,3,5)
+stairs(rownam,Xd) % grafico a gradini
+title('Grafico a gradini')
+
+subplot(2,3,6)
+stem(rownam,Xd)
+title('Grafico a steli')
+
+%% 
+% subplot(2,3,6)
+% % Creazione della sequenza di valori theta da 0 a 2pi
+% % (in radianti), ossia la sequenza
+% % 0, 30, 60, ..., 360 in gradi
+% theta=linspace(0,2*pi,13);
+% % Considero solo i primi 12 valori di theta (in quanto i valori 0 e 360
+% % gradi corrispondono alla stessa direzione).
+% compassplot(theta(1:12),Xd)
+% % Si aggiungono le etichette
+% set(gca,'ThetaTickLabel',rownam)
+% 
 % print -depsc grafuniv.eps;
 
 

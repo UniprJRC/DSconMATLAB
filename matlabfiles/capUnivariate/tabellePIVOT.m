@@ -1,5 +1,4 @@
 %% Caricamento dati
-
 miofile="Firm.xlsx"; % Caricamento file Firm.xlsx dentro MATLAB 
 X=readtable(miofile,"ReadRowNames",true);
 
@@ -11,20 +10,16 @@ pivot(X,'Rows','Gender')
 % Le modalità della variabile sulle righe sono inseriti come RowNames
 pivot(X,'Rows','Gender','RowLabelPlacement','rownames')
 
-% Variabile Gender sulle righe, Variabile Education sulle colonne
-% All'interno le frequenze
+% Variabile Gender sulle righe, Variabile Education sulle colonne, all'interno le frequenze
 pivot(X,'Rows','Gender','Columns','Education')
 
-
-% Come la precedente ma con l'aggiunta della riga dei totali per righe
-% e colonne
+% Come la precedente ma con l'aggiunta della riga dei totali per righe e colonne
 pivot(X,'Rows','Gender','Columns','Education','IncludeTotals',true)
 
 % Come la precedente ma ora le modalità della variabile
 % sulle righe sono inserite come RowNames
 pivot(X,'Rows','Gender','Columns','Education','IncludeTotals',true, ...
     'RowLabelPlacement','rownames')
-
 
 % Variabile Gender sulle righe, Variabile Education sulle colonne
 % All'interno la media della retribuzione
@@ -46,7 +41,7 @@ disp(pv3)
 % La variabile sulle righe viene suddivisa in 5 classi
 pivot(X,'Rows','Wage','Columns','Education','RowsBinMethod',5)
 
-%% Inizio soluzione esercizio 3.9
+%% Inizio soluzione esercizio 3.12
 
 X1=X; 
 X1.Wage(1)=2000;
@@ -115,11 +110,10 @@ disp(pv6)
 disp('Nomi delle variabili di pv6')
 disp(pv6.Properties.VariableNames)
 
-disp('Tabella pivot pv7')
-
 % Per evitare di creare tabelle nested e concatenare i nomi delle modalità
 % delle due variabili inserite nelle colonne, occorre specificare 
 % 'OutputFormat','flat'
+disp('Tabella pivot pv7')
 pv7=pivot(X1,'Columns',{'Gender' 'Seniority'},'Rows','Education', ...
     'ColumnsBinMethod',{'none' [0 20 45]}, ...
     'DataVariable','Wage','Method','min','OutputFormat','flat');

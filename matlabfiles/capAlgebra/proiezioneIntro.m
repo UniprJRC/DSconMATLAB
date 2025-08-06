@@ -53,7 +53,7 @@ xminushatx=x-hatx;
 quiver3(x(1),x(2),x(3),-xminushatx(1),-xminushatx(2),-xminushatx(3),0, ...
     'LineWidth',1,'Color','r','MaxHeadSize',1)
 dy=0.15;
-text(x(1)+dy,x(2)+dy,x(3)+dy,'$x-\hat x$', ...
+text(x(1)+dy,x(2)+dy,x(3)+dy,'$x-\hat x$', 
     "FontSize",fs,'Rotation',-57,'Interpreter','latex');
 
 % oppure se faccio partire il vettore da hatx=tv

@@ -83,75 +83,11 @@ grpstats(Xsel1,groupingVARS,statDiInteresse)
 % Grafico a barre
 bar(categorical(Xtab.Properties.RowNames),Xtab.mean_Wage)
 % print -depsc barreFMABC.eps;
+%% Da Xtab ottengo la tabella che mi interessa tramite pivot
 
+pivot(Xtab,Rows="Gender",Columns="Education",DataVariable="mean_Wage", ...
+    Method="none",RowLabelPlacement="rownames")
 
-%% Da Xtab ottengo la tabella che mi interessa tramite funzione unstack
-
-% Creazione tabella pivot tra Wage e Education,
-% all'interno di ogni cella il salario medio
-
-% varDaEspandere è la variabile le cui modalità devono essere inserite
-% nelle colonne della tabella
-varDaEspandere='Education'; % terzo argomento di input di unstack
-% varInternoTabella = i numeri che devono essere inseriti
-% all'interno della tabella
-varInternoTabella="mean_Wage"; % secondo argomento di input di unstack
-% varSulleRighe è la variabile di raggruppamento da inserire
-% nelle righe della tabella.
-varSulleRighe='Gender';
-tabPivot=unstack(Xtab,varInternoTabella,varDaEspandere, ...
-    'GroupingVariables',varSulleRighe);
-% disp(tabPivot)
-tabPivot.Properties.RowNames=tabPivot{:,1};
-tabPivot=tabPivot(:,2:end);
-disp("Tabella pivot tra Sesso e Education")
-disp("All'interno di ogni cella c'è la retr. media")
-disp(tabPivot)
-
-%% Questa section non è nel libro
-% Chiamata ad unstack senza il Name/value 'GroupingVariables',varSulleRighe
-% Parte non inserita nel libro
-% In questo caso il primo argomento di input di unstack è la table con solo
-% le 3 colonne che interessano
-Xtabsel=Xtab(:,["Gender" "Education" "mean_Wage"]);
-tabPivotModoAlt=unstack(Xtabsel,varInternoTabella,varDaEspandere);
-% disp(tabPivot)
-tabPivotModoAlt.Properties.RowNames=tabPivotModoAlt{:,1};
-tabPivotModoAlt=tabPivotModoAlt(:,2:end);
-disp("Tabella pivot tra Sesso e Education")
-disp("All'interno di ogni cella c'è la retr. media")
-disp(tabPivotModoAlt)
-
-%% Modo alternativo per costruire la tabella pivot (partendo da X)
-
-% funz = funzione da applicare alla variabile dentro la tabella
-% se invece della media avessi voluto il conteggio funz=@numel;
-% numel sta per number of elements
-funz=@mean;
-tabPivotCHK=unstack(X,'Wage',varDaEspandere, ...
-    'AggregationFunction',funz,"GroupingVariables",varSulleRighe);
-tabPivotCHK.Properties.RowNames=tabPivotCHK{:,1};
-tabPivotCHK=tabPivotCHK(:,2:end);
-
-
-%% Questa section non è nel libro
-% Modo alternativo per costruire la tabella pivot (partendo da X)
-% Parte non inserita nel libro
-% Seleziono solo le 3 colonne che mi interessano nel primo argomento di
-% input
-% In questa chiamata non è necessario specificare
-% "GroupingVariables",varSulleRighe
-funz=@mean;
-variabiliCheInteressano=["Gender" "Education" "Wage"];
-% Xsel = table che contiene le 3 variabili che interessano.
-% Gender dovrà essere inserito sulle righe.
-% Le modalità di Education contengono i nomi delle variabili
-% nella table di output
-Xsel2=X(:,variabiliCheInteressano);
-tabPivotCHK1=unstack(Xsel2,'Wage',varDaEspandere, ...
-    'AggregationFunction',funz);
-tabPivotCHK1.Properties.RowNames=tabPivotCHK1{:,1};
-tabPivotCHK1=tabPivotCHK1(:,2:end);
 
 %% Boxplot per sesso e titolo di studio
 close all
@@ -175,12 +111,18 @@ ylabel('Retribuzione')
 legend
 % print -depsc boxchartFMABC.eps;
 
-%% violinplot per sesso e titolo di studio (tramite chiamata a boxchart)
-if isMATLABReleaseOlderThan("R2024b") ==false
+%% violinplot per sesso e titolo di studio (tramite chiamata a violinplot)
     violinplot(categorical(X.Gender),X.Wage,'GroupByColor',X.Education);
     ylabel('Retribuzione')
     % Aggiunta della legenda al grafico
     legend(categories(categorical(X.Education)))
     % Si noti che solo l'istruzione legend senza specificare le categorie non
     % funziona
-end
+
+%% violinplot per sesso e titolo di studio e punti interni
+    violinplot(categorical(X.Gender),X.Wage,'GroupByColor',X.Education);
+    ylabel('Retribuzione')
+    % Aggiunta della legenda al grafico
+    legend(categories(categorical(X.Education)))
+    % Si noti che solo l'istruzione legend senza specificare le categorie non
+    % funziona

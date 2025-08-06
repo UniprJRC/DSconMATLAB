@@ -33,9 +33,6 @@ tree = linkage(X,'ward','euclidean');
 % cutoff è la variabile che specifica dove tagliare il dendrogramma
 cutoff=7;
 dendrogram(tree,0,'ColorThreshold',cutoff)
-% La funzione cluster, assegna le unità ai diversi gruppi. Ad esempio, se
-% id(1)=3 e id(2)=1 significa che la riga 1 è stata assegnata al cluster 3,
-% la riga due al cluster 1 ...
 id=cluster(tree,"criterion","distance","cutoff",cutoff);
 % Viene mostrata la distribuzione di frequenza delle assegnazioni delle
 % unità ai diversi gruppi

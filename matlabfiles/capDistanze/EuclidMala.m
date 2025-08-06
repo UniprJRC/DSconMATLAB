@@ -1,9 +1,7 @@
 
 %% Generazione della matrice 300x2 dalla distr. normale biv
 rng(1)
-n=300;
-mu=[2;3];
-covarianza=0.93;
+n=300; mu=[2;3]; covarianza=0.93;
 R= [1.2 covarianza;covarianza 0.95];
 % Genero i dati utilizzando la distribuzione normale bivariata
 % con i valori di mu e Sigma specificati 
@@ -25,19 +23,13 @@ d2_mahal = mahal(X,X).^2;
 S=cov(X);
 ds_mahalFSDA=(mahalFS(X,cent,S)).^2;
 
-%% Diagramma di dispersione con colore che dipende da dist Eucl
-
-% Il quarto argomento di scatter è il colore. In questo caso il colore
-% dipende dal valore della corrispondente distanza
+%% Scatter con colore che dipende da d2_Euclidean
 scatter(X(:,1),X(:,2),50,d2_Euclidean,'o','filled')
 hb = colorbar;
 ylabel(hb,'Distanza euclidea')
 colormap jet
-% Le osservazioni che presentano la più grande distanza Euclidea sono
-% quelle in basso a sinistra e quelle in alto a destra.
-% print -depsc figs\EuclidMala1.eps;
 
-%% Grafico con contorni di equiprobabilità
+%% Scatter con colore che dipende da d2_Euclidean e contorni di equiprobabilità
 figure
 scatter(X(:,1),X(:,2),50,d2_Euclidean,'o','filled')
 hb = colorbar;
@@ -51,20 +43,21 @@ end
 axis equal
 % print -depsc figs\EuclidMala2.eps;
 
-%% Costruire un diagramma di dispersione delle due variabili presenti dentro
-figure
-scatter(X(:,1),X(:,2),50,d2_mahal,'o','filled')
-hb = colorbar;
-ylabel(hb,'Distanza di Mahalanobis')
-colormap jet
-% print -depsc figs\EuclidMala3.eps;
-%% Confronto tra distanza Euclidea e distanza di Mahalanobis
+%% Scatter con colore che dipende da d2_mahal
 figure
 scatter(X(:,1),X(:,2),50,d2_mahal,'o','filled')
 hb = colorbar;
 ylabel(hb,'Distanza di Mahalanobis')
 colormap jet
 
+%% Scatter con colore che dipende da d2_mahal e  contorni di equiprobabilità
+figure
+scatter(X(:,1),X(:,2),50,d2_mahal,'o','filled')
+hb = colorbar;
+ylabel(hb,'Distanza di Mahalanobis')
+colormap jet
+
+% Sovraimposizione degli ellissi 
 hold('on')
 for j=1:3
     ellipse(cent,S,prob(j))

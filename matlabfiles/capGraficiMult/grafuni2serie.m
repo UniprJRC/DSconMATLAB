@@ -1,66 +1,43 @@
 %% Caricamento dati
 X = readtable("grafuniv2serie.xlsx",'Sheet','dati','ReadRowNames',true);
 Xd=X{:,1:2};
-
-% L'istruzione
-% B = categorical(A,valueset)
-% crea una categoria (modalità) per ogni valore dentro valueset
-% Questo per forzare Matlab ad utilizzare l'ordine presente dentro
-% X.Properties.RowNames
 mesi=categorical(X.Properties.RowNames,X.Properties.RowNames);
-% Provate a vedere cosa succede se il secondo argomento di input di
-% categorical si elimina e si utilizza semplicemente l'istruzione
-% mesi=categorical(X.Properties.RowNames);
-nr=2; % nr= numeri di righe nella finestra grafica
-nc=3; % nc = numero di colonne nella finestra grafica
+nr=2; % nr= numero di righe nella finestra grafica
+nc=4; % nc = numero di colonne nella finestra grafica
 subplot(nr,nc,1)
-% La funzione bar crea il grafico a barre verticali
 bar(mesi,Xd)
-title('Grafico a barre verticali')
-% Osservazione: nella versioni di MATLAB  a partire dalla 2023b 
-% funziona anche l'istruzione
-% bar(X.Properties.RowNames,Xd)
-
+title('Barre verticali')
 
 subplot(nr,nc,2)
-% La funzione barh crea il grafico a barre orizzontali
 barh(mesi, Xd)
-title('Grafico a barre orizzontali')
-% Osservazione: nella versioni di MATLAB  a partire dalla 2023b 
-% funziona anche l'istruzione
-% barh(X.Properties.RowNames,Xd)
+title('Barre orizzontali')
 
 subplot(nr,nc,3)
-% colonne in pila
-bar(mesi,Xd,'stacked')
+bar(mesi,Xd,'stacked') % colonne in pila
 title('Colonne in pila')
-
 
 subplot(nr,nc,4)
 % colonne in pila al 100%
-% Ogni valore di ogni riga viene diviso per il totale di riga
 bar(mesi,100*Xd./sum(Xd,2),'stacked')
 title('Colonne in pila al 100%')
 
-
 subplot(nr,nc,5)
-% area in pila al 100%
-area(mesi,100*Xd./sum(Xd,2),2)
+area(mesi,100*Xd./sum(Xd,2),2) % area in pila al 100%
 title('Area in pila al 100%')
 
-% Si noti che l'istruzione di seguito non funziona
-% area(X.Properties.RowNames,100*Xd./sum(Xd,2),2)
-
 subplot(nr,nc,6)
-% barre 3D
-bar3(mesi, Xd)
+bar3(mesi, Xd) % barre 3D
 title('Barre 3D')
 
-% Si noti che l'istruzione di seguito non funziona
-% bar3(X.Properties.RowNames,Xd)
+subplot(nr,nc,7)
+stairs(mesi, Xd) % a gradini
+title('Gradini')
 
-
-% print -depsc grafuniv2serie.eps;
-
-
+subplot(nr,nc,8) % barre personalizzate con legenda
+bar(mesi, Xd(:,1),0.7, "FaceColor","yellow","FaceAlpha",0.5,...                       
+    "EdgeColor","black","LineWidth",1.5); 
+hold on
+bar(mesi,Xd(:,2),0.25,"FaceColor","red");
+legend(["Sci" "Sci"+newline+"d'acqua"],"Location","northwest")
+title('Barre personalizzate')
 

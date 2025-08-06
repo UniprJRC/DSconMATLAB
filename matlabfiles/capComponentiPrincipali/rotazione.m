@@ -99,7 +99,7 @@ disp(pi*gamma1*gamma2);
 disp('Perimetro dell''ellisse tramite formula di Ramanujan')
 disp(pi*(3*(gamma1+gamma2)-sqrt((3*gamma1+gamma2)*(gamma1+3*gamma2))))
 
-%% Rappresentazione dei punti nella base canonica e_1 e e_2
+%% Rappresentazione dei punti nella base canonica e_1 e e_2 (non presente nel libro)
 
 plot(X1,X2,'o')
 xlabel('X1=Spesa pubblicitaria (mln €)')

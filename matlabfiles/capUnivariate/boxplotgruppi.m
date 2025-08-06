@@ -68,6 +68,7 @@ if isMATLABReleaseOlderThan("R2024b") ==false
 end
 
 %% Confronto dei quantili della retribuzione
+figure
 % boo = vettore booleano che contiene true in corrispondenza
 % dei maschi
 boo=strcmp(X.Gender,'M');
@@ -82,7 +83,7 @@ quan=0.1:0.05:0.9;
 qM=quantile(X.Wage(boo),quan);
 qF=quantile(X.Wage(~boo),quan);
 % Confronto i quantili
-plot(quan,qM,'r--',quan,qF,'b-o')
+plot(quan,qM,'r--*',quan,qF,'b-o')
 legend(["Maschi" "Femmine"],'Location','best')
 % print -depsc boxplotQUANT.eps;
 

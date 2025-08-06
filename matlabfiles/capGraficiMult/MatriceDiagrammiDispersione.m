@@ -1,5 +1,3 @@
-%% Caricamento dati
-% XALLtable = table con tutte le variabili
 XALLtable=readtable("Firm.xlsx","ReadRowNames",true);
 varDaEstrarre=["Wage" "CommutingTime" "SmartWorkHours" "Seniority" ];
 % Xd=array con solo le variabili quantitative
@@ -7,37 +5,24 @@ Xd=XALLtable{:,varDaEstrarre};
 % Xt=table con solo le variabili quantitative
 Xt=XALLtable(:,varDaEstrarre);
 
-
 %% Diverse chiamate alla scatter plot matrix
-
 gplotmatrix(Xd)
-% print -depsc gplotmatrix.eps;
 
 %% Chiamata a spmplot
 overlay=struct;
 overlay.type='ellipse';
-overlay.type='boxplotb';
-overlay.type='contourf';
-
 spmplot(Xt,'dispopt','box','overlay',overlay)
 % Altre opzioni di overlay.type sono
 % 'contour', 'boxplotb' or 'contourf'
-
-% print -depsc spmplot.eps;
 
 %% Chiamata a corrplot
 [R,Pval]=corrplot(Xt,'TestR','on');
 % 'corrplot' requires Econometrics Toolbox.
 
-% print -depsc corrplot.eps;
-
-
 %% spmplot con variabile di raggruppamento
 
 % edu = variabile di raggruppamento
 edu=XALLtable.Education;
-
-% chiamata a gplotmatrix
 gplotmatrix(Xd,[],edu)
 
 %% chiamata a spmplot

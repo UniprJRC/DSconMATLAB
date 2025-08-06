@@ -23,32 +23,14 @@ k=3;
 % i centroidi iniziali dei 3 gruppi
 cini=X(index,:);
 
-% D = matrice di dimensione nxk che conterrà le distanze di ciascuna unità
-% da ciascuno dei k centroidi
-% Le righe di D si riferiscono alle unità
-% le colonne di D si riferiscono ai clusters
 D=zeros(n,k);
 
-
-% Viene calcolata la distanza (al quadrato) di ogni unità dai k centroidi
-% D(i,j) contiene la distanza Euclidea dell'unità i dal cluster j
-% D(i,:) (vettore 1 x k) che contiene le distanze dell'unità i dai k
-% centroidi 
-% D(:,j) (vettore n x 1) che contiene le distanze delle n unità
-% dal cluster j
 for j=1:k
     D(:,j)=sum((X-cini(j,:)).^2,2);
 end
 
-% dist = vettore di dimensione n x 1 che contiene le distanze di ogni unità
-% dal centroide più vicino. 
-% ind = vettore di dimensione n x 1 che contiene gli assegnamenti
 [dist,ind]=min(D,[],2);
 
-% Ricalcolo dei nuovi k centroidi e determino il valore della funzione
-% obiettivo
-% sumd = valore della funzione obiettivo (da minimizzare)
-% Somma delle distanze (al quadrato) di ciascuna unità dal rispettivo centroide
 sumd=0;
 for j=1:k
     Xj=X(ind==j,:);
@@ -57,8 +39,8 @@ for j=1:k
 end
 
 disp('Valore della funzione obiettivo alla prima iterazione')
-% sum è il valore della devianza nei gruppi
 disp(sumd)
+
 %% 10 iterazioni
 % index = vettore che contiene gli indici da utilizzare come valori iniziali dei centroidi
 index = [5 15 25];
@@ -143,8 +125,7 @@ title('Classificazione finale con il valore di k ottimale e centroidi')
 
 
 %% Adjusted Rand Index
-n1=10;
-n2=20;
+n1=10; n2=20;
 % Vera partizione
 idxtrue=[ones(n1,1);2*ones(n2,1)];
 Radj=RandIndexFS(idx,idxtrue);
