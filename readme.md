@@ -1,11 +1,11 @@
 
-# Data Science con MATLAB <span style="color: red;">terza edizione</span>
+# Data Science con MATLAB ${\color{red}\text{terza \ edizione}}$
 
 =========================
 
 Questo GitHub repository contiene i datasets (in formato `xlsx`, `csv` e `mat`) e tutto il codice con gli esempi e le figure contenute nel libro:
 
-### [Riani, M.](http://www.riani.it), Corbellini, A., Morelli, G., Laurini, F., Proietti, T., Fibbi, E., Perrotta, D. e Torti, F. (2025). Data Science con MATLAB, terza edizione, Giappicchelli Editore.
+### [Riani, M.](http://www.riani.it), Corbellini, A., Morelli, G., Laurini, F., Proietti, T., Perrotta, D. e Torti, F. (2025). Data Science con MATLAB, terza edizione, Giappicchelli Editore.
 
 1. [Indice](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/risorse/indice.pdf)
 2. [Prefazione](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/risorse/prefazione.pdf)
