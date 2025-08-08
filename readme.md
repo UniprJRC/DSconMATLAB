@@ -1,11 +1,11 @@
 
-# Data Science con MATLAB <span style="color: red;">seconda edizione</span>
+# Data Science con MATLAB <span style="color: red;">terza edizione</span>
 
 =========================
 
 Questo GitHub repository contiene i datasets (in formato `xlsx`, `csv` e `mat`) e tutto il codice con gli esempi e le figure contenute nel libro:
 
-### [Riani, M.](http://www.riani.it), Corbellini, A., Morelli, G., Laurini, F., Proietti, T., Fibbi, E., Perrotta, D. e Torti, F. (2023). Data Science con MATLAB, seconda edizione, Giappicchelli Editore. ###
+### [Riani, M.](http://www.riani.it), Corbellini, A., Morelli, G., Laurini, F., Proietti, T., Fibbi, E., Perrotta, D. e Torti, F. (2025). Data Science con MATLAB, terza edizione, Giappicchelli Editore.
 
 1. [Indice](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/risorse/indice.pdf)
 2. [Prefazione](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/risorse/prefazione.pdf)
@@ -14,7 +14,7 @@ Questo GitHub repository contiene i datasets (in formato `xlsx`, `csv` e `mat`) 
 
 
 
- Tutti gli esempi sono stati testati con MATLAB ver. 2023b, ma sono retrocompatibili con la versione 2022a.
+ Tutti gli esempi sono stati testati con MATLAB ver. 2025a, ma sono retrocompatibili con la versione 2022a.
 
 I seguenti collegamenti puntano alle risorse del capitolo di interesse (tra parentesi è riportato il nome della cartella che contiene i file).
 
@@ -35,7 +35,7 @@ I seguenti collegamenti puntano alle risorse del capitolo di interesse (tra pare
 15. [Analisi delle serie storiche](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capSerieTemporali) (capSerieTemporali)
 
 
-### Prerequisiti: ###
+### Prerequisiti: 
 
 Si legga questa [guida](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/risorse/Software_materiale_corredo.pdf) che illustra gli step per avere un ambiente MATLAB configurato correttamente per eseguire gli esempi del libro.
 
