@@ -16,7 +16,7 @@ disp(nummissC)
 % nummissR= numero di missing per ogni riga
 nummissR=sum(Ismis,2);
 disp('Numero di missing per le prime 5 righe')
-disp(nummissR(1:5,:)')
+disp(nummissR(1:5)')
 
 % Vengono cancellate le righe che presentano missing values
 % X1 contiene solo 23 righe
