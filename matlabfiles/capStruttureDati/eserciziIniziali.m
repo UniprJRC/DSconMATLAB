@@ -1,36 +1,52 @@
 %% Esercizio 1.1
-d = 3;
-class(d)
-size(d)
 
-c = 'Buongiorno a tutti';
-class(c)
-size(c)
-
-s = "Saluti amico";
-class(s)
-size(s)
-
-%% Esercizio 1.2
-
-on = [0 1 2];
+ono = [0 1 2];
 
 vn = [0; 1; 2];
 
 mn = [0 1 2; 3 4 5];
 
-nd = [1:2:15];   % Si noti che la parentesi quadra non è necessaria
+nd = 1:2:15;   
 
-%% Esercizio 1.3
+%% Esercizio 1.2
 
 ot = ["John" "Doe"];
 
 vt = ["John"; "Doe"];
 
-%% Esercizio 1.4
+%% Esercizio 1.3
+% Imposta il seed per la generazione di numeri casuali
+rng(22);
+
+% Genera una matrice 3x2 di numeri casuali
+A = rand(3, 2);
+
+% Visualizza la matrice
+disp(A);
+
+%% 1.4 Tipologia di dati in MATLAB
+
+disp(A>0.4)
+
+disp('Marco'+1)
+
+%% 1.5 Le cell
+
+% Esercizio 1.3
 cm=  {1,2,3; "Buongiorno a tutti", rand(3,2),[11; 22; 33]};
 
-%% Esercizio 1.5
+disp(cm)
+
+
+C = {'Nome1', 'Nome2';
+'Nome3', 'Nome4';
+'Nome5', 'Nome6'};
+
+disp(C=="Nome4")
+
+%% 1.6 Le struct
+
+% Esercizio 1.5
 st = struct;
 st.a = 1;
 st.b = 2;
@@ -39,12 +55,28 @@ st.d = "Buongiorno a tutti";
 st.e = rand(3,2);
 st.f = [11; 22; 33];
 
-%% 1.5.1 Creazione di una tabella
-data = ["P0211", "BASILICO", "TIZIANA",  "F", "16-Jun-1991", "A", 1877, 27, 10, 11;
-    "P0212", "BONINO", "PAOLO", "M", "01-Jul-1993", "B", 2375,  35, 12, 8];
-Firm = array2table(data,"VariableNames",["Code" "Surname" "Name"  "Gender"  "BirthDate" "Education"  "Wage"   "CommutingTime" "SmartWorkHours" "Seniority"]);
+disp(st)
+
+%% 1.7 Le table
+% Definire i dati per le colonne
+ColonnaNumerica = (1:10)';  
+ColonnaStringa = ["SRL"; "SNC"; "SPA"; "SRL"; "SNC"; ...
+                  "SPA"; "SRL"; "SNC"; "SPA"; "SRL"]; 
+ColonnaBooleani = [true; false; true; false; true; false; true; false; true; false];  % Terza colonna: dati booleani
+
+% Definire i nomi delle righe (aziende)
+NomiRighe = ["Azienda1"; "Azienda2"; "Azienda3"; "Azienda4"; "Azienda5"; ...
+             "Azienda6"; "Azienda7"; "Azienda8"; "Azienda9"; "Azienda10"];
+
+% Creare la tabella
+T = table(ColonnaNumerica, ColonnaStringa, ColonnaBooleani, 'RowNames', NomiRighe);
+
+% Visualizzare la tabella
+disp(T);
+
 
 data = [110.63, 3.7; 736871, 12157];
+
 Summary = array2table(data,"VariableNames",["Acquisti in euro", "Numero visite"], "RowNames", ["Media mensile", "Totale mensile"]);
 
 %% Esercizio 1.6
@@ -67,14 +99,58 @@ rowP0219 =Firm('P0219',:);
 
 rowP0219P0476 =Firm({'P0219', 'P0476'},:);
 
+% 1.7.5 Estrazione dei dati da una table in base a criteri
+subset1 = Firm(Firm.Gender == "F", :);
+
+subset2 = Firm(Firm.Gender == "F" & Firm.Education == "B", :);
+
+subset3 = Firm((Firm.Gender == "F" & Firm.Education == "B") | (Firm.Gender == "M" & Firm.Wage > 4000), :);
+
+subset4 = Firm(Firm.Wage >= 3000 &  Firm.Wage < 3500, :);
+
+Sur=Firm.Surname;
+Nam=Firm.Name;
+
+%% 1.7.5 Estrazione dei dati da una table in base a criteri
+
+%% Primo criterio
+boo=startsWith(Sur,"CAS"); % boo è vettore Booleano
+disp(Firm(boo,:))
+
+%% Secondo criterio
+boo=endsWith(Nam,"LA");
+disp(Firm(boo,:))
+
+%% Terzo criterio 
+% wildcardPattern significa qualsiasi combinazione di caratteri
+pat="R" + wildcardPattern + ("O");
+boo=matches(Nam,pat);
+Terzo=Firm(boo,:);
+disp(Terzo)
+
+%% Terzo criterio  (svolgimento alternativo)
+miocriterio=startsWith(Nam,"R") & endsWith(Nam,"O");
+TerzoBIS=Firm(miocriterio,:);
+disp(TerzoBIS)
+
+%% Quarto criterio
+pat="R" + wildcardPattern + ("O"|"A");
+boo=matches(Nam,pat);
+disp(Firm(boo,:))
+
+%% Quinto criterio
+% wildcardPattern(1,5) significa un minimo di un carattere ed un massimo di
+% 5 caratteri qualsiasi
+pat="R" + wildcardPattern(1,5) + ("O"|"A");
+boo=matches(Sur,pat);
+disp(Firm(boo,:))
+
+
 %% 1.6.1 Salvataggio dei risultati ottenuti
 cm = {1,2,3; "Buongiorno a tutti", rand(3,2),[11; 22; 33]};
 save('myCell.mat', 'cm');
 
 
-data = [110.63, 3.7; 736871, 12157];
-
-Summary = array2table(data,"VariableNames",["Acquisti in euro", "Numero visite"], "RowNames", ["Media mensile", "Totale mensile"]);
 
 % Salvataggio della matrice "data" in ".txt" e in ".xlsx":
 writematrix(data,'data.txt','Delimiter','tab');
