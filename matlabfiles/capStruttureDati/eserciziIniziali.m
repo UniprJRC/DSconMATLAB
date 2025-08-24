@@ -113,58 +113,6 @@ Nam=Firm.Name;
 
 %% 1.7.5 Estrazione dei dati da una table in base a criteri
 
-%% Primo criterio
-boo=startsWith(Sur,"CAS"); % boo è vettore Booleano
-disp(Firm(boo,:))
-
-%% Secondo criterio
-boo=endsWith(Nam,"LA");
-disp(Firm(boo,:))
-
-%% Terzo criterio 
-% wildcardPattern significa qualsiasi combinazione di caratteri
-pat="R" + wildcardPattern + ("O");
-boo=matches(Nam,pat);
-Terzo=Firm(boo,:);
-disp(Terzo)
-
-%% Terzo criterio  (svolgimento alternativo)
-miocriterio=startsWith(Nam,"R") & endsWith(Nam,"O");
-TerzoBIS=Firm(miocriterio,:);
-disp(TerzoBIS)
-
-%% Quarto criterio
-pat="R" + wildcardPattern + ("O"|"A");
-boo=matches(Nam,pat);
-disp(Firm(boo,:))
-
-%% Quinto criterio
-% wildcardPattern(1,5) significa un minimo di un carattere ed un massimo di
-% 5 caratteri qualsiasi
-pat="R" + wildcardPattern(1,5) + ("O"|"A");
-boo=matches(Sur,pat);
-disp(Firm(boo,:))
-
-
-%% 1.6.1 Salvataggio dei risultati ottenuti
-cm = {1,2,3; "Buongiorno a tutti", rand(3,2),[11; 22; 33]};
-save('myCell.mat', 'cm');
 
 
 
-% Salvataggio della matrice "data" in ".txt" e in ".xlsx":
-writematrix(data,'data.txt','Delimiter','tab');
-writematrix(data,'data.xlsx');
-
-% Salvataggio della tabella "Summary" in ".txt" e in ".xlsx":
-writetable(Summary,'Summary.txt','Delimiter','tab','WriteRowNames',true);
-writetable(Summary,'Summary.xlsx','WriteRowNames',true);
-
-%% Esercizio 1.8
-subset1 = Firm(Firm.Gender == "F", :);
-
-subset2 = Firm(Firm.Gender == "F" & Firm.Education == "B", :);
-
-subset3 = Firm((Firm.Gender == "F" & Firm.Education == "B") | (Firm.Gender == "M" & Firm.Wage > 4000), :);
-
-subset4 = Firm(Firm.Wage >= 3000 &  Firm.Wage < 3500, :);
