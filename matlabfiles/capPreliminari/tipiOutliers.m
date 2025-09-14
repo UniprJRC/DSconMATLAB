@@ -2,10 +2,13 @@
 rng(20); n=200; x=unifrnd(-20,80,n,1);
 a=2; %intercetta della vera retta 
 b=15; % pendenza della vera retta
-sig=100; y=a+b*x+sig*randn(n,1);
-A=[40 0]; B=[-70 5]; D=[-80 2000];
-xout=max(x)+70; C=[xout, a+b*xout];  ExtraPoints=[A;B;C;D]; 
-X=[x,y];           Xadd=[X;ExtraPoints];
+sig=100; 
+y=a+b*x+sig*randn(n,1);
+A=[40 0]; B=[-70 5]; C=[-80 2000];
+xout=max(x)+70; D=[xout, a+b*xout];  
+ExtraPoints=[A;B;C;D]; 
+X=[x,y];           
+Xadd=[X;ExtraPoints];
 scatterboxplot(Xadd(:,1),Xadd(:,2))
 lab=["A" "B" "C" "D"]; 
 text(ExtraPoints(:,1)+3,ExtraPoints(:,2),lab)
@@ -17,12 +20,6 @@ plots.labeladd='';
 boxplotb(Xadd,'plots',plots)
 % print -depsc figs\tipiOutliers.eps;
 
-% Nelle due righe seguono (non presenti nel testo) posso modificare il
-% colore della parte interna (hinge, che corrisponde alla scatola del
-% boxplot univariato) o della parte esterna (fence, che corrisponde ai
-% baffi (whiskers) del boxplot univariato.
-% plots.InnerColor='r';
-% plots.OuterColor='c';
 
 %% Chiamata alla funzione FSR per identificare in automatico i valori anomali
 out=FSR(Xadd(:,2),Xadd(:,1));

@@ -11,7 +11,9 @@ plot(vdate, y);
 title('Trasformazione logaritmica');
 
 % print -depsc airline.eps;
-
+%% Tramite  stackedplot
+figure
+stackedplot(air.DataTimeTable)
 
 %% Creazione della matrice delle dummy stagionali e del trend
 mD = dummyvar(month(vdate));  % 12 dummy stagionali
@@ -43,7 +45,6 @@ Mdl2 = fitlm(X2, y, 'Intercept', false, 'VarNames',nomivar2);
 beta0 = mean(Mdl2.Coefficients.Estimate(2:end));
 seascoef2 = Mdl2.Coefficients.Estimate(2:end)-beta0;
 assert(max(abs(seascoef2-seascoef1))<1e-14,"stag diverse da prima par")
-
 
 %% Par. 3: eliminiamo la dummy D_st (ultima stagione)
 X3 = [trend, mD(:,1:11)];

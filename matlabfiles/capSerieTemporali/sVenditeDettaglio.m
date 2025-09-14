@@ -3,7 +3,8 @@ vy = log(mY(3,:)');
 % date
 cstarty = 2000; cstartm = 1; cstartd = 31;
 cendy   = 2023; cendm   = 5; cendd = 31;
-t1 = datetime(cstarty,cstartm,cstartd);    t2 = datetime(cendy,cendm,cendd);
+t1 = datetime(cstarty,cstartm,cstartd);  
+t2 = datetime(cendy,cendm,cendd);
 t = (t1:calmonths(1):t2)'; 
 plot(t, vy )
 %% creiamo le variabili di calendario fino al 2050
@@ -27,7 +28,7 @@ vd = datenum(vdate);
 ch1 = 3; ch2 = 2;
 vEasterDummy = sum((vd <= (vEaster+ch2)') & (vd >= (vEaster-ch1)'),2)/(ch1+ch2+1) ;
 TT_e   = retime(timetable(vdate,vEasterDummy),'monthly','sum') ;  
-vEasterRegr =TT_e.vEasterDummy-meanTT_e.vEasterDummy);
+vEasterRegr =TT_e.vEasterDummy-mean(TT_e.vEasterDummy);
 TT_cal = timetable(TT_ndow.vdate, TT_ndow.mD(:,2:end)-TT_ndow.mD(:,1), vleapy,vEasterRegr); 
 TR = timerange(t1c,t2);
 mXcal = table2array(TT_cal(TR,:));

@@ -1,3 +1,5 @@
+%% Questo file 
+
 %% Esercizio 1.1
 
 ono = [0 1 2];
@@ -46,6 +48,7 @@ disp(C=="Nome4")
 
 %% 1.6 Le struct
 
+rng(22)
 % Esercizio 1.5
 st = struct;
 st.a = 1;
@@ -111,8 +114,8 @@ subset4 = Firm(Firm.Wage >= 3000 &  Firm.Wage < 3500, :);
 Sur=Firm.Surname;
 Nam=Firm.Name;
 
-%% 1.7.5 Estrazione dei dati da una table in base a criteri
+%% 1.7.4 Estrazione dei dati da una table da una table
 
-
+% see file 
 
 

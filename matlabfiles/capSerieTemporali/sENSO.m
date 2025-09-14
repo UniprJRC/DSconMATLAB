@@ -1,7 +1,6 @@
 % El Niño-Oscillazione Meridionale 
 % (conosciuto anche con la sigla ENSO - El Niño-Southern Oscillation) 
 
-
 %% Serie storica della temperatura del mare (regione del pacifico)
 url = ('https://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices');
 websave('sstoi.txt',url);
@@ -48,17 +47,16 @@ disp('correlazioni tra yt ed i suoi sfasamenti')
 disp(correlt)
 
 %% Autocorrelazioni (confrontro tra le due formule)
-
 % con denominatore della covarianza n-k
 C = corr(Ylags, rows="pairwise");
 % con denominatore della covarianza n
-rho = autocorr(y,K);
+rho = autocorr(y,'NumLags',K);
 autoC=[C(:,1) rho];
 nam=["Autocorr con denom (n-k) nella cov" "Autocorrelazioni"];
 disp(array2table(autoC,"VariableNames",nam))
 
 
-%% Autorrelazioni tramite GUIautocorr
+%% Autocorrelazioni tramite GUIautocorr
 GUIautocorr(y,'lag',2)
 
 %% Autocorrelazioni mostrate tramite grafici a barre 
@@ -84,7 +82,7 @@ bar(0:Knew, rnew);
 
 %% Autocorrelazioni (tramite chiamata a autocorr)
 g = figure;
-autocorr(y, 45); %title({'Autocorrelazione'}, Interpreter="latex");
+autocorr(y, 'Numlags',45); %title({'Autocorrelazione'}, Interpreter="latex");
 title('')
 set(gca,'TickLabelInterpreter','latex');
 xlabel(' ', Interpreter='latex')
@@ -97,34 +95,34 @@ ylabel(' ')
 [Decision, pValue, LBstat, CriticaValue] = lbqtest(y, 'Lags', 10) 
 
 
-%% Periodogramma via regressione lineare 
-close all
-warning('off')
-Perio0 = NaN(floor(n/2),1);
+%% Periodogramma via fitlm e ciclo for
+maxj=floor(n/2);
+PerioCicloFOR = NaN(maxj,1);
 t   = (1:n)';
-for j = 1:floor(n/2)
-    omega_j = 2*pi*j/n;
+for j = 1:maxj
+    omega_j = 2*pi*j/n; % frequenza w_j con j=1, 2, ...
     mdl = fitlm([cos(omega_j*t) sin(omega_j*t)], y); 
     ESS = mdl.SSR;
-    Perio0(j) = mdl.SSR/(4*pi);
+    PerioCicloFOR(j) = ESS/(4*pi);
 end
-omega = 2 * pi * (1:floor(n/2))' / n; % Frequenze di Fourier
-bar(omega, Perio0); 
-xlim([0 pi]); 
-xlabel('\omega'); ylabel('I(\omega)');
-set(gca,'TickLabelInterpreter','latex');
 
-%% Periodogram via Fast Fourier Transform
-vj = (0:floor(n/2))';omega = 2 * pi * vj / n; % Frequenze di Fourier
-Perio = abs(fft(y)).^2/(n*2*pi) ;
-Perio = Perio(1:length(omega));
-Perio(2)  % valore identico a Perio_j calcolato in precedenza
-plot(omega, Perio); 
+%% Periodogramma via Fast Fourier Transform
+vj = (0:floor(n/2))'; 
+omega = 2*pi*vj/n; % Frequenze di Fourier (partendo da 0)
+PerioFFT = abs(fft(y)).^2/(n*2*pi) ;
+PerioFFT = PerioFFT(1:length(omega));
+PerioFFT(2)  % valore identico a Perio_j calcolato in precedenza
+
+%% Rappresentazione grafica periodogramma
+g=figure;
+stem(omega, PerioFFT,'Marker','none','LineWidth',1); 
 xlim([0 pi]); xlabel('\omega'); ylabel('I(\omega)');
+xregion(0.075,0.262)
 set(gca,'TickLabelInterpreter','latex'); 
-%
+
+%% Plot
 g = figure;
-bar(omega, Perio); xlim([0 pi]); 
+bar(omega, PerioFFT); xlim([0 pi]); 
 xlabel('$\omega$', Interpreter='latex'); ylabel('$I(\omega)$', Interpreter='latex'); 
 set(gca,'TickLabelInterpreter','latex');
 % exportgraphics(g,'gPerio.pdf')

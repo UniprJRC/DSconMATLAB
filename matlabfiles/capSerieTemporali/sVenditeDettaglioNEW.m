@@ -10,7 +10,6 @@ n=length(y);
 % t1-30 in modo tale da partire dal primo di gennaio del 2000
 TR = timerange(t1-30,t2);
 
-
 %% creiamo le variabili di calendario fino al 2050
 t1c = datetime(1900, 1, 1);
 t2c = datetime(2050,12,31);
@@ -189,3 +188,24 @@ legend({'Serie storica','Valori predetti','Valori osservati ','Previsioni'}, 'Lo
 exportgraphics(g,'gPrevClassica.pdf')
 hold off
 
+
+
+
+%%
+mX =  mXcal;  % matrice dei regressori
+[cn, cK] =   size(mX);
+t0  =  t(1:cn-5-12*6);
+vy0 = vy(1:cn-5-12*6);
+mX0 = mX(1:cn-5-12*6,:);
+%% Specificazione modello regARIMA
+Mdl = regARIMA('Intercept', 0,  'D', 1, 'Seasonality', 12, 'MALags', 1, 'sMALags', 12);
+[EstMdl,~,~,~] = estimate(Mdl, vy0, 'X', mX0); % stima
+summarize(EstMdl)
+ve = infer(EstMdl,vy0,'X', mX0); %residui
+plot(t0,ve); 
+autocorr(ve(13:end));
+vy0_hat = vy0-ve;
+%% Previsione - test sample 2017.1-2019.12
+mXo = mX(cn-5-12*6+1:cn-5-12*3,:); % regressori nel periodo di previsione
+tnew = t(cn-5-12*6+1:cn-5-12*3); vyo = vy(cn-5-12*6+1:cn-5-12*3);
+[vypred,vmsfe] = forecast(EstMdl,36,'Y0', vy0, 'X0', mX0,'XF',mXo);

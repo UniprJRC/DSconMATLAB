@@ -7,6 +7,8 @@ vy     = TT.FTSEMIB_MI_Close;
 %% Calcolo delle medie mobili di 50 e 150 termini
 mm50  = movavg(vy,'simple',50);
 mm150 = movavg(vy,'simple',150);
+
+
 g = figure("Name","Medie mobili semplici")
 %title('FTSEMib e serie storiche di breve-medio e lungo periodo semplici')
 plot(vdates,vy,'b'); hold on; 

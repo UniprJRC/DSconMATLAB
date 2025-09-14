@@ -53,3 +53,20 @@ set(gca,'TickLabelInterpreter','latex');
 hold off
 grid on; box on;
 exportgraphics(g,'gNinofor.pdf')
+
+
+%%
+tt=t(1:end-18); 
+yt=y(1:end-18); 
+[yfor, msfe] = forecast(EstMdl,18,yt);  % previsioni fino a 18 mesi in avanti
+tf = tt(end)+calmonths(1:18);
+g = figure();
+plot(tt(end-12*8:end), yt(end-12*8:end));  
+hold on;
+plot(tf, yfor, Color = 'b', LineStyle="-",LineWidth=2) 
+plot(tf, yfor+1.96*sqrt(msfe), Color = 'b',LineStyle="--",LineWidth=2);   
+plot(tf, yfor-1.96*sqrt(msfe), Color = 'b',LineStyle="--",LineWidth=2);   
+plot(tf, y(end-17:end), Color = 'g', LineStyle="-",LineWidth=2) 
+set(gca,'TickLabelInterpreter','latex'); 
+legend({'Storico','Previsione', 'Limite superiore', 'Limite inferiore', ...
+    'Osservato'},'Location', 'best', 'Interpreter', 'latex');
