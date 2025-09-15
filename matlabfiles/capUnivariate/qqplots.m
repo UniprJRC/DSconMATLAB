@@ -23,6 +23,5 @@ title('qqplot della variabile Wage')
 % print -depsc qqplot.eps;
 
 %% Messaggio per i "newcomers"
-disp('Se siete arrivati fino a questo punto siete riusciti')
-disp('ad eseguire il file qqplot.m')
-disp('CONGRATULAZIONI!')
+disp('Welcome to the third edition of the book') 
+disp('CONGRATULATIONS AND ENJOY!')
