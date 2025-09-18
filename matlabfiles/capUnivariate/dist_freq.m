@@ -15,7 +15,7 @@ assert(isequal(freqConHistCounts,h.Values),"frequenze tramite histogram diverse"
     "dalle frequenze ottenute tramite histcounts");
 
 %% Creazione della table con le etichette di riga richieste
-%rownam = nomi delle righe della table
+% rownam = nomi delle righe della table
 rownam={'<=-2' '(- 2  0]' '(0  1.5]' '>1.5'};
 
 Freqtable=array2table(h.Values','VariableNames',{'Distr_frequenze'}, ...
