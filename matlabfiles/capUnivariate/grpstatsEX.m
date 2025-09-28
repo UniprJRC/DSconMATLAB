@@ -23,10 +23,13 @@ XtabComplessiva=grpstats(X,[],statDiInteresse, ...
     "DataVars",varDiInteresse,'Alpha',conflevc);
 disp(XtabComplessiva(:,1:7))
 
-%% Questa section non è nel libro
+%% Questa section non è nel libro (modo alternativo)
 % estraggo dentro Xsel le due variabili che mi interessano
 Xsel=X(:,varDiInteresse);
-grpstats(Xsel,[],statDiInteresse)
+XtabComplessivaCHK=grpstats(Xsel,[],statDiInteresse,'Alpha',conflevc);
+
+assert(isequal(XtabComplessiva,XtabComplessivaCHK),['I due modi' ...
+    'per ottenere XtabComplessiva producono risultati diversi'])
 
 %% Calcolo statistiche di interesse per i sottogruppi richiesti
 % groupingVARS = cell che contiene le variabili classificatorie
@@ -45,14 +48,18 @@ disp(Xtab(:,1:6))
 % 2 sono le variabili di raggruppamento
 varDiInteresse1=[varDiInteresse "Gender" "Education"];
 Xsel1=X(:,varDiInteresse1);
-grpstats(Xsel1,groupingVARS,statDiInteresse)
+XtabCHK=grpstats(Xsel1,groupingVARS,statDiInteresse,'Alpha',conflevc);
+assert(isequal(Xtab,XtabCHK),['I due modi' ...
+    'per ottenere Xtab producono risultati diversi'])
+
 
 %% Parte di nuovo nel libro
 % Grafico a barre
 bar(Xtab.Properties.RowNames,Xtab.mean_Wage)
 % print -depsc barreFMABC.eps;
-%% Da Xtab ottengo la tabella che mi interessa tramite pivot
 
+
+%% Da Xtab ottengo la tabella che mi interessa tramite pivot
 pivot(Xtab,Rows="Gender",Columns="Education",DataVariable="mean_Wage", ...
     Method="none",RowLabelPlacement="rownames")
 
