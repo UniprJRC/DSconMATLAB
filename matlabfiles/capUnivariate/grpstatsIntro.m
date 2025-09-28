@@ -64,41 +64,6 @@ pivot(Xtab,Rows="Gender",Columns="Education",DataVariable="mean_Wage", ...
     Method="none",RowLabelPlacement="rownames")
 
 
-%% Boxplot per sesso e titolo di studio
-close all
-SesTit=string(X.Gender)+string(X.Education);
-SesTitc=categorical(SesTit,unique(SesTit));
-boxplot(X.Wage,SesTitc);
-ylabel('Retribuzione')
-% print -depsc boxplotFMABC.eps;
-
-%% Boxplot per sesso e titolo di studio (tramite chiamata a boxchart)
-figure
-boxchart(categorical(X.Gender),X.Wage,'GroupByColor',X.Education);
-ylabel('Retribuzione')
-% Aggiunta della legenda al grafico
-legend
-% print -depsc boxchartFMABC.eps;
-
-%% violinplot per sesso e titolo di studio (tramite chiamata a violinplot)
-figure
-violinplot(categorical(X.Gender),X.Wage,'GroupByColor',X.Education);
-ylabel('Retribuzione')
-% Aggiunta della legenda al grafico
-legend(categories(categorical(X.Education)))
-% Si noti che solo l'istruzione legend senza specificare le categorie non
-% funziona
-
-%% violinplot per sesso e titolo di studio e punti interni
-violinplot(categorical(X.Gender),X.Wage,'GroupByColor',X.Education);
-ylabel('Retribuzione')
-% Aggiunta della legenda al grafico
-legend(categories(categorical(X.Education)))
-% Si noti che solo l'istruzione legend senza specificare le categorie non
-% funziona
-
-
-
 %% Questa section non è nel libro
 % Costruzione tabella di contingenza tra Gender e Education
 % All'interno della tabella di contingenza ci sono le frequenze

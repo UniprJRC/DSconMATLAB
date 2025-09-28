@@ -41,7 +41,7 @@ disp(pv3)
 % La variabile sulle righe viene suddivisa in 5 classi
 pivot(X,'Rows','Wage','Columns','Education','RowsBinMethod',5)
 
-%% Inizio soluzione esercizio 3.12
+%% Inizio soluzione Esercizio 3.12
 
 X1=X; 
 X1.Wage(1)=2000;
@@ -98,7 +98,7 @@ pv5=pivot(X1,'Rows',{'Gender' 'Seniority'},'Columns','Education', ...
 disp(pv5)
 
 
-%% Inizio Esercizio 3.10
+%% Inizio Esercizio 3.13
 
 % Se c'è più di una variabile sulle colonne, MATLAB crea tabelle nested
 % una dentro l'altra 
@@ -131,3 +131,22 @@ pv8=pivot(X1,'Columns',{'Gender' 'Seniority'},'Rows','Education', ...
 disp(pv8)
 
 
+%% Tabelle pivot con Method none (dalla versione 2025a)
+
+close all
+miofile="Firm.xlsx";
+X=readtable(miofile,"ReadRowNames",true);
+groupingVARS={'Gender', 'Education'};
+statDiInteresse="mean";
+varDiInteresse="Wage";
+
+Xtab=grpstats(X,groupingVARS,statDiInteresse, ...
+    "DataVars",varDiInteresse);
+disp('Table di input che deve essere riorganizzata')
+disp(Xtab)
+
+%% Tabella pivot dopo la riorganizzazione
+TBL=pivot(Xtab,'Rows','Gender','Columns','Education','Method','none', ...
+    'DataVariable','mean_Wage','RowLabelPlacement','rownames');
+disp('Table di output')
+disp(TBL)
