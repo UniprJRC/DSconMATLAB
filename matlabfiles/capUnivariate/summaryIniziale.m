@@ -11,6 +11,11 @@ Xt.Gender = categorical(Xt.Gender);
 Xt.Education=categorical(Xt.Education,'Ordinal',true);
 summary(Xt(:,1:6))
 
+%% Opzioni di summary
+summary(Xt,'Detail','high')
+summary(Xt,'Detail','low')
+summary(Xt,'Statistics',{'mean' 'median'})
+
 %% Distribuzioni di frequenze (variabili categoriche)
 disp('Distribuzione di frequenze variabile Education')
 tabulate(Xt.Education)
