@@ -1,3 +1,4 @@
+close all
 %% Esempio di proiezione ortogonale
 % x = coordinate del vettore (punto) da proiettare su v
 x=[1; 2; 3];
@@ -27,7 +28,6 @@ title('Proiezione ortogonale del vettore x sul vettore v')
 
 
 % Il grafico viene creato in una nuova figura
-figure
 fs=14; % fs = fontsize
 
 % vettore x
@@ -53,7 +53,7 @@ xminushatx=x-hatx;
 quiver3(x(1),x(2),x(3),-xminushatx(1),-xminushatx(2),-xminushatx(3),0, ...
     'LineWidth',1,'Color','r','MaxHeadSize',1)
 dy=0.15;
-text(x(1)+dy,x(2)+dy,x(3)+dy,'$x-\hat x$', 
+text(x(1)+dy,x(2)+dy,x(3)+dy,'$x-\hat x$', ...
     "FontSize",fs,'Rotation',-57,'Interpreter','latex');
 
 % oppure se faccio partire il vettore da hatx=tv
@@ -69,6 +69,7 @@ axis equal
 %   print -depsc ..\..\figs\proiezIntro.eps;
 
 %% Esempio di due vettori ortogonali x v
+figure
 % x = coordinate del vettore (punto) da proiettare su v
 x=[1; 1; 0];
 % La direzione del vettore v è
@@ -88,7 +89,7 @@ disp(['La distanza è uguale a: ' num2str(dist)])
 % ossia la norma del vettore x
 
 % Rappresentazione grafica (non nel libro)
-close all
+
 fs=14;
 quiver3(0,0,0,x(1),x(2),x(3),0)
 hold("on")
