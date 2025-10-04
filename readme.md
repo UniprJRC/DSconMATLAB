@@ -40,7 +40,7 @@ Si legga questa [guida](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlab
 
 Per segnalare errori tipografici, inesattezze e modifiche si prega di usare il pulsante `Issues`  ...
 <picture>
-  <img alt="Image Alt Text" src="https://github.com/UniprJRC/DSconMATLAB/blob/main/issues.jpg">
+  <img alt="Image Alt Text" src="https://github.com/UniprJRC/DSconMATLAB/blob/main/issues.jpeg">
 </picture>
 ... e creare una nuova entry.
 
