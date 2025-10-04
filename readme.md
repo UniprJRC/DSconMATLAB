@@ -39,7 +39,8 @@ I seguenti collegamenti puntano alle risorse del capitolo di interesse (tra pare
 Si legga questa [guida](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/risorse/software_materiale_corredo.pdf) che illustra gli step per avere un ambiente MATLAB configurato correttamente per eseguire gli esempi del libro.
 
 Per segnalare errori tipografici, inesattezze e modifiche si prega di usare il pulsante `Issues`  ...
-![Issues](https://github.com/UniprJRC/DSconMATLAB/issues)
-
+<picture>
+  <img alt="Image Alt Text" src="https://github.com/UniprJRC/DSconMATLAB/blob/main/issues.jpg">
+</picture>
 ... e creare una nuova entry.
 
