@@ -9,8 +9,8 @@ Questo GitHub repository contiene i datasets (in formato `xlsx`, `csv` e `mat`) 
 
 1. [Indice](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/risorse/indice.pdf)
 2. [Prefazione](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/risorse/prefazione.pdf)
-3. [Software e materiale di corredo](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/risorse/Software_materiale_corredo.pdf)
-4. [Come mantenere vivo il progetto](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/risorse/progetto_vivo.pdf)
+3. [Software e materiale di corredo / Come mantenere vivo il progetto](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/risorse/software_materiale_corredo.pdf)
+
 
 
 
@@ -19,7 +19,7 @@ Questo GitHub repository contiene i datasets (in formato `xlsx`, `csv` e `mat`) 
 I seguenti collegamenti puntano alle risorse del capitolo di interesse (tra parentesi è riportato il nome della cartella che contiene i file).
 
 1. [Introduzione all’utilizzo di MATLAB e alla gestione dei dati](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capStruttureDati)  (capStruttureDati)
-2. [Algebra lineare](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capAlgebraBase)     (capAlgebra)                     
+2. [Algebra lineare](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capAlgebra)     (capAlgebra)                     
 3. [Analisi esplorative dei dati e tabelle pivot](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capImportazioni) (capUnivariate)
 4. [Importazione dei dati dal mondo web (in tempo reale)](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capUnivariate) (capImportazioni)
 5. [Variabili casuali: densità,e distribuzioni e stime dei parametri](https://github.com/UniprJRC/DSconMATLAB/tree/main/matlabfiles/capDistribuzioni) (capDistribuzioni)
