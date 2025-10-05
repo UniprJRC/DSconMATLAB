@@ -32,7 +32,7 @@ ylabel('F(x)=Pr(X<x)')
 % print -depsc figs\disttool.eps;
 
 %% La parte di seguito non è nel testo
-close all
+figure
 % Rappresetazione grafica tramite comet
 subplot(2,1,1)
 comet(x,ypdf);

@@ -1,5 +1,8 @@
 %% Dati di input
-n=10; nsimul=100000; quant=[0.001 0.01	0.05:0.05:0.95	0.99 0.999]'; rng(20)
+n=10; 
+nsimul=100000; 
+quant=[0.001 0.01	0.05:0.05:0.95	0.99 0.999]'; rng(20)
+
 %% Studio di simulazione
 Testall=zeros(nsimul,1); Rall=zeros(nsimul,1);
 for i=1:nsimul

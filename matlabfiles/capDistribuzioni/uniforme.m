@@ -35,6 +35,7 @@ ylabel(['Pr(5<X<6)=' num2str(prob56)])
 % print -depsc figs\uniffill.eps;
 
 %% Visualizzazione grafica tramite la chiamata a distribspec
+figure
 pd=makedist('Uniform','Lower',a,'Upper',b);
 distribspec(pd, [5 6], 'inside');
 % print -depsc figs\uniffill1.eps;

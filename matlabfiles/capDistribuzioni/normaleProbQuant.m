@@ -23,6 +23,7 @@ ylabel(['Pr(5<X<6)=' num2str(prob56)])
 
 
 %%  Rappresentazione grafica Pr 5<X<6
+figure
 % Calcolo della densità tramite la funzione normpdf
 x=(-9:0.0001:9)';
 ypdf=normpdf(x,media,sigma);
