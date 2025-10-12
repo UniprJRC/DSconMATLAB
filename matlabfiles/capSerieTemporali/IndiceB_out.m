@@ -187,8 +187,12 @@ stackedplot(Rt(:,["ATLANTIA" "FTSEMib"]))
 %% PARTE VII Calcolo Indici Beta, Alpha e R2
 % Calcolare l'indice Beta per il titolo ATLANTIA
 % Calcolo dell'indice Beta per ATLANTIA
-outATLA=fitlm(Rt{:,"FTSEMib"},Rt{:,"ATLANTIA"});
+outATLA=fitlm(timetable2table(Rt(:,["FTSEMib" "ATLANTIA"])));
 disp(outATLA)
+
+
+% outATLA=fitlm(Rt{:,"FTSEMib"},Rt{:,"ATLANTIA"});
+% disp(outATLA)
 
 
 %% Calcolo dell'indice Beta per ciascuna serie storica dei rendimenti
