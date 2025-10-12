@@ -3,7 +3,6 @@ load head.mat
 % p=numero di colonne del dataset
 p=size(head,2);
 
-close all
 for i=1:p
     % L'istruzione nexttile aggiunge un subplot a quelli già
     % esistenti. Di conseguenza se p=4 alla fine del ciclo la finestra
@@ -25,7 +24,7 @@ nomiq=["Wage" "CommutingTime" "SmartWorkHours" "Seniority" ];
 Xt=Xt(:,nomiq);
 % p=numero di colonne del dataset
 p=size(Xt,2);
-close all
+figure
 for i=1:p
     nexttile
     histfit(Xt{:,i},[],'Kernel')
