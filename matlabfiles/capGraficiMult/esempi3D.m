@@ -25,3 +25,7 @@ contour(x,y,z)
 
 %% Superficie sfumata 3D
 surf(x,y,z)
+
+%% Applicazione colorbar e colormap
+colorbar('horiz')
+colormap cool

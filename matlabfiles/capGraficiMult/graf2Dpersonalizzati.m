@@ -15,7 +15,7 @@ xregion([3.45 4.6; 3.6 4.7])
 
 % print -depsc diagrammaHRxregion.eps;
 %% scatter con boxplot ai margini
-close all
+figure
 load stars.mat
 X=stars{:,:};
 scatterboxplot(X(:,1),X(:,2));
@@ -27,7 +27,7 @@ ylabel('Intensità della luce')
 
 
 %% Analisi univariate e bivariate in presenza di più gruppi
-close all
+figure
 load fisheriris
 labels = {'Lunghezza sepali','Ampiezza dei sepali',...
     'Lunghezza dei petali','Ampiezza dei petali'};
