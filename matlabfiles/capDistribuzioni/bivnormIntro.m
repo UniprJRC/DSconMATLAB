@@ -25,3 +25,8 @@ z=exp(-x.^2-y.^2);
 % Rappresentazione della funzione z nel reticolato
 mesh(x,y,z)
 % print -depsc figs\bivnormKernel.eps;
+% Aggiungi i titoli
+xlabel('X-axis');
+ylabel('Y-axis');
+zlabel('Z-axis');
+title('3D Gaussian Function');
