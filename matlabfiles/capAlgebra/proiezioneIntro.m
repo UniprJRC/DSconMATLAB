@@ -28,6 +28,7 @@ title('Proiezione ortogonale del vettore x sul vettore v')
 
 
 % Il grafico viene creato in una nuova figura
+% figure
 fs=14; % fs = fontsize
 
 % vettore x
@@ -65,11 +66,13 @@ zlabel('Terza coordinata')
 
 axis equal
 
+% La riga di seguito nel libro è riportata erroneamente alla riga
+% 24 dello snippet del codice
+title('Proiezione ortogonale del vettore x sul vettore v')
 
 %   print -depsc ..\..\figs\proiezIntro.eps;
 
 %% Esempio di due vettori ortogonali x v
-figure
 % x = coordinate del vettore (punto) da proiettare su v
 x=[1; 1; 0];
 % La direzione del vettore v è
@@ -89,7 +92,7 @@ disp(['La distanza è uguale a: ' num2str(dist)])
 % ossia la norma del vettore x
 
 % Rappresentazione grafica (non nel libro)
-
+figure
 fs=14;
 quiver3(0,0,0,x(1),x(2),x(3),0)
 hold("on")
@@ -110,3 +113,6 @@ xlabel('Prima coordinata')
 ylabel('Seconda coordinata')
 zlabel('Terza coordinadata')
 title('Proiezione del vettore x sul vettore v')
+subtitle('se i due vettori di partenza già ortogonali')
+
+
