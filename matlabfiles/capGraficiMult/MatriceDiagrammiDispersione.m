@@ -33,6 +33,13 @@ spmplot(Xt,'dispopt','box','overlay',overlay,'group',edu)
 % print -depsc spmplotG.eps;
 
 
+%% Con colore di sfondo
+load citiesItaly2024.mat
+typespm=struct;
+typespm.upper='number';
+typeepm.lower='scatter';
+spmplot(citiesItaly2024,'typespm',typespm,'colorBackground',true, 'order','AOE','nameYlength',5);
+
 
 %% fisheriris con variabile di raggruppamento
 load fisheriris;

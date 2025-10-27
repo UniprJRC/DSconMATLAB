@@ -1,14 +1,10 @@
-%% X= mm di pioggia negli ultimi 21 anni 
+%% X= mm di pioggia negli ultimi 21 anni (input matrice)
 load rain.mat
 heatmap(colNam,rowNam,X)
 
 % print -depsc heatmapMAT.eps;
 
-%% Caricamento dei dati in memoria
-clear % clear iniziale della memoria
-load("Rend.mat") % caricamento del file Rend.mat.
-
-%% 
+%% Caricamento dei dati in memoria (input table)
 clear % clear iniziale della memoria
 load Rend.mat; % caricamento del file Rend.mat.
 titsel=["ENI" "ASSICURAZIONIGENERALI" "FINECOBANKSPA"];
