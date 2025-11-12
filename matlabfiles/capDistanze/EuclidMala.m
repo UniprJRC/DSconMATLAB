@@ -1,7 +1,8 @@
 
 %% Generazione della matrice 300x2 dalla distr. normale biv
 rng(1)
-n=300; mu=[2;3]; covarianza=0.93;
+n=300; 
+mu=[2;3]; covarianza=0.93;
 R= [1.2 covarianza;covarianza 0.95];
 % Genero i dati utilizzando la distribuzione normale bivariata
 % con i valori di mu e Sigma specificati 
